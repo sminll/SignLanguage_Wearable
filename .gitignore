@@ -218,3 +218,6 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+data/knn_sensor_log.csv
+data/received_sensor.csv
