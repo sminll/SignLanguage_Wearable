@@ -186,4 +186,4 @@ def stop_trial():
 
 if __name__ == "__main__":
     # 오늘은 이 PC에서만 테스트. 내일 Tailscale 연결 후 접근 주소를 변경합니다.
-    app.run(host="127.0.0.1", port=5000, debug=False)
+    app.run(host="100.122.78.26", port=5000, debug=False)
