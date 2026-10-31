@@ -221,3 +221,6 @@ __marimo__/
 
 data/knn_sensor_log.csv
 data/received_sensor.csv
+# Local backups and generated model outputs
+data/backups/
+archive_original_folder/
