@@ -2,7 +2,7 @@ function xiao_ble_single_ui_test(c)
 % XIAO_BLE_SINGLE_UI_TEST  Preview the two-hand layout with one real BLE board.
 % Usage after BLE connection and subscription:
 %   xiao_ble_single_ui_test(c)
-% This is visualization only. It never writes CSV or sends HTTP requests.
+% Capture 20 trials, persist CSV, then upload with the explicit Send button.
 % Requires xiao_ble_packet_decode.m in MATLAB Current Folder / path.
 
 if nargin ~= 1
@@ -12,6 +12,21 @@ if exist('xiao_ble_packet_decode','file') ~= 2
     error('XIAO:Decoder', 'xiao_ble_packet_decode.m 파일이 MATLAB 경로에 없습니다.');
 end
 
+required = {'make_sensor_payload','write_sensor_csv','post_sensor_batch','sensor_collection_phase'};
+for k=1:numel(required)
+    if exist(required{k},'file') ~= 2
+        error('XIAO:MissingFile','%s.m 파일을 MATLAB 경로에 추가하세요.',required{k});
+    end
+end
+endpoint = 'http://100.92.15.45:5000/sensor';
+saveDirectory = fullfile(fileparts(mfilename('fullpath')),'sensor_data');
+running=false; sending=false; submitted=false; completed=false;
+samples={}; unsaved={}; pending={}; activeBatch={}; transfer=[];
+elapsedOffsetMs=0; captureClock=[]; lastSeen=[]; lastDeviceMs=NaN;
+subjectId=''; gestureName=''; sessionId=''; csvPath=''; deviceId='L';
+message='수신 확인 후 측정자·수어명·손을 선택하세요.';
+lastFlush=tic;
+clockTimer=[];
 % The current c should already be subscribed, and old callbacks can conflict.
 try
     c.DataAvailableFcn = [];
@@ -25,22 +40,25 @@ f = figure('Name','XIAO BLE 양손 센서 모니터 (1개 보드 실시간 테�
 
 uicontrol(f,'Style','text','String','수어명','Units','normalized', ...
     'Position',[0.02 0.955 0.06 0.03],'BackgroundColor','w');
-uicontrol(f,'Style','edit','String','','Units','normalized', ...
-    'Position',[0.085 0.95 0.15 0.045],'Enable','off');
-uicontrol(f,'Style','popupmenu','String',{'측정자 선택', 'subject1 (정성윤)', ...
+gestureInput=uicontrol(f,'Style','edit','String','','Units','normalized', ...
+    'Position',[0.085 0.95 0.15 0.045]);
+subjectInput=uicontrol(f,'Style','popupmenu','String',{'측정자 선택', 'subject1 (정성윤)', ...
     'subject2 (임영훈)', 'subject3 (주다경)', 'subject4 (고준혁)', ...
     'subject5 (지상민)', 'subject6 (이수민)', 'subject7 (박경민)', ...
     'subject8 (백수현)', 'subject9 (이하영)', 'subject10 (정소윤)'}, ...
-    'Units','normalized','Position',[0.25 0.95 0.22 0.045],'Enable','off');
-labels = {'양손 20회 수집 시작','일시 중지','정보 수정','새 수집/초기화', ...
-          '최근 회차 삭제','Python 서버로 전송'};
-positions = {[0.49 0.95 0.16 0.045],[0.67 0.95 0.10 0.045], ...
-             [0.79 0.95 0.10 0.045],[0.90 0.95 0.09 0.045], ...
-             [0.02 0.895 0.14 0.045],[0.18 0.895 0.17 0.045]};
-for n=1:numel(labels)
-    uicontrol(f,'Style','pushbutton','String',labels{n},'Units','normalized', ...
-        'Position',positions{n},'Enable','off');
-end
+    'Units','normalized','Position',[0.25 0.95 0.22 0.045]);
+startButton=uicontrol(f,'Style','pushbutton','String','20회 수집 시작', ...
+    'Units','normalized','Position',[0.49 0.95 0.16 0.045],'Callback',@startCapture);
+pauseButton=uicontrol(f,'Style','pushbutton','String','일시 중지', ...
+    'Units','normalized','Position',[0.67 0.95 0.10 0.045],'Callback',@pauseCapture);
+resetButton=uicontrol(f,'Style','pushbutton','String','새 수집', ...
+    'Units','normalized','Position',[0.79 0.95 0.10 0.045],'Callback',@resetCapture);
+handInput=uicontrol(f,'Style','popupmenu','String',{'왼손','오른손'}, ...
+    'Units','normalized','Position',[0.90 0.95 0.09 0.045]);
+sendButton=uicontrol(f,'Style','pushbutton','String','Python 서버로 전송', ...
+    'Units','normalized','Position',[0.02 0.895 0.18 0.045],'Enable','off','Callback',@sendCapture);
+uicontrol(f,'Style','text','String',endpoint,'Units','normalized', ...
+    'Position',[0.21 0.895 0.53 0.04],'BackgroundColor','w','HorizontalAlignment','left');
 % FSR ADC Y-axis scaling: shared by both FSR charts, display only.
 fsrYMaxValues = [50 100 200 500 1000 4095];
 uicontrol(f,'Style','text','String','Y max (ADC)', ...
@@ -52,7 +70,7 @@ fsrYMaxPopup = uicontrol(f,'Style','popupmenu', ...
     'Position',[0.87 0.895 0.11 0.045], ...
     'Callback',@changeFsrYMax);
 status = uicontrol(f,'Style','text','String', ...
-    'XIAO 1개 BLE 실시간 수신 테스트 (CSV 저장 / Python 전송 없음)', ...
+    '단일 보드 BLE 수집 / CSV 저장 / 수집 후 서버 전송', ...
     'Units','normalized','Position',[0.02 0.845 0.96 0.035], ...
     'BackgroundColor','w','HorizontalAlignment','left');
 panel = uipanel(f,'BorderType','none','BackgroundColor','w', ...
@@ -98,9 +116,12 @@ try
     % Notification callback keeps the figure responsive. Existing subscription
     % stays active; do not open a second BLE connection.
     c.DataAvailableFcn=@onNotification;
-    set(status,'String','BLE 수신 대기 중... 센서값이 오면 왼손 그래프에 표시됩니다.');
+    clockTimer=timer('ExecutionMode','fixedSpacing','Period',0.25, ...
+        'BusyMode','drop','TimerFcn',@tick);
+    start(clockTimer);
+    refreshUI();
 catch err
-    if isgraphics(f),delete(f);end
+    closeWindow([],[]);
     rethrow(err)
 end
 
@@ -110,27 +131,43 @@ end
             bytes=read(src,'oldest');
             [buffer,sample]=xiao_ble_packet_decode(buffer,bytes);
             if isempty(sample),return;end
+            lastSeen=tic;
+            if ~isnan(lastDeviceMs) && double(sample.time_ms)<lastDeviceMs
+                if running, pauseCapture([],[]); end
+                completed=true;
+                message='보드 재시작 감지: 새 수집으로 시작하세요. 기존 CSV는 보존됩니다.';
+                firstMs=NaN; lastDrawMs=NaN;
+                for sd=1:2
+                    for col=1:3
+                        for line=plots{sd,col}, clearpoints(line); end
+                    end
+                end
+            end
+            lastDeviceMs=double(sample.time_ms);
             frames=frames+1;
+            if running, storeFrame(sample); end
             if isnan(firstMs),firstMs=double(sample.time_ms);end
             ms=double(sample.time_ms);
             if ~isnan(lastDrawMs) && ms-lastDrawMs<200,return;end
             lastDrawMs=ms;
             t=max(0,(ms-firstMs)/1000);
+            side=get(handInput,'Value');
             for k=1:6
-                addpoints(plots{1,1}(k),t,double(sample.fsr(k)));
+                addpoints(plots{side,1}(k),t,double(sample.fsr(k)));
             end
             for k=1:3
-                addpoints(plots{1,2}(k),t,double(sample.imu(k)));
-                addpoints(plots{1,3}(k),t,double(sample.imu(k+3)));
+                addpoints(plots{side,2}(k),t,double(sample.imu(k)));
+                addpoints(plots{side,3}(k),t,double(sample.imu(k+3)));
             end
             for j=1:3
-                xlim(axs(1,j),[max(0,t-20),max(20,t)]);
+                xlim(axs(side,j),[max(0,t-20),max(20,t)]);
             end
-            set(status,'String',sprintf('XIAO 1개 실시간 수신 중: %d회 | FSR: [%s] | IMU 정상: %d | 오른손은 미연결', ...
-                frames,num2str(sample.fsr),double(sample.imu_ok)));
+            refreshUI();
             drawnow limitrate;
         catch err
             errors=errors+1;
+            if running, pauseCapture([],[]); end
+            message=['데이터 처리 오류: ' err.message];
             if errors<=3
                 warning('XIAO:SinglePreview','BLE 데이터 처리 오류: %s',err.message);
             end
@@ -150,8 +187,190 @@ end
         drawnow limitrate;
     end
 
+    function startCapture(~,~)
+        if running || sending || submitted || completed, return; end
+        if isempty(lastSeen) || toc(lastSeen)>3
+            message='최근 3초간 센서 수신이 없습니다. BLE를 재연결하세요.';
+            refreshUI(); return;
+        end
+        if isempty(sessionId)
+            label=strtrim(get(gestureInput,'String'));
+            subjectIndex=get(subjectInput,'Value');
+            if isempty(label) || subjectIndex==1 || ...
+                    ~isempty(regexp(label,'[0-9]$|[<>:"/\\|?*\x00-\x1F]','once'))
+                message='측정자와 수어명을 입력하세요. 수어명 끝에는 숫자를 쓰지 마세요.';
+                refreshUI(); return;
+            end
+            if get(handInput,'Value')==1, deviceId='L'; else, deviceId='R'; end
+            subjectId=sprintf('subject%d',subjectIndex-1);
+            gestureName=label;
+            sessionId=['s' char(datetime('now','Format','yyyyMMdd_HHmmss_SSS')) ...
+                sprintf('_%09d',randi(999999999))];
+            try
+                if ~isfolder(saveDirectory), mkdir(saveDirectory); end
+                csvPath=fullfile(saveDirectory,sprintf('%s_%s_%s.csv',subjectId,deviceId,sessionId));
+                write_sensor_csv(csvPath,{},'replace');
+            catch err
+                sessionId=''; message=['CSV 생성 실패: ' err.message]; refreshUI(); return;
+            end
+        end
+        captureClock=tic; running=true;
+        message='5초 측정 + 3초 휴식, 20회 수집 중'; refreshUI();
+    end
+
+    function storeFrame(sample)
+        phase=sensor_collection_phase(elapsedOffsetMs+toc(captureClock)*1000);
+        if phase.done, finishCapture(); return; end
+        if ~phase.collecting, return; end
+        payload=make_sensor_payload(sample.fsr,sample.imu(1:6),deviceId, ...
+            numel(samples)+1,double(sample.time_ms), ...
+            sprintf('%s%d',gestureName,phase.trial),subjectId,sessionId);
+        samples{end+1}=payload;
+        unsaved{end+1}=payload;
+        pending{end+1}=payload;
+    end
+
+    function pauseCapture(~,~)
+        if ~running, return; end
+        elapsedOffsetMs=elapsedOffsetMs+toc(captureClock)*1000;
+        running=false;
+        message='일시 중지: 계속 수집하거나 현재 데이터를 전송할 수 있습니다.';
+        flushCsv(); refreshUI();
+    end
+
+    function finishCapture()
+        elapsedOffsetMs=160000; running=false; completed=true;
+        message='20회 측정 종료. CSV 확인 후 전송하세요.';
+        flushCsv();
+    end
+
+    function ok=flushCsv()
+        ok=true;
+        if isempty(unsaved), return; end
+        try
+            % Atomic full snapshot avoids duplicating rows after a failed append.
+            write_sensor_csv(csvPath,samples,'replace');
+            unsaved={}; lastFlush=tic;
+        catch err
+            ok=false;
+            if running
+                elapsedOffsetMs=elapsedOffsetMs+toc(captureClock)*1000;
+            end
+            running=false;
+            message=['CSV 저장 실패, 전송 차단: ' err.message];
+        end
+    end
+
+    function resetCapture(~,~)
+        if running || sending, return; end
+        if ~isempty(samples)
+            if ~strcmp(questdlg('기존 CSV를 보존하고 새 수집을 시작할까요?', ...
+                    '새 수집','새 수집','취소','취소'),'새 수집'), return; end
+            if ~flushCsv(), refreshUI(); return; end
+        end
+        samples={}; unsaved={}; pending={}; activeBatch={};
+        sessionId=''; elapsedOffsetMs=0; submitted=false; completed=false;
+        message='새 수집 준비. 기존 CSV는 보존됩니다.'; refreshUI();
+    end
+
+    function sendCapture(~,~)
+        if running || sending || submitted || isempty(pending), return; end
+        if ~flushCsv(), refreshUI(); return; end
+        answer=questdlg(sprintf('%d개 센서값을 서버로 전송할까요?\n%s', ...
+            numel(pending),endpoint),'서버 전송','전송','취소','취소');
+        if ~strcmp(answer,'전송'), return; end
+        submitted=true; sending=true; completed=true;
+        message='CSV 저장 완료. 서버 전송 중...';
+        refreshUI();
+    end
+
+    function tick(~,~)
+        if ~isgraphics(f), return; end
+        try
+            if running
+                if isempty(lastSeen) || toc(lastSeen)>3
+                    pauseCapture([],[]);
+                    message='BLE 수신 중단: 수집을 일시 중지했습니다.';
+                elseif elapsedOffsetMs+toc(captureClock)*1000>=160000
+                    finishCapture();
+                end
+            end
+            if ~isempty(unsaved) && toc(lastFlush)>=1, flushCsv(); end
+            if ~isempty(transfer) && strcmp(transfer.State,'finished')
+                try
+                    result=fetchOutputs(transfer);
+                catch err
+                    result=struct('sent',0,'unconfirmed',numel(activeBatch),'message',err.message);
+                end
+                delete(transfer); transfer=[];
+                pending=[activeBatch(result.sent+1:end) pending];
+                activeBatch={};
+                if result.unconfirmed>0
+                    sending=false;
+                    message=sprintf('전송 확인 %d / 미확인 %d. 자동 재시도 없음. CSV: %s | %s', ...
+                        numel(samples)-numel(pending),numel(pending),csvPath,result.message);
+                end
+            end
+            if sending && isempty(transfer)
+                if isempty(pending)
+                    sending=false;
+                    message=sprintf('서버 전송 완료: %d개 / CSV: %s',numel(samples),csvPath);
+                else
+                    n=min(20,numel(pending)); activeBatch=pending(1:n); pending(1:n)=[];
+                    try
+                        transfer=parfeval(backgroundPool,@post_sensor_batch,1,endpoint,activeBatch);
+                    catch err
+                        pending=[activeBatch pending]; activeBatch={}; sending=false;
+                        message=['전송 시작 실패. 자동 재시도 없음. CSV 보존: ' err.message];
+                    end
+                end
+            end
+            refreshUI();
+        catch err
+            warning('XIAO:MonitorTimer','모니터 처리 오류: %s',err.message);
+            message=['모니터 처리 오류: ' err.message];
+            refreshUI();
+        end
+    end
+
+    function refreshUI()
+        if ~isgraphics(f), return; end
+        locked=~isempty(sessionId);
+        set(gestureInput,'Enable',enabled(~locked));
+        set(subjectInput,'Enable',enabled(~locked));
+        set(handInput,'Enable',enabled(~locked));
+        set(startButton,'Enable',enabled(~running && ~sending && ~submitted && ~completed));
+        set(pauseButton,'Enable',enabled(running));
+        set(resetButton,'Enable',enabled(~running && ~sending));
+        set(sendButton,'Enable',enabled(~running && ~sending && ~submitted && ~isempty(pending)));
+        if ~isempty(sessionId) && ~running, set(startButton,'String','계속 수집'); end
+        if isempty(sessionId), set(startButton,'String','20회 수집 시작'); end
+        progress='';
+        if running
+            phase=sensor_collection_phase(elapsedOffsetMs+toc(captureClock)*1000);
+            if phase.collecting, mode='측정'; else, mode='휴식'; end
+            progress=sprintf(' | %d/20 %s %.1f초',phase.trial,mode,phase.remainingSec);
+        end
+        set(status,'String',sprintf('BLE %d회 | 수집 %d개%s | %s', ...
+            frames,numel(samples),progress,message));
+    end
+
+    function value=enabled(flag)
+        if flag, value='on'; else, value='off'; end
+    end
+
     function closeWindow(~,~)
+        if sending
+            if ~strcmp(questdlg('전송 중 닫으면 일부 결과가 미확인될 수 있습니다. 닫을까요?', ...
+                    '전송 중','닫기','취소','취소'),'닫기'), return; end
+        end
+        if ~flushCsv()
+            errordlg('CSV 저장 실패: 창을 유지합니다. 경로를 확인하고 다시 시도하세요.');
+            return;
+        end
         try,c.DataAvailableFcn=[];catch,end
+        if ~isempty(clockTimer) && isvalid(clockTimer), stop(clockTimer); delete(clockTimer); end
+        if ~isempty(transfer), cancel(transfer); delete(transfer); end
         if isgraphics(f),delete(f);end
     end
 end
