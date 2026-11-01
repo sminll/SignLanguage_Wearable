@@ -3,7 +3,7 @@
 %   xiao_ble_address = "YOUR_BLE_ADDRESS";
 %   xiao_ble_reconnect
 % Replaces workspace variables b/c, and closes only single-board test figures.
-% No firmware upload, CSV saving, or HTTP transmission is performed.
+% Opens the monitor; capture and upload require explicit button actions.
 
 if ~exist('xiao_ble_address', 'var')
     error('XIAO:Address', ...
@@ -19,6 +19,11 @@ end
 % Close the preview first so its nested callback releases the old characteristic.
 close(findall(groot, 'Type', 'figure', ...
     'Name', 'XIAO BLE 양손 센서 모니터 (1개 보드 실시간 테스트)'));
+if ~isempty(findall(groot,'Type','figure', ...
+        'Name','XIAO BLE 양손 센서 모니터 (1개 보드 실시간 테스트)'))
+    error('XIAO:MonitorOpen', ...
+        '기존 모니터가 닫히지 않았습니다. 저장/전송 상태를 확인한 후 다시 연결하세요.');
+end
 clear c b
 
 b = ble(xiao_ble_address);

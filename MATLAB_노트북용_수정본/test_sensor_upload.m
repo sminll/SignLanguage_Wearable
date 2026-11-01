@@ -1,0 +1,44 @@
+function tests=test_sensor_upload
+% Integration checks against an explicitly configured local disposable receiver.
+tests=functiontests(localfunctions);
+end
+
+function testSuccessfulPost(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'), ...
+    'Set XIAO_TEST_RECEIVER to a disposable localhost receiver.');
+r=post_sensor_batch([url '/sensor'],makeBatch());
+verifyEqual(testCase,r.sent,3);
+verifyEqual(testCase,r.unconfirmed,0);
+verifyEmpty(testCase,r.message);
+end
+
+function testStopsAtFirstUnconfirmedPost(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'), ...
+    'Set XIAO_TEST_RECEIVER to a disposable localhost receiver.');
+% /fail must acknowledge seq=1 and return HTTP 503 for seq=2.
+r=post_sensor_batch([url '/fail'],makeBatch());
+verifyEqual(testCase,r.sent,1);
+verifyEqual(testCase,r.unconfirmed,2);
+verifyNotEmpty(testCase,r.message);
+end
+
+function testBackgroundPost(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'), ...
+    'Set XIAO_TEST_RECEIVER to a disposable localhost receiver.');
+future=parfeval(backgroundPool,@post_sensor_batch,1,[url '/sensor'],makeBatch());
+cleanup=onCleanup(@() delete(future)); %#ok<NASGU>
+r=fetchOutputs(future);
+verifyEqual(testCase,r.sent,3);
+verifyEqual(testCase,r.unconfirmed,0);
+end
+
+function batch=makeBatch()
+batch=cell(1,3);
+for k=1:3
+    batch{k}=make_sensor_payload(1:6,[0 0 1 2 3 4],'R',k,100*k, ...
+        '시험1','subject6','local_integration_test');
+end
+end

@@ -32,7 +32,7 @@ end
 
 serviceUUID = '19B10010-E8F2-537E-4F6C-D104768A1214';
 characteristicUUID = '19B10011-E8F2-537E-4F6C-D104768A1214';
-endpoint = 'http://127.0.0.1:5000/sensor';
+endpoint = 'http://100.92.15.45:5000/sensor';
 saveDirectory = fullfile(fileparts(mfilename('fullpath')), 'sensor_data');
 windowSeconds = 20;
 addresses = {leftAddress, rightAddress};

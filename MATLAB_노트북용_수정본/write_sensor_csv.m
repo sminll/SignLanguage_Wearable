@@ -31,7 +31,6 @@ end
 
 fid = -1;
 temporaryPath = '';
-cleanup = onCleanup(@cleanupOutput); %#ok<NASGU>
 if strcmp(mode, 'replace')
     folder = fileparts(filePath);
     if isempty(folder)
@@ -51,6 +50,7 @@ end
 if fid < 0
     error('sensor:CsvOpenFailed', 'Cannot open CSV file: %s', message);
 end
+try
 if needsHeader
     fprintf(fid, '%s\n', strjoin(fields, ','));
 end
@@ -84,14 +84,15 @@ if strcmp(mode, 'replace')
     end
 end
 
-    function cleanupOutput
-        if fid >= 0
-            fclose(fid);
-        end
-        if ~isempty(temporaryPath) && isfile(temporaryPath)
-            delete(temporaryPath);
-        end
+catch exception
+    if fid >= 0
+        try, fclose(fid); catch, end
     end
+    if ~isempty(temporaryPath) && isfile(temporaryPath)
+        delete(temporaryPath);
+    end
+    rethrow(exception);
+end
 end
 
 function quoted = quoteField(value)
