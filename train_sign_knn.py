@@ -8,6 +8,8 @@
 from __future__ import annotations
 
 import sys
+import argparse
+from datetime import date
 from pathlib import Path
 
 try:
@@ -57,7 +59,7 @@ def build_features(raw: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
         raw[col] = pd.to_numeric(raw[col], errors="coerce")
     raw = raw.dropna(subset=["time_ms"])
     if raw.empty:
-        raise ValueError("유효한 REAL 데이터가 없습니다. subject_labeler.py 실행 여부를 확인하세요.")
+        raise ValueError("유효한 REAL 데이터가 없습니다. source와 subject_id 등 측정 메타데이터를 확인하세요.")
 
     # session_id explicitly separates repeated collection runs.
     records = []
@@ -90,21 +92,47 @@ def build_features(raw: pd.DataFrame) -> tuple[pd.DataFrame, pd.DataFrame]:
 
 
 def main() -> int:
+    parser = argparse.ArgumentParser(description='수어 회차별 KNN 기초 분류')
+    parser.add_argument('--date', type=date.fromisoformat, help='수신 날짜 YYYY-MM-DD')
+    parser.add_argument('--board', choices=['XIAO', 'ESP32'], help='세션 장치 기록으로 필터링')
+    parser.add_argument('--output', type=Path, help='별도 결과 저장 폴더')
+    args = parser.parse_args()
+    out = args.output
+    if out is None:
+        suffix = '_'.join(str(x) for x in (args.date, args.board) if x is not None)
+        out = OUT / suffix if suffix else OUT
     if not INPUT.exists():
         print(f"입력 파일이 없습니다: {INPUT}")
         print("먼저 python prepare_sensor_v2.py 로 통합 CSV를 만드세요.")
         return 1
 
-    features, rejected = build_features(pd.read_csv(INPUT, encoding="utf-8-sig", low_memory=False))
+    raw = pd.read_csv(INPUT, encoding="utf-8-sig", low_memory=False)
+    if args.date:
+        raw = raw.loc[raw['time'].astype('string').str.startswith(str(args.date), na=False)].copy()
+    if args.board:
+        mapping_path = ROOT / 'data' / 'session_devices.csv'
+        if not mapping_path.exists():
+            raise ValueError('보드 선택에는 로컬 data/session_devices.csv가 필요합니다. README의 장치 기록 안내를 확인하세요.')
+        mapping = pd.read_csv(mapping_path, encoding='utf-8-sig')
+        if not {'session_id', 'board_type'}.issubset(mapping.columns):
+            raise ValueError('장치 기록에는 session_id,board_type 열이 필요합니다.')
+        if mapping['session_id'].isna().any() or mapping['session_id'].duplicated().any():
+            raise ValueError('장치 기록에 빈 세션 또는 중복 세션이 있습니다.')
+        selected_sessions = mapping.loc[mapping['board_type'].eq(args.board), 'session_id']
+        raw = raw.loc[raw['session_id'].isin(selected_sessions)].copy()
+    if raw.empty:
+        raise ValueError('선택한 날짜/보드에 해당하는 데이터가 없습니다.')
+    print(f'선택 원시 데이터: {len(raw):,}행 / {raw.session_id.nunique()}세션')
+    features, rejected = build_features(raw)
     if features.empty:
         print("학습 가능한 회차가 없습니다. 센서값을 확인하세요.")
         return 1
-    OUT.mkdir(parents=True, exist_ok=True)
-    features.to_csv(OUT / "trial_features.csv", index=False, encoding="utf-8-sig")
+    out.mkdir(parents=True, exist_ok=True)
+    features.to_csv(out / "trial_features.csv", index=False, encoding="utf-8-sig")
     if not rejected.empty:
-        rejected.to_csv(OUT / "excluded_short_trials.csv", index=False, encoding="utf-8-sig")
+        rejected.to_csv(out / "excluded_short_trials.csv", index=False, encoding="utf-8-sig")
     counts = features.groupby(["subject_id", "label"], dropna=False).size().unstack(fill_value=0)
-    counts.to_csv(OUT / "subject_label_counts.csv", encoding="utf-8-sig")
+    counts.to_csv(out / "subject_label_counts.csv", encoding="utf-8-sig")
     print("\n[참가자별 / 동작별 유효 회차 수]")
     print(counts.to_string())
     print(f"\n전체 학습 후보: {len(features)}회차 / 제외한 짧은 회차: {len(rejected)}개")
@@ -143,7 +171,7 @@ def main() -> int:
     matrix = confusion_matrix(labels.iloc[idx_test], predicted, labels=classes)
     report = classification_report(labels.iloc[idx_test], predicted, labels=classes,
                                    zero_division=0)
-    (OUT / "evaluation.txt").write_text(
+    (out / "evaluation.txt").write_text(
         f"수어 동작 1회(5초) = 학습 샘플 1개\n"
         f"기준: 회차 단위 75% train / 25% test (random_state=42)\n"
         f"K={k}, 평가 정확도={accuracy:.4f} ({accuracy*100:.1f}%)\n"
@@ -153,7 +181,7 @@ def main() -> int:
         encoding="utf-8",
     )
     pd.DataFrame(matrix, index=classes, columns=classes).to_csv(
-        OUT / "confusion_matrix.csv", encoding="utf-8-sig"
+        out / "confusion_matrix.csv", encoding="utf-8-sig"
     )
     try:
         fig, ax = plt.subplots(figsize=(5.5, 4.7))
@@ -167,17 +195,17 @@ def main() -> int:
         ax.set_ylabel("Actual")
         ax.set_title(f"KNN | k={k} | accuracy={accuracy:.1%}")
         fig.tight_layout()
-        fig.savefig(OUT / "confusion_matrix.png", dpi=150)
+        fig.savefig(out / "confusion_matrix.png", dpi=150)
         plt.close(fig)
-        (OUT / "class_index.txt").write_text(
+        (out / "class_index.txt").write_text(
             "\n".join(f"C{i+1} = {name}" for i, name in enumerate(classes)), encoding="utf-8"
         )
     except Exception as exc:
         print(f"혼동행렬 그림 저장 실패(텍스트 CSV는 저장됨): {exc}")
-    joblib.dump({"pipeline": model, "columns": columns, "classes": classes}, OUT / "knn_model.joblib")
+    joblib.dump({"pipeline": model, "columns": columns, "classes": classes}, out / "knn_model.joblib")
     print(f"\nKNN 정확도: {accuracy:.1%} (시험 데이터 {len(idx_test)}회차, k={k})")
     print("※ 현재 정확도는 같은 참가자의 반복 데이터가 포함될 수 있는 초기 시험 결과입니다.")
-    print(f"결과 저장: {OUT}")
+    print(f"결과 저장: {out}")
     return 0
 
 

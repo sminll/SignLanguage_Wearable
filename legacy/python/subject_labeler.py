@@ -13,7 +13,7 @@ import tempfile
 from collections import Counter
 from pathlib import Path
 
-BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parents[2]
 SOURCE = BASE / 'data' / 'received_sensor.csv'
 OUTPUT = BASE / 'data' / 'received_sensor_with_subject.csv'
 FIELDS_TO_SKIP = {'subject_id'}

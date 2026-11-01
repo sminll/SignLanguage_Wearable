@@ -16,7 +16,7 @@ from time import time_ns
 from flask import Flask, request, render_template_string
 
 app = Flask(__name__)
-DATA_DIR = Path(__file__).resolve().parent / "data"
+DATA_DIR = Path(__file__).resolve().parents[2] / "data"
 DATA_DIR.mkdir(exist_ok=True)
 CSV_FILE = DATA_DIR / "knn_sensor_log.csv"
 SENSORS = [f"fsr{i}" for i in range(1, 7)] + ["ax", "ay", "az", "gx", "gy", "gz"]

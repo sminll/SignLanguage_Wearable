@@ -14,7 +14,7 @@ from pathlib import Path
 from tkinter import Tk, filedialog
 from urllib.request import Request, urlopen
 
-BASE = Path(__file__).resolve().parent
+BASE = Path(__file__).resolve().parents[2]
 DEST = BASE / 'data' / 'received_sensor.csv'
 URL = 'http://127.0.0.1:5000/sensor'
 REQUIRED = ['source', 'device_id', 'time_ms'] + [f'fsr{i}_raw' for i in range(1, 7)] + [
