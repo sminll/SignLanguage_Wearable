@@ -35,10 +35,15 @@ for p=popups'
     if strcmp(choices{1},'왼손'), set(p,'Value',2); end
 end
 button=findall(f,'Style','pushbutton','String','20회 수집 시작');
+c.emit(1,100);
 cb=get(button,'Callback'); cb([],[]);
 for k=2:6, c.emit(k,k*100); end
 button=findall(f,'Style','pushbutton','String','일시 중지'); cb=get(button,'Callback'); cb([],[]);
 button=findall(f,'Style','pushbutton','String','Python 서버로 전송');
+if ~strcmp(get(button,'Enable'),'on')
+    texts=findall(f,'Style','text');
+    for text=texts', disp(get(text,'String')); end
+end
 assert(strcmp(get(button,'Enable'),'on'));
 folder=fullfile(fileparts(which('xiao_ble_single_ui_test')),'sensor_data');
 files=dir(fullfile(folder,'*.csv'));[~,i]=max([files.datenum]);
@@ -53,4 +58,22 @@ close(f);clear cleanup;
 assert(isempty(c.DataAvailableFcn));
 assert(isempty(findall(groot,'Type','figure','Name','XIAO BLE 양손 센서 모니터 (1개 보드 실시간 테스트)')));
 verifyTrue(testCase,true);
+end
+
+function testOldCurrentFolderDoesNotShadowPayload(testCase)
+previous=pwd;
+shadow=tempname; mkdir(shadow);
+fid=fopen(fullfile(shadow,'make_sensor_payload.m'),'w');
+fprintf(fid,'function p=make_sensor_payload(a,b,c,d,e,f)\np=struct();\nend\n');
+fclose(fid);
+cleanup=onCleanup(@() restoreShadow(previous,shadow)); %#ok<NASGU>
+cd(shadow);
+assert(nargin('make_sensor_payload')==6);
+testCapture(testCase);
+verifyEqual(testCase,pwd,shadow);
+end
+
+function restoreShadow(previous,shadow)
+cd(previous);
+rmdir(shadow,'s');
 end

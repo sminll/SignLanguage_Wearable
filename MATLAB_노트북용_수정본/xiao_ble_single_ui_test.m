@@ -18,6 +18,7 @@ for k=1:numel(required)
         error('XIAO:MissingFile','%s.m 파일을 MATLAB 경로에 추가하세요.',required{k});
     end
 end
+helpers=bindSensorHelpers();
 endpoint = 'http://100.92.15.45:5000/sensor';
 saveDirectory = fullfile(fileparts(mfilename('fullpath')),'sensor_data');
 running=false; sending=false; submitted=false; completed=false;
@@ -209,7 +210,7 @@ end
             try
                 if ~isfolder(saveDirectory), mkdir(saveDirectory); end
                 csvPath=fullfile(saveDirectory,sprintf('%s_%s_%s.csv',subjectId,deviceId,sessionId));
-                write_sensor_csv(csvPath,{},'replace');
+                helpers.writeCsv(csvPath,{},'replace');
             catch err
                 sessionId=''; message=['CSV 생성 실패: ' err.message]; refreshUI(); return;
             end
@@ -219,10 +220,10 @@ end
     end
 
     function storeFrame(sample)
-        phase=sensor_collection_phase(elapsedOffsetMs+toc(captureClock)*1000);
+        phase=helpers.phase(elapsedOffsetMs+toc(captureClock)*1000);
         if phase.done, finishCapture(); return; end
         if ~phase.collecting, return; end
-        payload=make_sensor_payload(sample.fsr,sample.imu(1:6),deviceId, ...
+        payload=helpers.makePayload(sample.fsr,sample.imu(1:6),deviceId, ...
             numel(samples)+1,double(sample.time_ms), ...
             sprintf('%s%d',gestureName,phase.trial),subjectId,sessionId);
         samples{end+1}=payload;
@@ -249,7 +250,7 @@ end
         if isempty(unsaved), return; end
         try
             % Atomic full snapshot avoids duplicating rows after a failed append.
-            write_sensor_csv(csvPath,samples,'replace');
+            helpers.writeCsv(csvPath,samples,'replace');
             unsaved={}; lastFlush=tic;
         catch err
             ok=false;
@@ -318,7 +319,7 @@ end
                 else
                     n=min(20,numel(pending)); activeBatch=pending(1:n); pending(1:n)=[];
                     try
-                        transfer=parfeval(backgroundPool,@post_sensor_batch,1,endpoint,activeBatch);
+                        transfer=parfeval(backgroundPool,helpers.postBatch,1,endpoint,activeBatch);
                     catch err
                         pending=[activeBatch pending]; activeBatch={}; sending=false;
                         message=['전송 시작 실패. 자동 재시도 없음. CSV 보존: ' err.message];
@@ -347,7 +348,7 @@ end
         if isempty(sessionId), set(startButton,'String','20회 수집 시작'); end
         progress='';
         if running
-            phase=sensor_collection_phase(elapsedOffsetMs+toc(captureClock)*1000);
+            phase=helpers.phase(elapsedOffsetMs+toc(captureClock)*1000);
             if phase.collecting, mode='측정'; else, mode='휴식'; end
             progress=sprintf(' | %d/20 %s %.1f초',phase.trial,mode,phase.remainingSec);
         end
@@ -373,4 +374,15 @@ end
         if ~isempty(transfer), cancel(transfer); delete(transfer); end
         if isgraphics(f),delete(f);end
     end
+end
+
+function helpers=bindSensorHelpers()
+% MATLAB resolves Current Folder before addpath. Bind this monitor's helpers
+% while its own directory is current, then restore the user's folder.
+previousFolder=pwd;
+restore=onCleanup(@() cd(previousFolder)); %#ok<NASGU>
+cd(fileparts(mfilename('fullpath')));
+helpers=struct('makePayload',@make_sensor_payload, ...
+    'writeCsv',@write_sensor_csv,'postBatch',@post_sensor_batch, ...
+    'phase',@sensor_collection_phase);
 end
