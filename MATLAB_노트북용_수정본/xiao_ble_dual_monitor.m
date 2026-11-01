@@ -104,13 +104,23 @@ deleteButton = uicontrol(fig,'Style','pushbutton','String','최근 회차 삭제
     'Units','normalized','Position',[0.02 0.895 0.14 0.045], 'Callback',@deleteLastTrial);
 sendButton = uicontrol(fig,'Style','pushbutton','String','Python 서버로 전송', ...
     'Units','normalized','Position',[0.18 0.895 0.17 0.045], 'Callback',@sendCapture);
+% FSR display scaling (0..selected maximum). Does not modify measured ADC values.
+fsrYMaxValues = [50 100 200 500 1000 4095];
+uicontrol(fig,'Style','text','String','Y max (ADC)', ...
+    'Units','normalized','Position',[0.75 0.895 0.11 0.04], ...
+    'BackgroundColor','w','HorizontalAlignment','right');
+fsrYMaxPopup = uicontrol(fig,'Style','popupmenu', ...
+    'String',cellstr(string(fsrYMaxValues)), ...
+    'Value',numel(fsrYMaxValues),'Units','normalized', ...
+    'Position',[0.87 0.895 0.11 0.045], ...
+    'Callback',@changeFsrYMax);
 statusLabel = uicontrol(fig,'Style','text','String',message, ...
-    'Units','normalized','Position',[0.36 0.895 0.63 0.05], ...
+    'Units','normalized','Position',[0.02 0.845 0.96 0.035], ...
     'BackgroundColor','w','HorizontalAlignment','left', ...
     'ForegroundColor',[0.15 0.15 0.15]);
 
 panel = uipanel(fig, 'BorderType','none','BackgroundColor','w', ...
-    'Units','normalized','Position',[0 0.015 1 0.865]);
+    'Units','normalized','Position',[0 0.015 1 0.82]);
 layout = tiledlayout(panel,2,3,'TileSpacing','compact','Padding','compact');
 axesHandles = gobjects(2,3);
 curves = cell(2,3);
@@ -124,7 +134,7 @@ for side = 1:2
         xlim(ax,[0 windowSeconds]);
         if col == 1
             title(ax,sprintf('%s FSR (A0~A5)',handNames{side}));
-            ylabel(ax,'ADC raw'); ylim(ax,[0 4095]);
+            ylabel(ax,'ADC raw'); ylim(ax,[0 fsrYMaxValues(end)]);
             labels = arrayfun(@(k) sprintf('FSR%d',k),1:6,'UniformOutput',false);
         elseif col == 2
             title(ax,sprintf('%s IMU 가속도',handNames{side}));
@@ -515,6 +525,16 @@ end
         enable(subjectInput,editable);
         if hasRun, startButton.String = '계속 수집';
         else, startButton.String = '양손 20회 수집 시작'; end
+    end
+
+    function changeFsrYMax(~,~)
+        selectedMax = fsrYMaxValues(get(fsrYMaxPopup,'Value'));
+        for hand = 1:2
+            if isgraphics(axesHandles(hand,1))
+                ylim(axesHandles(hand,1),[0 selectedMax]);
+            end
+        end
+        drawnow limitrate;
     end
 
     function cleanupConnection()
