@@ -224,3 +224,11 @@ data/received_sensor.csv
 # Local backups and generated model outputs
 data/backups/
 archive_original_folder/
+
+# Local sensor measurements, session metadata, and generated models.
+# Already tracked historical files remain tracked; do not stage new measurements.
+data/*.csv
+data/knn_results/
+data/장치기록.md
+MATLAB_노트북용_수정본/sensor_data/
+mock-posts.jsonl

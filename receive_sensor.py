@@ -11,6 +11,7 @@ from collections import Counter
 import csv
 import math
 import re
+import argparse
 
 from prepare_sensor_v2 import MASTER, FIELDS
 
@@ -119,13 +120,16 @@ def receive_sensor():
     return {'status':'saved','session_id':row['session_id']},200
 
 
-def start_receiver():
+def start_receiver(host='127.0.0.1'):
     global _seen
     _seen=read_existing()
     print(f'수신 대기: {MASTER} / 기존 고유 샘플키 {len(_seen)}개',flush=True)
-    # The ESP32 + MATLAB run on the same computer, so bind localhost only.
-    app.run(host='127.0.0.1',port=5000,debug=False)
+    print(f'연결 확인: http://{host}:5000/health',flush=True)
+    app.run(host=host,port=5000,debug=False)
 
 
 if __name__=='__main__':
-    start_receiver()
+    parser = argparse.ArgumentParser(description='MATLAB 센서 데이터 수신 서버')
+    parser.add_argument('--host', default='127.0.0.1',
+                        help='수신 주소. 원격 수신 시 이 PC의 Tailscale IPv4 주소를 입력하세요.')
+    start_receiver(parser.parse_args().host)
