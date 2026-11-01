@@ -26,7 +26,8 @@ samples={}; unsaved={}; pending={}; activeBatch={}; transfer=[];
 elapsedOffsetMs=0; captureClock=[]; lastSeen=[]; lastDeviceMs=NaN;
 subjectId=''; gestureName=''; sessionId=''; csvPath=''; deviceId='L';
 message='수신 확인 후 측정자·수어명·손을 선택하세요.';
-lastFlush=tic;
+latestSample=[];
+discarding=false;
 clockTimer=[];
 % The current c should already be subscribed, and old callbacks can conflict.
 try
@@ -58,8 +59,11 @@ handInput=uicontrol(f,'Style','popupmenu','String',{'왼손','오른손'}, ...
     'Units','normalized','Position',[0.90 0.95 0.09 0.045]);
 sendButton=uicontrol(f,'Style','pushbutton','String','Python 서버로 전송', ...
     'Units','normalized','Position',[0.02 0.895 0.18 0.045],'Enable','off','Callback',@sendCapture);
+discardButton=uicontrol(f,'Style','pushbutton','String','중지하고 버리기', ...
+    'Units','normalized','Position',[0.21 0.895 0.16 0.045], ...
+    'Enable','off','Callback',@discardCapture);
 uicontrol(f,'Style','text','String',endpoint,'Units','normalized', ...
-    'Position',[0.21 0.895 0.53 0.04],'BackgroundColor','w','HorizontalAlignment','left');
+    'Position',[0.38 0.895 0.36 0.04],'BackgroundColor','w','HorizontalAlignment','left');
 % FSR ADC Y-axis scaling: shared by both FSR charts, display only.
 fsrYMaxValues = [50 100 200 500 1000 4095];
 uicontrol(f,'Style','text','String','Y max (ADC)', ...
@@ -147,6 +151,20 @@ end
             lastDeviceMs=double(sample.time_ms);
             frames=frames+1;
             if running, storeFrame(sample); end
+            latestSample=sample;
+        catch err
+            errors=errors+1;
+            if running, pauseCapture([],[]); end
+            message=['데이터 처리 오류: ' err.message];
+            if errors<=3
+                warning('XIAO:SinglePreview','BLE 데이터 처리 오류: %s',err.message);
+            end
+        end
+    end
+
+    function drawLatest()
+            if isempty(latestSample), return; end
+            sample=latestSample;
             if isnan(firstMs),firstMs=double(sample.time_ms);end
             ms=double(sample.time_ms);
             if ~isnan(lastDrawMs) && ms-lastDrawMs<200,return;end
@@ -163,19 +181,6 @@ end
             for j=1:3
                 xlim(axs(side,j),[max(0,t-20),max(20,t)]);
             end
-            refreshUI();
-            drawnow limitrate;
-        catch err
-            errors=errors+1;
-            if running, pauseCapture([],[]); end
-            message=['데이터 처리 오류: ' err.message];
-            if errors<=3
-                warning('XIAO:SinglePreview','BLE 데이터 처리 오류: %s',err.message);
-            end
-            if isgraphics(status)
-                set(status,'String',sprintf('데이터 처리 오류 %d회: %s',errors,err.message));
-            end
-        end
     end
 
     function changeFsrYMax(~,~)
@@ -210,7 +215,9 @@ end
             try
                 if ~isfolder(saveDirectory), mkdir(saveDirectory); end
                 csvPath=fullfile(saveDirectory,sprintf('%s_%s_%s.csv',subjectId,deviceId,sessionId));
-                helpers.writeCsv(csvPath,{},'replace');
+                if isfile(csvPath)
+                    error('XIAO:FileExists','이미 존재하는 CSV입니다: %s',csvPath);
+                end
             catch err
                 sessionId=''; message=['CSV 생성 실패: ' err.message]; refreshUI(); return;
             end
@@ -251,7 +258,7 @@ end
         try
             % Atomic full snapshot avoids duplicating rows after a failed append.
             helpers.writeCsv(csvPath,samples,'replace');
-            unsaved={}; lastFlush=tic;
+            unsaved={};
         catch err
             ok=false;
             if running
@@ -263,19 +270,48 @@ end
     end
 
     function resetCapture(~,~)
-        if running || sending, return; end
+        if running || sending || discarding, return; end
         if ~isempty(samples)
             if ~strcmp(questdlg('기존 CSV를 보존하고 새 수집을 시작할까요?', ...
                     '새 수집','새 수집','취소','취소'),'새 수집'), return; end
             if ~flushCsv(), refreshUI(); return; end
         end
-        samples={}; unsaved={}; pending={}; activeBatch={};
-        sessionId=''; elapsedOffsetMs=0; submitted=false; completed=false;
+        clearSession();
         message='새 수집 준비. 기존 CSV는 보존됩니다.'; refreshUI();
     end
 
+    function discardCapture(~,~)
+        if sending || submitted || isempty(sessionId) || discarding, return; end
+        % Stop before showing a dialog. Never save the unwanted session here.
+        if running, elapsedOffsetMs=elapsedOffsetMs+toc(captureClock)*1000; end
+        running=false; discarding=true;
+        message='수집 중지. 이번 세션 폐기 여부를 확인하세요.'; refreshUI();
+        answer=questdlg('이번 세션 전체를 버릴까요? 이미 저장한 이번 CSV도 삭제합니다. 이전 세션은 유지됩니다.', ...
+            '수집 중지','버리기','유지','유지');
+        discarding=false;
+        if ~strcmp(answer,'버리기')
+            message='일시 중지 상태로 유지합니다. 계속 수집하거나 저장·전송할 수 있습니다.';
+            refreshUI(); return;
+        end
+        try
+            if isfile(csvPath), delete(csvPath); end
+        catch err
+            message=['이번 CSV 삭제 실패. 데이터는 유지됩니다: ' err.message];
+            refreshUI(); return;
+        end
+        clearSession();
+        message='이번 수집을 버렸습니다. CSV 저장·서버 전송 없이 새 수집할 수 있습니다.';
+        refreshUI();
+    end
+
+    function clearSession()
+        samples={}; unsaved={}; pending={}; activeBatch={};
+        sessionId=''; csvPath=''; elapsedOffsetMs=0;
+        submitted=false; completed=false; running=false;
+    end
+
     function sendCapture(~,~)
-        if running || sending || submitted || isempty(pending), return; end
+        if running || sending || submitted || discarding || isempty(pending), return; end
         if ~flushCsv(), refreshUI(); return; end
         answer=questdlg(sprintf('%d개 센서값을 서버로 전송할까요?\n%s', ...
             numel(pending),endpoint),'서버 전송','전송','취소','취소');
@@ -296,7 +332,8 @@ end
                     finishCapture();
                 end
             end
-            if ~isempty(unsaved) && toc(lastFlush)>=1, flushCsv(); end
+            % Keep acquisition in memory. Persist only on pause, finish, send,
+            % reset or close, so disk I/O cannot block Stop during capture.
             if ~isempty(transfer) && strcmp(transfer.State,'finished')
                 try
                     result=fetchOutputs(transfer);
@@ -326,7 +363,9 @@ end
                     end
                 end
             end
+            drawLatest();
             refreshUI();
+            drawnow limitrate;
         catch err
             warning('XIAO:MonitorTimer','모니터 처리 오류: %s',err.message);
             message=['모니터 처리 오류: ' err.message];
@@ -340,10 +379,11 @@ end
         set(gestureInput,'Enable',enabled(~locked));
         set(subjectInput,'Enable',enabled(~locked));
         set(handInput,'Enable',enabled(~locked));
-        set(startButton,'Enable',enabled(~running && ~sending && ~submitted && ~completed));
+        set(startButton,'Enable',enabled(~running && ~sending && ~submitted && ~completed && ~discarding));
         set(pauseButton,'Enable',enabled(running));
-        set(resetButton,'Enable',enabled(~running && ~sending));
-        set(sendButton,'Enable',enabled(~running && ~sending && ~submitted && ~isempty(pending)));
+        set(resetButton,'Enable',enabled(~running && ~sending && ~discarding));
+        set(sendButton,'Enable',enabled(~running && ~sending && ~submitted && ~discarding && ~isempty(pending)));
+        set(discardButton,'Enable',enabled(~sending && ~submitted && ~discarding && ~isempty(sessionId)));
         if ~isempty(sessionId) && ~running, set(startButton,'String','계속 수집'); end
         if isempty(sessionId), set(startButton,'String','20회 수집 시작'); end
         progress='';
@@ -361,6 +401,7 @@ end
     end
 
     function closeWindow(~,~)
+        if discarding, return; end
         if sending
             if ~strcmp(questdlg('전송 중 닫으면 일부 결과가 미확인될 수 있습니다. 닫을까요?', ...
                     '전송 중','닫기','취소','취소'),'닫기'), return; end

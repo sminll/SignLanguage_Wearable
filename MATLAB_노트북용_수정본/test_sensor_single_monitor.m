@@ -6,15 +6,21 @@ end
 function setupOnce(testCase)
 root=fileparts(mfilename('fullpath'));
 testCase.TestData.oldpath=path;
+testCase.TestData.oldFolder=pwd;
 folder=tempname;mkdir(folder);
 testCase.TestData.folder=folder;
-copyfile(fullfile(root,'xiao_ble_single_ui_test.m'),folder);
+files={'xiao_ble_single_ui_test.m','xiao_ble_packet_decode.m', ...
+    'make_sensor_payload.m','write_sensor_csv.m','post_sensor_batch.m', ...
+    'sensor_collection_phase.m'};
+for k=1:numel(files), copyfile(fullfile(root,files{k}),folder); end
 addpath(fullfile(root,'tests/support'));
 addpath(folder,'-begin');
+cd(folder); % Current Folder takes precedence over addpath in MATLAB.
 clear xiao_ble_single_ui_test;
 end
 
 function teardownOnce(testCase)
+cd(testCase.TestData.oldFolder);
 path(testCase.TestData.oldpath);
 clear xiao_ble_single_ui_test;
 rmdir(testCase.TestData.folder,'s');
@@ -76,4 +82,45 @@ end
 function restoreShadow(previous,shadow)
 cd(previous);
 rmdir(shadow,'s');
+end
+
+function testDiscardDuringCapture(testCase)
+% Mock only the confirmation dialog; all sensor data stays in the temp folder.
+folder=testCase.TestData.folder;
+dialogFile=fullfile(folder,'questdlg.m');
+fid=fopen(dialogFile,'w');
+fprintf(fid,'function answer=questdlg(varargin)\nanswer=char([48260 47532 44592]);\nend\n');
+fclose(fid);
+dialogCleanup=onCleanup(@() delete(dialogFile)); %#ok<NASGU>
+clear questdlg;
+c=FakeBLECharacteristic;
+xiao_ble_single_ui_test(c);
+% Drive capture callbacks directly; renderer latency must not advance trials.
+stop(timerfindall('ExecutionMode','fixedSpacing','Period',0.25));
+f=findall(groot,'Type','figure','Name','XIAO BLE 양손 센서 모니터 (1개 보드 실시간 테스트)');
+cleanup=onCleanup(@() close(f(isgraphics(f)))); %#ok<NASGU>
+set(findall(f,'Style','edit'),'String','시험');
+popups=findall(f,'Style','popupmenu');
+for p=popups'
+    choices=get(p,'String');
+    if contains(string(choices{1}),'측정자'), set(p,'Value',2); end
+end
+c.emit(1,100);
+cb=get(findall(f,'String','20회 수집 시작'),'Callback'); cb([],[]);
+c.emit(2,200);
+dataFolder=fullfile(folder,'sensor_data');
+before=dir(fullfile(dataFolder,'*.csv'));
+cb=get(findall(f,'String','중지하고 버리기'),'Callback'); cb([],[]);
+c.emit(3,300);
+verifyEqual(testCase,numel(dir(fullfile(dataFolder,'*.csv'))),numel(before));
+verifyEqual(testCase,get(findall(f,'String','Python 서버로 전송'),'Enable'),'off');
+verifyEqual(testCase,get(findall(f,'String','20회 수집 시작'),'Enable'),'on');
+% A paused snapshot is also removed, while older test sessions survive.
+c.emit(4,400);
+cb=get(findall(f,'String','20회 수집 시작'),'Callback'); cb([],[]);
+c.emit(5,500);
+cb=get(findall(f,'String','일시 중지'),'Callback'); cb([],[]);
+verifyEqual(testCase,numel(dir(fullfile(dataFolder,'*.csv'))),numel(before)+1);
+cb=get(findall(f,'String','중지하고 버리기'),'Callback'); cb([],[]);
+verifyEqual(testCase,numel(dir(fullfile(dataFolder,'*.csv'))),numel(before));
 end
