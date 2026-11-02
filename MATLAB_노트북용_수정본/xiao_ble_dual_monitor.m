@@ -68,6 +68,9 @@ elapsedMs = 0;
 gestureName = '';
 subjectId = '';
 sessionId = '';
+gestureType = 'both';
+gestureTypes = {'left_only','right_only','both'};
+gestureTypeNames = {'왼손만','오른손만','양손'};
 sequence = zeros(1,2); % Separate sample numbers within each hand.
 trialCounts = zeros(2,20);
 filePaths = {'', ''};
@@ -104,6 +107,10 @@ deleteButton = uicontrol(fig,'Style','pushbutton','String','최근 회차 삭제
     'Units','normalized','Position',[0.02 0.895 0.14 0.045], 'Callback',@deleteLastTrial);
 sendButton = uicontrol(fig,'Style','pushbutton','String','Python 서버로 전송', ...
     'Units','normalized','Position',[0.18 0.895 0.17 0.045], 'Callback',@sendCapture);
+uicontrol(fig,'Style','text','String','수어 유형','Units','normalized', ...
+    'Position',[0.37 0.895 0.08 0.04],'BackgroundColor','w');
+gestureTypeInput = uicontrol(fig,'Style','popupmenu','String',gestureTypeNames, ...
+    'Value',3,'Tag','GestureType','Units','normalized','Position',[0.46 0.895 0.17 0.045]);
 % FSR display scaling (0..selected maximum). Does not modify measured ADC values.
 fsrYMaxValues = [50 100 200 500 1000 4095];
 uicontrol(fig,'Style','text','String','Y max (ADC)', ...
@@ -178,8 +185,10 @@ try
     end
 catch exception
     if isgraphics(fig), delete(fig); end
+    clear cleaner; % Release while nested callback workspace is still valid.
     rethrow(exception);
 end
+clear cleaner;
 
     function receiveFragment(src,side)
         if ~isgraphics(fig), return; end
@@ -259,12 +268,14 @@ end
                 message = 'Subject와 수어명을 입력하세요. 수어명은 숫자로 끝날 수 없습니다.';
                 refreshUI(); return;
             end
-            answer = questdlg(sprintf('%s / %s / 양손 / 20회 측정이 맞습니까?', ...
-                subjectOptions{subjectIndex},label),'측정자 확인', ...
+            typeIndex=get(gestureTypeInput,'Value');
+            answer = questdlg(sprintf('%s / %s / %s / 양손 센서 저장 / 20회 측정이 맞습니까?', ...
+                subjectOptions{subjectIndex},label,gestureTypeNames{typeIndex}),'측정자 확인', ...
                 '맞습니다','취소','취소');
             if ~strcmp(answer,'맞습니다'), return; end
             subjectId = sprintf('subject%d',subjectIndex-1);
             gestureName = label;
+            gestureType = gestureTypes{typeIndex};
             stamp = char(datetime('now','Format','yyyyMMdd_HHmmss_SSS'));
             sessionId = sprintf('s%s_%09d',stamp,randi(999999999));
             if ~isfolder(saveDirectory), mkdir(saveDirectory); end
@@ -275,7 +286,7 @@ end
                 if isfile(filePaths{sd})
                     error('XIAO:FileExists','CSV가 이미 존재합니다: %s',filePaths{sd});
                 end
-                write_sensor_csv(filePaths{sd},{},'replace');
+                write_sensor_csv(filePaths{sd},{},'replace',3);
             end
             hasRun = true;
             samples = {cell(1,0),cell(1,0)};
@@ -304,7 +315,8 @@ end
         sequence(side) = sequence(side)+1;
         trialId = sprintf('%s%d',gestureName,phase.trial);
         payload = make_sensor_payload(frame.fsr,frame.imu(1:6),hands{side}, ...
-            sequence(side),frame.time_ms,trialId,subjectId,sessionId);
+            sequence(side),frame.time_ms,trialId,subjectId,sessionId,gestureType, ...
+            elapsedMs,elapsedMs-(phase.trial-1)*8000);
         samples{side}{end+1} = payload;
         buffers{side}{end+1} = payload;
         pending{end+1} = payload;
@@ -317,7 +329,7 @@ end
         elapsedMs = elapsedOffsetMs+toc(clock)*1000;
         elapsedOffsetMs = elapsedMs;
         running = false;
-        flushBuffers();
+        if ~flushBuffers(), refreshUI(); return; end
         message = sprintf('일시 중지 (%.1f초 진행). 계속 수집할 수 있습니다.',elapsedMs/1000);
         refreshUI();
     end
@@ -327,7 +339,7 @@ end
         elapsedMs = 160000;
         running = false;
         completed = true;
-        flushBuffers();
+        if ~flushBuffers(), return; end
         if all(trialCounts(:) > 0)
             message = '양손 20회 수집 완료. 결과 확인 후 전송하세요.';
         else
@@ -335,13 +347,15 @@ end
         end
     end
 
-    function flushBuffers()
+    function ok = flushBuffers()
+        ok = true;
         for sd = 1:2
             if isempty(buffers{sd}) || isempty(filePaths{sd}), continue; end
             try
                 write_sensor_csv(filePaths{sd},buffers{sd},'append');
                 buffers{sd} = cell(1,0);
             catch err
+                ok = false;
                 running = false;
                 message = sprintf('%s CSV 저장 실패: %s',handNames{sd},err.message);
             end
@@ -359,7 +373,7 @@ end
         id = sprintf('%s%d',gestureName,trial);
         for sd = 1:2
             keep = ~cellfun(@(p) strcmp(p.source,id),samples{sd});
-            write_sensor_csv(filePaths{sd},samples{sd}(keep),'replace');
+            write_sensor_csv(filePaths{sd},samples{sd}(keep),'replace',3);
             samples{sd} = samples{sd}(keep);
             buffers{sd} = cell(1,0);
         end
@@ -394,7 +408,7 @@ end
                 p.subject_id = newSubject;
                 samples{sd}{k} = p;
             end
-            write_sensor_csv(filePaths{sd},samples{sd},'replace');
+            write_sensor_csv(filePaths{sd},samples{sd},'replace',3);
             buffers{sd} = cell(1,0);
         end
         for k = 1:numel(pending)
@@ -415,7 +429,7 @@ end
                 '기존 양손 CSV 파일은 삭제하지 않고 유지합니다.'], ...
                 '새 수집 확인','새 수집','취소','취소');
             if ~strcmp(answer,'새 수집'), return; end
-            flushBuffers();
+            if ~flushBuffers(), refreshUI(); return; end
         end
         hasRun = false;
         submitted = false;
@@ -440,7 +454,7 @@ end
 
     function sendCapture(~,~)
         if running || sending || submitted || isempty(pending), return; end
-        flushBuffers();
+        if ~flushBuffers(), refreshUI(); return; end
         answer = questdlg(sprintf('양손 %d개 데이터를 Python 서버로 전송할까요?\n서버를 먼저 실행해야 합니다.', ...
             numel(pending)), '전송 확인', '전송','취소','취소');
         if ~strcmp(answer,'전송'), return; end
@@ -472,7 +486,7 @@ end
             activeBatch = pending(1:n);
             pending(1:n) = [];
             try
-                transfer = parfeval(backgroundPool,@post_sensor_batch,1,endpoint,activeBatch);
+                transfer = parfeval(backgroundPool,@post_sensor_batch,1,endpoint,activeBatch,true);
             catch err
                 pending = [activeBatch pending];
                 activeBatch = cell(1,0);
@@ -523,6 +537,7 @@ end
         enable(clearButton,~running && ~sending);
         enable(gestureInput,editable);
         enable(subjectInput,editable);
+        enable(gestureTypeInput,~hasRun && ~running && ~sending);
         if hasRun, startButton.String = '계속 수집';
         else, startButton.String = '양손 20회 수집 시작'; end
     end

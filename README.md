@@ -6,6 +6,8 @@
 
 **팀원 데이터 다운로드: [보드·날짜별 측정 데이터와 KNN 결과](datasets/README.md)**
 
+**XIAO 2개 수어 유형 선택·양손 KNN 비교: [새 수집 및 학습 안내](docs/dual-hand-knn.md)**
+
 기존 코드와 CSV는 보존했으며 새 데이터 저장은 `data/sensor_dataset_v2.csv`를 사용합니다.
 
 ## 폴더 안내

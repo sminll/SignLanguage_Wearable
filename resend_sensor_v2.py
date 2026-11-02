@@ -2,6 +2,7 @@
 import csv
 import json
 import re
+import argparse
 from pathlib import Path
 from tkinter import Tk,filedialog
 from urllib.request import Request,urlopen
@@ -11,6 +12,9 @@ ENDPOINT='http://127.0.0.1:5000/sensor'
 
 
 def main():
+    parser=argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--endpoint',default=ENDPOINT)
+    args=parser.parse_args()
     gui=Tk();gui.withdraw()
     try:
         name=filedialog.askopenfilename(title='MATLAB 새 수집 CSV 선택',filetypes=[('CSV','*.csv')])
@@ -24,6 +28,16 @@ def main():
     meta={(r['subject_id'],r['session_id'],r['device_id']) for r in rows}
     if len(meta) != 1:
         raise ValueError('한 CSV 안에 Subject/Session/손이 여러 개입니다. 전송을 중단합니다.')
+    extra = ['gesture_type', 'host_elapsed_ms', 'trial_elapsed_ms']
+    if any(k in rows[0] for k in extra):
+        if not all(k in rows[0] for k in extra):
+            raise ValueError('양손 CSV 메타데이터가 일부 누락됐습니다.')
+        if not args.endpoint.endswith('/sensor'):
+            raise ValueError('전송 주소는 /sensor로 끝나야 합니다.')
+        with urlopen(args.endpoint[:-len('/sensor')]+'/health',timeout=5) as response:
+            health=json.load(response)
+        if 3 not in health.get('schema_versions',[]):
+            raise ValueError('서버가 v3 수신을 지원하지 않습니다. CSV는 보존됩니다.')
     print('전송 대상:',meta,' / 행:',len(rows))
     if input('진행하려면 YES: ').strip()!='YES':return
     saved=duplicates=0
@@ -37,7 +51,14 @@ def main():
         for a,b in zip(['ax_g','ay_g','az_g','gx_dps','gy_dps','gz_dps'],['ax','ay','az','gx','gy','gz']):
             v=r[a]
             data[b]=None if v in ('','NaN','nan','null') else float(v)
-        req=Request(ENDPOINT,data=json.dumps(data,ensure_ascii=False,allow_nan=False).encode('utf-8'),headers={'Content-Type':'application/json'},method='POST')
+        extra = ['gesture_type', 'host_elapsed_ms', 'trial_elapsed_ms']
+        if any(k in r for k in extra):
+            if not all(k in r for k in extra):
+                raise ValueError('양손 CSV 메타데이터가 일부 누락됐습니다.')
+            data.update(gesture_type=r['gesture_type'],
+                        host_elapsed_ms=float(r['host_elapsed_ms']),
+                        trial_elapsed_ms=float(r['trial_elapsed_ms']))
+        req=Request(args.endpoint,data=json.dumps(data,ensure_ascii=False,allow_nan=False).encode('utf-8'),headers={'Content-Type':'application/json'},method='POST')
         try:
             with urlopen(req,timeout=10) as res: out=json.load(res)
         except (HTTPError,URLError,TimeoutError) as e:

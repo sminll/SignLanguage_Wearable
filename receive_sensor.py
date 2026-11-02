@@ -14,6 +14,7 @@ import re
 import argparse
 
 from prepare_sensor_v2 import MASTER, FIELDS
+from sensor_store_v3 import EXTRA_FIELDS, V3Store, validate_metadata
 
 app = Flask(__name__)
 save_lock = Lock()
@@ -22,6 +23,7 @@ SESSION_RE = re.compile(r'^[A-Za-z0-9_-]{6,80}$')
 SENSOR_KEYS = [*(f'fsr{i}' for i in range(1, 7)), 'ax', 'ay', 'az', 'gx', 'gy', 'gz']
 _seen = {}
 _count = 0
+v3_store = V3Store(MASTER.with_name('sensor_dataset_v3.csv'))
 
 
 def signature(row):
@@ -93,18 +95,34 @@ def validate(data):
 
 @app.route('/health',methods=['GET'])
 def health():
-    return {'status':'ok','dataset':MASTER.name},200
+    return {'status':'ok','dataset':MASTER.name,
+            'schema_versions':[2,3], 'timed_dataset':v3_store.path.name},200
 
 
 @app.route('/sensor',methods=['POST'])
 def receive_sensor():
     global _count
     try:
-        row=validate(request.get_json(silent=True))
+        data=request.get_json(silent=True)
+        row=validate(data)
+        timed = any(name in data for name in EXTRA_FIELDS)
+        if timed:
+            row.update(validate_metadata(data))
     except ValueError as e:
         return {'error':str(e)},400
     key=(row['session_id'],row['hand'],str(row['sample_seq']))
     with save_lock:
+        if timed:
+            if key in _seen:
+                return {'error':'기존 v2 샘플과 같은 키입니다. 새 세션을 사용하세요.'},409
+            try:
+                status = v3_store.append(row)
+            except ValueError as e:
+                return {'error':str(e)},409
+            return {'status':status,'session_id':row['session_id'],'schema_version':3},200
+        v3_store.load()
+        if key in v3_store.seen:
+            return {'error':'기존 v3 샘플을 구형 형식으로 재전송할 수 없습니다.'},409
         if key in _seen:
             if _seen[key] != signature(row):
                 return {'error':'기존과 다른 데이터가 동일 session_id/seq로 들어왔습니다. 전송을 중단하고 확인하세요.'},409

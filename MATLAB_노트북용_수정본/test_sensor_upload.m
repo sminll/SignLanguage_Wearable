@@ -72,3 +72,24 @@ r=post_sensor_batch([url '/saved-then-500'],batch);
 verifyEqual(testCase,r.sent,0);
 verifyEqual(testCase,r.unconfirmed,3);
 end
+
+function testTimedMetadataPost(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'));
+p=make_sensor_payload(1:6,zeros(1,6),'R',1,90000,'시험1', ...
+    'subject1','timed_metadata_test','left_only',100,100);
+r=post_sensor_batch([url '/sensor'],{p},true);
+verifyEqual(testCase,r.sent,1);
+verifyEmpty(testCase,r.message);
+end
+
+function testOldServerCannotSilentlyDropMetadata(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'));
+p=make_sensor_payload(1:6,zeros(1,6),'L',1,100,'시험1', ...
+    'subject1','old_server_metadata_test','both',100,100);
+r=post_sensor_batch([url '/legacy/sensor'],{p},true);
+verifyEqual(testCase,r.sent,0);
+verifyEqual(testCase,r.unconfirmed,1);
+verifyNotEmpty(testCase,r.message);
+end

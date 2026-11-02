@@ -96,17 +96,23 @@ def main() -> int:
     parser.add_argument('--date', type=date.fromisoformat, help='수신 날짜 YYYY-MM-DD')
     parser.add_argument('--board', choices=['XIAO', 'ESP32'], help='세션 장치 기록으로 필터링')
     parser.add_argument('--output', type=Path, help='별도 결과 저장 폴더')
+    parser.add_argument('--input', type=Path, default=INPUT, help='분석할 CSV (기본: 기존 v2)')
+    parser.add_argument('--hand', choices=['left','right'], help='기존 손별 분석에서 사용할 손')
     args = parser.parse_args()
     out = args.output
     if out is None:
-        suffix = '_'.join(str(x) for x in (args.date, args.board) if x is not None)
+        suffix = '_'.join(str(x) for x in (args.date, args.board, args.hand) if x is not None)
+        if args.input.resolve() != INPUT.resolve():
+            suffix = args.input.stem + ('_' + suffix if suffix else '')
         out = OUT / suffix if suffix else OUT
-    if not INPUT.exists():
-        print(f"입력 파일이 없습니다: {INPUT}")
+    if not args.input.exists():
+        print(f"입력 파일이 없습니다: {args.input}")
         print("먼저 python prepare_sensor_v2.py 로 통합 CSV를 만드세요.")
         return 1
 
-    raw = pd.read_csv(INPUT, encoding="utf-8-sig", low_memory=False)
+    raw = pd.read_csv(args.input, encoding="utf-8-sig", low_memory=False)
+    if args.hand:
+        raw = raw.loc[raw['hand'].eq(args.hand)].copy()
     if args.date:
         raw = raw.loc[raw['time'].astype('string').str.startswith(str(args.date), na=False)].copy()
     if args.board:

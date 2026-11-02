@@ -1,4 +1,4 @@
-function payload = make_sensor_payload(fsr, imu, deviceId, sequence, timeMs, source, subjectId, sessionId)
+function payload = make_sensor_payload(fsr, imu, deviceId, sequence, timeMs, source, subjectId, sessionId, gestureType, hostMs, trialMs)
 % Build one raw sensor record with optional subject/session identifiers.
 if nargin < 7, subjectId = ''; end
 if nargin < 8, sessionId = ''; end
@@ -48,4 +48,18 @@ payload = struct('source', source, 'device_id', deviceId, ...
     'ax_g', imu(1), 'ay_g', imu(2), 'az_g', imu(3), ...
     'gx_dps', imu(4), 'gy_dps', imu(5), 'gz_dps', imu(6), ...
     'imu_ok', imuOk, 'subject_id', subjectId, 'session_id', sessionId);
+if nargin > 8
+    if nargin ~= 11
+        error('sensor:TimingMetadata','유형과 공통 시간 2개를 함께 입력하세요.');
+    end
+    gestureType = char(string(gestureType));
+    if ~ismember(gestureType, {'left_only','right_only','both'})
+        error('sensor:GestureType','잘못된 수어 유형입니다.');
+    end
+    validateattributes(hostMs,{'numeric'},{'scalar','real','finite','nonnegative'});
+    validateattributes(trialMs,{'numeric'},{'scalar','real','finite','nonnegative','<',5000});
+    payload.gesture_type = gestureType;
+    payload.host_elapsed_ms = double(hostMs);
+    payload.trial_elapsed_ms = double(trialMs);
+end
 end

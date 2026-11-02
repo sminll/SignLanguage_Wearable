@@ -12,6 +12,7 @@ if isempty(batch)
 end
 options = weboptions('MediaType', 'application/json', ...
     'ContentType', 'text', 'Timeout', 10);
+checkedV3=false;
 for k = 1:numel(batch)
     try
         sample = batch{k};
@@ -38,6 +39,21 @@ for k = 1:numel(batch)
             'fsr5', sample.fsr5_raw, 'fsr6', sample.fsr6_raw, ...
             'ax', sample.ax_g, 'ay', sample.ay_g, 'az', sample.az_g, ...
             'gx', sample.gx_dps, 'gy', sample.gy_dps, 'gz', sample.gz_dps);
+        extra = {'gesture_type','host_elapsed_ms','trial_elapsed_ms'};
+        if any(isfield(sample,extra))
+            if ~all(isfield(sample,extra))
+                error('sensor:TimingMetadata','양손 시간 메타데이터가 누락됐습니다.');
+            end
+            if ~checkedV3
+                healthUrl=regexprep(endpoint,'/sensor$','/health');
+                health=webread(healthUrl,weboptions('Timeout',5));
+                if ~isstruct(health) || ~isfield(health,'schema_versions') || ~ismember(3,health.schema_versions)
+                    error('sensor:ServerVersion','서버를 v3 수신 지원 버전으로 업데이트하세요. CSV는 보존됩니다.');
+                end
+                checkedV3=true;
+            end
+            for field=extra, payload.(field{1})=sample.(field{1}); end
+        end
         try
             webwrite(endpoint, payload, options);
         catch postError

@@ -1,4 +1,4 @@
-function write_sensor_csv(filePath, samples, mode)
+function write_sensor_csv(filePath, samples, mode, schemaVersion)
 % Persist flat sensor records; replace writes a complete snapshot first.
 if isstring(filePath) && isscalar(filePath)
     filePath = char(filePath);
@@ -22,10 +22,26 @@ fields = {'source', 'device_id', 'seq', 'time_ms', ...
     'fsr1_raw', 'fsr2_raw', 'fsr3_raw', 'fsr4_raw', 'fsr5_raw', ...
     'fsr6_raw', 'ax_g', 'ay_g', 'az_g', 'gx_dps', 'gy_dps', ...
     'gz_dps', 'imu_ok', 'subject_id', 'session_id'};
+extra = {'gesture_type','host_elapsed_ms','trial_elapsed_ms'};
+timed = ~isempty(samples) && any(isfield(samples{1},extra));
+if nargin>=4
+    validateattributes(schemaVersion,{'numeric'},{'scalar','integer'});
+    if ~ismember(schemaVersion,[2 3]), error('sensor:CsvSchema','CSV 버전은 2 또는 3입니다.'); end
+    timed = schemaVersion==3;
+end
+if timed, fields = [fields extra]; end
 for k = 1:numel(samples)
     if ~isstruct(samples{k}) || ~isscalar(samples{k}) ...
             || ~all(isfield(samples{k}, fields))
         error('sensor:InvalidCsvSamples', 'Each sample must be a scalar sensor payload.');
+    end
+    if any(isfield(samples{k},extra)) ~= timed
+        error('sensor:InvalidCsvSamples','구형/양손 시간 형식을 섞어 저장할 수 없습니다.');
+    end
+    if timed
+        validatestring(samples{k}.gesture_type,{'left_only','right_only','both'});
+        validateattributes(samples{k}.host_elapsed_ms,{'numeric'},{'scalar','real','finite','nonnegative'});
+        validateattributes(samples{k}.trial_elapsed_ms,{'numeric'},{'scalar','real','finite','nonnegative','<',5000});
     end
 end
 
@@ -45,6 +61,14 @@ else
     permission = 'a';
     info = dir(filePath);
     needsHeader = isempty(info) || info.bytes == 0;
+    if ~needsHeader
+        readId=fopen(filePath,'r','n','UTF-8');
+        if readId<0, error('sensor:CsvOpenFailed','CSV 헤더 확인 실패'); end
+        header=fgetl(readId); fclose(readId);
+        if ~strcmp(header,strjoin(fields,','))
+            error('sensor:CsvSchemaMismatch','기존 CSV와 열 형식이 다릅니다.');
+        end
+    end
 end
 [fid, message] = fopen(outputPath, permission, 'n', 'UTF-8');
 if fid < 0
@@ -66,7 +90,14 @@ for k = 1:numel(samples)
     end
     fprintf(fid, '%s,%s', quoteField(sample.source), quoteField(sample.device_id));
     fprintf(fid, ',%.17g', numbers);
-    fprintf(fid, ',%s,%s\n', quoteField(sample.subject_id), quoteField(sample.session_id));
+    fprintf(fid, ',%s,%s', quoteField(sample.subject_id), quoteField(sample.session_id));
+    if timed
+        validateattributes(sample.host_elapsed_ms,{'numeric'},{'scalar','real','finite','nonnegative'});
+        validateattributes(sample.trial_elapsed_ms,{'numeric'},{'scalar','real','finite','nonnegative','<',5000});
+        fprintf(fid, ',%s,%.17g,%.17g',quoteField(sample.gesture_type), ...
+            sample.host_elapsed_ms,sample.trial_elapsed_ms);
+    end
+    fprintf(fid,'\n');
 end
 [message, errorNumber] = ferror(fid);
 if errorNumber ~= 0
