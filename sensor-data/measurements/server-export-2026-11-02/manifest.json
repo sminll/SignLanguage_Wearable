@@ -1,0 +1,355 @@
+{
+  "schema": "original_v2_21_columns",
+  "source_sha256": "cecd20ab46f654695c3b871e9c67263c5f79d0f0dab2521d4805ed1f35babe50",
+  "rows": 22055,
+  "sessions": [
+    {
+      "path": "ESP32/2026-10-29/subject1/legacy_0002.csv",
+      "session_id": "legacy_0002",
+      "board_type": "ESP32",
+      "date": "2026-10-29",
+      "subject_id": "subject1",
+      "labels": [
+        "가위"
+      ],
+      "rows": 968,
+      "hands": {
+        "left": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "5e1cb9f71fc22aca6de839a24ed1e5645da9f16be081afeb97e2f831542b1884"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject2/legacy_0003.csv",
+      "session_id": "legacy_0003",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject2",
+      "labels": [
+        "아프다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "6b3a49bb500da2b94261daab7060afd45827f53482d4eeefbd171ee1598f295b"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject2/legacy_0004.csv",
+      "session_id": "legacy_0004",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject2",
+      "labels": [
+        "어렵다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "9b55d387596cd655654c7397fb2d0ac4ada21af26b4f9b35c8185f146752f042"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject2/legacy_0005.csv",
+      "session_id": "legacy_0005",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject2",
+      "labels": [
+        "못하다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "6841a9b079198656b494e321c3acd2c0acfc641401d5951e470a84b65ce25a20"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject3/legacy_0006.csv",
+      "session_id": "legacy_0006",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject3",
+      "labels": [
+        "아프다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "204ef3887e67deb0b7d2457cae1014530ca7364b619263fa898c0f5371694f8e"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject3/legacy_0007.csv",
+      "session_id": "legacy_0007",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject3",
+      "labels": [
+        "어렵다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "16967b49369d0f300cf25a849fd1b7c8027a6526767de95c52691d411d70c185"
+    },
+    {
+      "path": "ESP32/2026-10-30/subject3/legacy_0008.csv",
+      "session_id": "legacy_0008",
+      "board_type": "ESP32",
+      "date": "2026-10-30",
+      "subject_id": "subject3",
+      "labels": [
+        "안된다"
+      ],
+      "rows": 968,
+      "hands": {
+        "right": 968
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "942a95a520cd3d93bb4394f989a8bc420350e05219d4ad1ae8f2f7210c9e823b"
+    },
+    {
+      "path": "XIAO/2026-11-01/subject1/s20261101_182103_064_126986817.csv",
+      "session_id": "s20261101_182103_064_126986817",
+      "board_type": "XIAO",
+      "date": "2026-11-01",
+      "subject_id": "subject1",
+      "labels": [
+        "갑자기"
+      ],
+      "rows": 991,
+      "hands": {
+        "left": 991
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "6a3c319ffc93824a67d2804c38da62cf205f5c0ab414cc0cb532d6b9eb539b72"
+    },
+    {
+      "path": "XIAO/2026-11-01/subject1/s20261101_183011_302_913375856.csv",
+      "session_id": "s20261101_183011_302_913375856",
+      "board_type": "XIAO",
+      "date": "2026-11-01",
+      "subject_id": "subject1",
+      "labels": [
+        "머리"
+      ],
+      "rows": 992,
+      "hands": {
+        "left": 992
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "0534780c6130cd5b74279f21920ee4d0e9a45377c1fa60588e04b3a427b2bd76"
+    },
+    {
+      "path": "XIAO/2026-11-01/subject1/s20261101_183906_217_632359246.csv",
+      "session_id": "s20261101_183906_217_632359246",
+      "board_type": "XIAO",
+      "date": "2026-11-01",
+      "subject_id": "subject1",
+      "labels": [
+        "아프다"
+      ],
+      "rows": 995,
+      "hands": {
+        "left": 995
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "460d8f862786ca344aa3835055f2fa44a71cf2c115d70779a0471728dc5df243"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject4/s20261102_170426_237_905791937.csv",
+      "session_id": "s20261102_170426_237_905791937",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject4",
+      "labels": [
+        "아프다"
+      ],
+      "rows": 1394,
+      "hands": {
+        "left": 1394
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "c96f372af671d63e77e9009ded97bb350d6ed828c36549e1695cdfae4136d3bd"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject4/s20261102_171310_095_913375856.csv",
+      "session_id": "s20261102_171310_095_913375856",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject4",
+      "labels": [
+        "머리"
+      ],
+      "rows": 1389,
+      "hands": {
+        "left": 1389
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "9e1a57c1f95854dedf6b0bed5c6f2d9f3e80a96ae96ef6d73c690254916c7ac3"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject4/s20261102_171939_434_632359246.csv",
+      "session_id": "s20261102_171939_434_632359246",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject4",
+      "labels": [
+        "갑자기"
+      ],
+      "rows": 1391,
+      "hands": {
+        "left": 1391
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "af96e0e119ae8b918c08d5a503ea8f65e00d3816277edee467e15ee4d72a6545"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject2/s20261102_183549_659_421761283.csv",
+      "session_id": "s20261102_183549_659_421761283",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject2",
+      "labels": [
+        "아프다"
+      ],
+      "rows": 1390,
+      "hands": {
+        "left": 1390
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "review_required_near_zero_fsr",
+      "sha256": "35353ee763ea5ec67c78d5428bbca1add0fcacbe441ff4ffaf7f123c2b4ac067"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject2/s20261102_184120_876_915735525.csv",
+      "session_id": "s20261102_184120_876_915735525",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject2",
+      "labels": [
+        "머리"
+      ],
+      "rows": 1390,
+      "hands": {
+        "left": 1390
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "review_required_near_zero_fsr",
+      "sha256": "5189710f4ef10b2af879e0179728d9776fee7303e0d147a43a778b518302044d"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject2/s20261102_184858_984_792207329.csv",
+      "session_id": "s20261102_184858_984_792207329",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject2",
+      "labels": [
+        "갑자기"
+      ],
+      "rows": 1390,
+      "hands": {
+        "left": 1390
+      },
+      "gesture_type": "unrecorded",
+      "gesture_type_basis": "not_in_original_schema",
+      "shared_clock_available": false,
+      "quality": "review_required_near_zero_fsr",
+      "sha256": "2090963445bf2b472e838cbbc8113ee7e2788e9245be5334223412b1e78c902f"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject1/s20261102_202453_620_757740130.csv",
+      "session_id": "s20261102_202453_620_757740130",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject1",
+      "labels": [
+        "건강"
+      ],
+      "rows": 1981,
+      "hands": {
+        "right": 989,
+        "left": 992
+      },
+      "gesture_type": "both",
+      "gesture_type_basis": "user_confirmed",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "1df39c20acae31b248beddc41823d055211cd34cf8170325302a9edc4691461d"
+    },
+    {
+      "path": "XIAO/2026-11-02/subject1/s20261102_203328_055_743132468.csv",
+      "session_id": "s20261102_203328_055_743132468",
+      "board_type": "XIAO",
+      "date": "2026-11-02",
+      "subject_id": "subject1",
+      "labels": [
+        "건강 (앉아서)"
+      ],
+      "rows": 1976,
+      "hands": {
+        "left": 988,
+        "right": 988
+      },
+      "gesture_type": "both",
+      "gesture_type_basis": "user_confirmed",
+      "shared_clock_available": false,
+      "quality": "not_quality_certified",
+      "sha256": "95ae771095afe6faee7958f55821b0d590cd786b1825c5ae4f0b56f90a7746d6"
+    }
+  ],
+  "excluded_rows": {
+    "TEST": 1,
+    "two hands test": 100
+  }
+}
