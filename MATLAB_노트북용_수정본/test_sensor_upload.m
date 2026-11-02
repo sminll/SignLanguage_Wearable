@@ -42,3 +42,33 @@ for k=1:3
         '시험1','subject6','local_integration_test');
 end
 end
+
+function testIdempotentServer500Recovery(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'));
+batch=makeBatch();
+for k=1:numel(batch), batch{k}.session_id='retry_server_error_test'; end
+r=post_sensor_batch([url '/saved-then-500'],batch,true);
+verifyEqual(testCase,r.sent,3);
+verifyEqual(testCase,r.unconfirmed,0);
+verifyEmpty(testCase,r.message);
+end
+
+function testRepeated500StillStops(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'));
+r=post_sensor_batch([url '/always-500'],makeBatch(),true);
+verifyEqual(testCase,r.sent,0);
+verifyEqual(testCase,r.unconfirmed,3);
+verifyNotEmpty(testCase,r.message);
+end
+
+function testDefaultDoesNotRetry500(testCase)
+url=getenv('XIAO_TEST_RECEIVER');
+assumeTrue(testCase,startsWith(url,'http://127.0.0.1:'));
+batch=makeBatch();
+for k=1:numel(batch), batch{k}.session_id='no_retry_server_error_test'; end
+r=post_sensor_batch([url '/saved-then-500'],batch);
+verifyEqual(testCase,r.sent,0);
+verifyEqual(testCase,r.unconfirmed,3);
+end

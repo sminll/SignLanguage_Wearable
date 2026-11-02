@@ -1,5 +1,7 @@
-function result = post_sensor_batch(endpoint, batch)
-% POST each record once, stopping on the first unconfirmed response.
+function result = post_sensor_batch(endpoint, batch, retryServerError)
+% Retry one HTTP 500 only when the caller knows the receiver deduplicates
+% (session_id, hand, seq). Never retry a timeout or conflict automatically.
+if nargin < 3, retryServerError = false; end
 if ~iscell(batch) || (~isvector(batch) && ~isempty(batch)) ...
         || any(~cellfun(@(payload) isstruct(payload) && isscalar(payload), batch(:)))
     error('sensor:InvalidBatch', 'Batch must be a cell vector of scalar payload structs.');
@@ -36,7 +38,17 @@ for k = 1:numel(batch)
             'fsr5', sample.fsr5_raw, 'fsr6', sample.fsr6_raw, ...
             'ax', sample.ax_g, 'ay', sample.ay_g, 'az', sample.az_g, ...
             'gx', sample.gx_dps, 'gy', sample.gy_dps, 'gz', sample.gz_dps);
-        webwrite(endpoint, payload, options);
+        try
+            webwrite(endpoint, payload, options);
+        catch postError
+            if retryServerError && ~isempty(sample.session_id) ...
+                    && contains(postError.identifier, 'HTTP500')
+                % Keep the entire payload and idempotency key identical.
+                webwrite(endpoint, payload, options);
+            else
+                rethrow(postError);
+            end
+        end
         result.sent = result.sent + 1;
         result.unconfirmed = numel(batch) - result.sent;
     catch exception

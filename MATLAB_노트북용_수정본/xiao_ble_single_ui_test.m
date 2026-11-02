@@ -356,7 +356,7 @@ end
                 else
                     n=min(20,numel(pending)); activeBatch=pending(1:n); pending(1:n)=[];
                     try
-                        transfer=parfeval(backgroundPool,helpers.postBatch,1,endpoint,activeBatch);
+                        transfer=parfeval(backgroundPool,helpers.postBatch,1,endpoint,activeBatch,true);
                     catch err
                         pending=[activeBatch pending]; activeBatch={}; sending=false;
                         message=['전송 시작 실패. 자동 재시도 없음. CSV 보존: ' err.message];
