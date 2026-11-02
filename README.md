@@ -4,6 +4,8 @@
 
 **원격 수신 서버 실행: [Tailscale 수신 안내](TAILSCALE_수신안내.md)**
 
+**팀원 데이터 다운로드: [보드·날짜별 측정 데이터와 KNN 결과](datasets/README.md)**
+
 기존 코드와 CSV는 보존했으며 새 데이터 저장은 `data/sensor_dataset_v2.csv`를 사용합니다.
 
 ## 폴더 안내
