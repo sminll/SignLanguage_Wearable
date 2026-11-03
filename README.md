@@ -14,6 +14,8 @@
 - `firmware/`: XIAO 펌웨어
 - `data/`: 측정 원본, 장치 기록, 학습 결과 및 백업
 - [실험기록/](실험기록/README.md): 날짜별 분석 결과
+- [모델 현황](실험기록/모델_현황.md): 보존·사용 중단 모델·학습 제외 상태
+- [분석 도구](tools/README.md): 품질검사·비교·평가 스크립트 안내
 - [legacy/](legacy/README.md): 구버전 Python 코드, 가상 데이터 예제, 과거 안내
 
 현재 Python 실행 파일은 최상위에 유지합니다. 기존 원본 폴더 백업은 `archive_original_folder/`에 그대로 보관합니다.
