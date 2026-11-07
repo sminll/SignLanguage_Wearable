@@ -1,6 +1,6 @@
 {
   "excluded_on": "2026-11-03",
-  "reason": "User requested exclusion of today app measurements from training",
+  "reason": "User explicitly reinstated app subjects 1+2; previous exclusion retained in history",
   "source_commit": "ff5d6c3a84f7e42eb0bb811413eb2e7f4de3bcaf",
   "subjects": [
     "subject-1",
@@ -8,606 +8,621 @@
   ],
   "trials": 120,
   "raw_data_preserved": true,
-  "files": [
-    {
-      "path": "sensor-data/training/283196339/004de278-54f6-4682-85b4-14244e8cc687.csv",
-      "sha256": "3bd5ef6196c28c136a1ee969a6bd6b572ec98e1b1fafb8e411caf2f5d1178ba3",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/01d35890-5968-4f5f-b1f5-79745713236c.csv",
-      "sha256": "7b55b463e30ff598db15375c03a7ce2c51f6a56332787874b32290d9455fe46e",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/0318f6c0-994e-4ee0-9375-70f2910bd3b4.csv",
-      "sha256": "919047629d6d7c33437a6e27d1d30790d78c1dc5134dec74c4e39adb4f7d8930",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/06abca6c-1fe5-4309-9fd6-378fa57e13f3.csv",
-      "sha256": "e8537024338e1db008e83eccf946fe517194f607887ea90593932089ecb51b21",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/06ba86b2-91f5-496c-a80f-109791f93e0c.csv",
-      "sha256": "8e755dea64a573e7fd2e59952cbe7ae16f4cee1d99f8dfe7c9e066ff59ea9d47",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/09adff7c-f932-407f-ab17-6eb7d1cb3a56.csv",
-      "sha256": "d3a6dee01012b9234bf6e389459a8b08a6f384142826a11c1871cef9491a6424",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/0ee96d00-5808-43c7-af6d-57bf3c2c9246.csv",
-      "sha256": "77e638bf228d38e8ce3f5960882f779594b9c830f897b6a3a9b0adcde57fa7f6",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/1116c3f5-eb7b-4a61-aed1-7c95f511560d.csv",
-      "sha256": "dde868d1a0cc354ca4d135d701f041a181fab182dbe140000477953e978a7bc2",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/11c46b3e-098c-4333-b38b-e4a4a7f96898.csv",
-      "sha256": "0c73de50e51f446cef642a6c091c7e0a43a5cb6ea84880df22e5699d551692e8",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/15d48727-818c-45f7-93b1-2c11b29a86c9.csv",
-      "sha256": "fdb63355105854fef9c67bd2fa7eb022e288d6baf4a4497875b307d94a41618c",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/163751f0-22b4-466c-b569-7c5d7a246f41.csv",
-      "sha256": "45f10aaa10d8e85bea60e9ecaa095d15cfe28f78ab6fe59a3759e17c50a902e5",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/19c8ac16-cacd-482b-9347-0b715dbe8bdd.csv",
-      "sha256": "5a02f8ca9df1b9dfda4eb3a38f4b5f830495e8dd0b1a909b51bfb2e8053ae194",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/1a95e853-9d78-48f3-8321-60bf3fc3c85a.csv",
-      "sha256": "9be70cbfe77d6c65516889a22ec81cc842a75b374bed48fade00b085bd448110",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/1aef7cd0-260a-4c0b-b806-93e0491d35a8.csv",
-      "sha256": "6f076eab66420f164805ceb18bc41e36942d94ca30f327593c33cdb4e8a4fc2d",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/1c538740-b936-4d2e-bc85-1eea8d7c41fe.csv",
-      "sha256": "d0d115132979a34a49196c55ebdba48253c571e54ce103f1d0ae78f16ec36a0b",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/1cbd0d96-ed3e-4662-b879-2902ce98af03.csv",
-      "sha256": "9ee6b0daf56efbe2c14c3eaed24f235667f788271b676022091026575b9c56f8",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/1cd60a4a-a2f3-4841-844e-8958e34e7841.csv",
-      "sha256": "eaabeba8cee5d495216345e5a7b99ef20a27511321f518e7b4743958768716cd",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/1f7fd814-b33b-43fb-9438-8cf0b01bc722.csv",
-      "sha256": "96890ba7245c77c0e5cd87f34179d832a143587c57aecfb2c71bd36822dd5913",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/205e7264-7f97-43ce-8987-c69bcb0d66c9.csv",
-      "sha256": "02a3fb8b05e98d36b1596c08e8f70876f6c3d381b4dac4207e5612dade0f8fef",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/2280c59a-e484-4867-86f2-657b719f49fd.csv",
-      "sha256": "3f6f4936bb3b3f19e6af40d4b02881aee6c4b632a3d3d127f0e4c5041a573afc",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/25797c25-6be5-42cd-ae0f-5264662d08de.csv",
-      "sha256": "7d18d1d9d76bd58397c92cce51474e139d5fa6ba83d739da4df8aff0e549bed6",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/257e2cc5-fd48-465b-b54f-5687d7544d46.csv",
-      "sha256": "927cfd483a40f01fa37b470a59f72bfec2775cff8ffb5d6d0920ec413f5cab4b",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/264e6d18-9cf0-4965-82ac-ac3830b9455b.csv",
-      "sha256": "43b3908548e67dcbcee2e7efb64c000c39aa016c0169109da18c075f3602dbb4",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/2a78c43b-89de-40b4-92e8-40334244ed5f.csv",
-      "sha256": "ed8b13144243d182d27cfac6111592f5c1e374390ec1a4e8e74b27a0b2356fee",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/2b8cc0e9-54eb-4dba-aa79-2de18939569e.csv",
-      "sha256": "10b375e92095c30dc75ba1325107d4f3b253bf301a008bedb8b3e0e76f6f584b",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/2cf3a137-9dc4-4783-accd-99bec0502a33.csv",
-      "sha256": "f2fc8eba84c1b806f90ec1d130e3fd996bcd3ed34d657895b9f507af208eeb84",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/2d89b0c2-5c03-4a23-9f0d-683f8e3eee13.csv",
-      "sha256": "ea9fc87739f68bb6e0f3290688a2317f16b20d19cceecd7cf89677369961187c",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/2f2133b6-f59b-461a-acc8-f553da7b5913.csv",
-      "sha256": "2557ad66c3efa1a084294f33d12f7e3de237b39332162ceb25dd440f1df20553",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/2fad27c5-7fa4-478a-ada1-d431912ebe60.csv",
-      "sha256": "ef229c0069da309f3ca7a5d29a6203753b54cbad1e61839907a775cd0185b73c",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/30c73cbf-e314-4f16-80f2-131db6583383.csv",
-      "sha256": "d2465ed0a761f28510535834682315ff6d23012bde2d9c75d9dbc8f6d2bfb79c",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/30c8eecd-e271-49c3-b6ef-fbaf0ccab2e8.csv",
-      "sha256": "d27d53f2bd90a6b12933f77fe892308c732a0551ec60d31994cc1fee07c9d2c5",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/32745fb7-2bed-430b-8cde-7b191fa9519e.csv",
-      "sha256": "41100ee1a6c08fc94c647d4bdbb0ab27658adda76d0f4a093891f1a84b099192",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/35de2546-6a4d-4371-8700-83ece3dfeec1.csv",
-      "sha256": "e25573a4d043397f073055c979cdf845eafd0309f12d0f5b58afd35c70554fd2",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/3727dde6-825d-4e4d-926d-b582685a188b.csv",
-      "sha256": "2346372e7b8a227fb78b8777f864c38cb2f67a38ab641875746be8ba5fa31b3f",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/3889ea6a-7eab-42dd-a33d-5c13b8f2ee3d.csv",
-      "sha256": "a6e05a3f5d425f20c4dd03b9dbc3d65f6014fb6960772eb0ff50d1a53cf2c242",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/413135ee-d959-484a-a0f7-58477d7aa1bf.csv",
-      "sha256": "0d9e233b9dbda8d5c3561965739e884688c6b7bcc8267139f03c70a1f0417378",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/4520dab1-c8c7-4906-9f3f-2ac71e4cfacc.csv",
-      "sha256": "fc23da7f246a6a93d42aa17248503925285b71f058a9ff0dbdde15dd7a817cf5",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/47ccddac-d913-45d1-9e66-06b8f0548054.csv",
-      "sha256": "aa26f784a384ecde5413de6d4b4f06f6fc487c7ab041391ef9acfc20f3095b28",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/47e050e4-04df-4bb8-b0bf-3d3383f9839b.csv",
-      "sha256": "b8079e0e25806a2f8ef8692fd8b78b25c07792ac548895ed107bbe247fca421b",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/4c655d4c-d3c9-43b2-9f94-8513678f81fb.csv",
-      "sha256": "8348d38969cde944f46b535001f71da66a965dbf70c9861e67a15075e6b606c6",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/4c9c3987-9253-412d-8441-8f181266d444.csv",
-      "sha256": "f5f73c3afead6fde078925f12104f54baa966de39a45b2ea86a76bb0024db2a4",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/4cf30673-8cb3-40d1-9878-68bf4109d9ff.csv",
-      "sha256": "4c85b4669c9c40bd2b4cef576485cf9cf29eb643f7e21481f04ed172d015bb45",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/4e91011b-1fb5-4093-b016-5afd181bd594.csv",
-      "sha256": "62eb152578a6c078ede8229f2f35827c0b7e0fd414a360367323b97bd0da47cc",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/4f8dd501-e74c-4645-93f3-d7330ffffb35.csv",
-      "sha256": "b02d8d398bb01300185645871a30290d0b8e736a7b62f1f6f1d6dcf0da07b102",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/4ff187d6-c50f-4adc-82d7-1f3903f2d194.csv",
-      "sha256": "b34275b4a4d87bff47e5f657e3b0daab9555b3474cfcf3f250dfb50744b7b6b0",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/5158973b-4962-477e-a0f2-82baca3462d2.csv",
-      "sha256": "18811fb5b738e1e2c3d1441695bd6b2672a25c2973c780ce86d279ccd2c93908",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/526d013d-0e44-4f45-a428-b712b01cc07d.csv",
-      "sha256": "a3502402631f5535f7c93ce5ef7556f212ea9d40d2e00552cfadf7fd169c7f46",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/552043ca-53fe-4b81-968e-bec091909395.csv",
-      "sha256": "049924af4ff429782ca0ec33d58782dca6a7cd2c05821793eee7b3685ebe91b4",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/56efd87e-887f-4024-a746-c26571fc0878.csv",
-      "sha256": "37393740482e21f7f0f0f5181180778e8ec98fe9c4b588c1da06222d2bdde781",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/5eff3eb0-c198-4798-b8ea-0de88ea4acb7.csv",
-      "sha256": "51de4a7cad903c2cc2541af83f59261bd4039b99e93e8121fa459165c0e8a099",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/5fe25396-561c-444b-bf84-c4f86203fd67.csv",
-      "sha256": "0b39e62fd1761493323863bc2876652ec396d8cd886ac29d90662b63c7b6d10b",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/64d84e20-24b1-45ee-95ad-f57effd7b20b.csv",
-      "sha256": "7f2a7a6573ccfabfaea3d5b34ac17987a0d15b270d0db9908893f95b35cab7c5",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/6849f818-d842-4869-b83c-6b66df57c375.csv",
-      "sha256": "0b938eda685f260c5d7a3dec62a99b2f5b973467003b736d09a9373327f3c895",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/694e3cd7-91c0-4134-8e52-0598d2e0ac1e.csv",
-      "sha256": "28a6b0efba52e219a2d882329a0928195407d87495d060cf4ae19261b7dbb160",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/6aa9c86b-e72c-4f77-9c7d-8bc33cb39639.csv",
-      "sha256": "be10150b233fb4c16cf7a53c7a9d75ac90cb84329d136f28d8ad7a3002afe8ac",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/6ae07635-a75d-4576-b56d-d8a69efd14c1.csv",
-      "sha256": "bcb9acf1e439d30796f1a79251ff9d4473bb21b6cfc9b21d72f5760c44370c67",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/6db64664-8c4d-4ef6-b749-82afecaa4db7.csv",
-      "sha256": "d88eed6193585479bce3d32ae8ac6ff2cd2cd4068591f03386882b2efb091055",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/6dc17424-301d-42aa-bb14-d4509d008887.csv",
-      "sha256": "564e2d2028f62cbed82be99f3995bd377b5a11643b14dc476275188a9ca4502c",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/6ff54bba-9048-4434-9d0e-41cceff68f63.csv",
-      "sha256": "887d1f1f19327253b545555d691def143c7fa298e1ecca32b318f03390e08bbd",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/7079c091-e30d-40cc-a53c-6b153b53df7a.csv",
-      "sha256": "d8b20bfa43dab5a4ad0d34bf54f300a4d9c64dfc92d42f532cc745e50ebe67de",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/72426ee6-614a-48f4-8213-86d22f73a531.csv",
-      "sha256": "f1067b4c0a1fbfd0a843d3ca53ebea0540c2809552858ab69a7da0d27dac86fc",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/781ed83e-0a64-4846-a899-c575746ec3d8.csv",
-      "sha256": "bbb0e88625fab3b62af60d9efc4c9c782cf6ac05357ccbf02a13b7477ce44d82",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/79e67711-5675-4c28-86e1-523f763002fc.csv",
-      "sha256": "6a2e9800016644cb9c79ca167a532c3b818f54a84ca90aa15182becfbc62bdc9",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/7c3ed22f-d351-4300-8d89-14a84c7a189b.csv",
-      "sha256": "ff6aecc84da3e8d999818005bfe1c2f66e44ab13c16440ccd95e64889bbc9d8b",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/7cfca120-3bee-4919-9d46-1eae38de279c.csv",
-      "sha256": "ed15140ce85087cd4defb826f451e6fd6e0bab0624754c3547609bdb9bf103f7",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/85d1ccd8-5aad-4258-bbd7-0b2c80740e7e.csv",
-      "sha256": "4a02afb7ae051776d13a619bb68532afa556ee8e60c1536ed2750f755f09fa45",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/85d88f62-fe52-4179-8f40-eef8afc6fefe.csv",
-      "sha256": "8077bab90984f11d399ce19eaa66cc92352b4513a0266afefa4f697470da44f0",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/85fdb5cc-3839-45bc-a112-cafc031f80c3.csv",
-      "sha256": "ee5738f8788f934f16906babb968bd591c284e4db6c067bdc8761c07f3cdd70a",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/860b4286-b810-4bfc-a095-024aa3fc0795.csv",
-      "sha256": "14f27fa48a3c7e74063b5c9c8ba977c140b886501b9bf23565963eb3eda6de87",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/86b6b2eb-6baf-4abc-a6ad-428bcec1a17c.csv",
-      "sha256": "a8a653f6034390c991c0c77e937673b581d455ab1add801872e1185e60d913d1",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/8a2f7485-96f2-4e20-846e-92022dc00e12.csv",
-      "sha256": "8726db4ba4009e7130e085259d73605489c0926d5ba1de3dd9074712eca21cce",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/8b507822-5043-4d27-86d4-29bf50955a19.csv",
-      "sha256": "066467da7f2fdf1555b8fbd9747b19cb83fe0ccb9945ad91438adfbaaf11da7e",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/8ba3dccd-bf67-4c24-bf03-65fc6b291f29.csv",
-      "sha256": "6546f2bc29a850a0e45af9e8993cb687b695f46a73fdc78d1188b7e4237d2e04",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/8c49647f-f795-45c9-bf92-29281c254997.csv",
-      "sha256": "f3a83b56a16a96be82ec2360b14eaaa05cb9f76cbde46a0a74b1e0e4de083e62",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/8c736d06-ffca-4856-972a-50d5e0d5fcac.csv",
-      "sha256": "88e7c743409c4a091c18ce362de56015d079c765ccb808c499f13f28d1e1b832",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/8d46a10d-5971-4387-a476-b4670316b06b.csv",
-      "sha256": "dfe4833cae0cab30a896195f90d5a9b355d46bb9cc92e0273513c43b876100ca",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/8d52317e-d894-40a8-b9dc-474260ff2a85.csv",
-      "sha256": "f213234d875a7ae3445e727739ceed850fd6d9a68b467a96806f986d1ae636a9",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/8fef4f4d-5bf2-4753-80be-672cd133da50.csv",
-      "sha256": "f2ce80877b2afecd33cf74fe04644895760e2039bc7085c6f99df2a20e9dd6a9",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/95359c9a-9b32-42cb-b169-114df2f61f5f.csv",
-      "sha256": "95b4cc6e1ead03ae3cee124d2766653431e7ed42f9dbc2cb5e638edfe5aeb1bb",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/9837f0eb-f821-4bb5-8be5-9b24edbdd441.csv",
-      "sha256": "ca51e108b6aab6ee7ed76bd41a5ca89252baf44698c2a29d3fc521a095231d02",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/9a7fdf4d-f6ba-4617-ab97-6ab412e05e53.csv",
-      "sha256": "04ed8729a08b3cefb05acfa6596ee2c3e0ba8e522343b460fc2dcbc53437aef0",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/9bc9b59f-36f6-4b84-817f-7f2d93ff8d60.csv",
-      "sha256": "955391221c3c930c4865868fd2de2d51458be41a1da23dba3493505498af3975",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/9c6242b7-088c-4ca9-bf7a-ac760f737ab8.csv",
-      "sha256": "e863fe620a84c77a9c8da89de86a344231f4aee12dfd6bcccbb3f346762077eb",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/a05d7c5b-79d5-4e29-a6c7-aaf8b1e613ee.csv",
-      "sha256": "6cbd1d2da2ec8789b5cffd9d14459f2c13fa1160f6c443a4e3284ffa31959884",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/a35f2adf-2e3c-4a33-9e38-b6c3cc92b45f.csv",
-      "sha256": "717573c29b294fc23ca3161bb445d1a4b7976a45808745414d8ecab8c227b170",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/a3c0baa6-43ca-4b1a-abbc-42ed592a90ef.csv",
-      "sha256": "8016003666d2e3413f17b9c90f8ded222d00d15aaeacf67e5b47a08d1b72d725",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/a5fd0815-a227-4418-b7d5-9ccee594ae71.csv",
-      "sha256": "f33ea7cc9c1448e083c6794ba270a485323da36986a29c4aa7bc41bf9947c5e2",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/a67f932c-e3e0-42a3-a3a9-46b133eb11fd.csv",
-      "sha256": "1ee9078212e83ffa1b8ad2e267682195ae962ec473d383aaf9ae48980aadead1",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/aa2b27ab-6c49-4a02-9c1b-5e567397cbae.csv",
-      "sha256": "1d939cc4732b3c1f76b51ef80e348de9349f64f5a9681ba12d7eac861613609d",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/ae176bdf-cb28-4596-81d4-d168002e85ee.csv",
-      "sha256": "c39346f29eaa41e04bdcaa976c6913a2fb4a9f1099582329bba24735a0fb43cf",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/b0677772-48af-4ffe-b607-dd5c492d5342.csv",
-      "sha256": "9fe1801467f7af2fef75ff98c1dd9221a29251305504175e68c4072270d87669",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/b0ea0c3b-aac4-456b-8c81-c808743886a0.csv",
-      "sha256": "891f5609e8a0eef47ffebc9d08d617e335f9b898a8b403145619d47762da27c4",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/b1c461fe-a75a-4dda-93c3-efbe03bc21d6.csv",
-      "sha256": "3d4ebca39192ac6810fb230826252ce647820c3289ef7b124706736cb6f8d493",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/b1ee30dd-28c8-4430-9a6b-573028065f7b.csv",
-      "sha256": "a1b5d58271e8fca3f7fed1b95660d7d2ad78c4d5371b402fe4b36578a09aa0ab",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/c2dddcbe-7219-4445-873b-8dceedc6d1d4.csv",
-      "sha256": "abf9b816557f621e4ba8279c0818665125af152386da8496761b6ec0164aa528",
-      "rows": 98
-    },
-    {
-      "path": "sensor-data/training/283196339/c5b6b76c-858f-4049-9045-7fff4e1a7364.csv",
-      "sha256": "252887838f3a2c3f74af7781f6ae1eabcae3b385d676f9afe86d135f7a1b9dd4",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/c8a15605-4190-4a0f-bbd4-f6c4e8375462.csv",
-      "sha256": "3bfb2bcaf4a731250fc1cecc952a09b0b929ccfc43e894128aa235403e58ed2c",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/c8b7d59c-6699-4c5c-9242-3b7bb2f8f970.csv",
-      "sha256": "bd24faab231f22b766fe6806962d03e9d6e0aeaeee8be87173c8948debc6e0e7",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/caa1cfce-f5d4-4421-95e3-db24eef77b23.csv",
-      "sha256": "dcdcc7f2439991c052f7df15c423eca8907cb2e150aad2b58dda09f53f613999",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/cb7581f8-a4cd-412f-b078-394bc3a215fd.csv",
-      "sha256": "d74dba8ee84c4da868aa2a1253e9e6ee9f04366eae2a476d7c0c089d227fc4fb",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/ce33a9c1-8def-4e30-9bc6-395774dedffa.csv",
-      "sha256": "9e13391c5b25df0abda06d41b40346deb27bdab95c1de078b220cae0c97e015b",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/d550c121-c28f-448a-9c13-f17798214526.csv",
-      "sha256": "724f6359d4b1a529b0eace2a3a5673e712f4cbe6e6e1b41abe5feb9be69accfe",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/d6c29d7b-7da1-434b-86cf-ba3f7e8fff33.csv",
-      "sha256": "df055413b54141815325afc9d91d246e5728b53ff237738018d265aa6d406c58",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/d88be7dc-f626-4f9c-91cf-dbb0585aecf3.csv",
-      "sha256": "9b2a5dbffd552b3fbfc017ba4de30c2b76b5336e33a097bea9b25f12658e443e",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/db5b4362-6829-4002-948a-7500ba2598fc.csv",
-      "sha256": "d4e6679a45219539b374e9ac865cb6ac7a28ed9912af78b9eab19fa6e55af106",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/dc4e159e-9877-450a-91b9-2c4abf09a0c0.csv",
-      "sha256": "eea6fd2b555b1fc077876cf479a72256271c7a3579a5c016aa69ab56854fe1c0",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/dd9a7614-98c6-4018-80ba-561663231e20.csv",
-      "sha256": "6ae1c803a2148fc73eabe71aed14d0fd9f6b95bfb50697c425c77d3bd34f6daf",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/dde6ed73-11f5-4ebe-bb05-764837ed6a2b.csv",
-      "sha256": "1c447ea0000452f57447817aa56b779b4bd904a1540faa71caec4532ce4b1e73",
-      "rows": 99
-    },
-    {
-      "path": "sensor-data/training/283196339/e04736bb-a04e-4560-8ed8-06c94e34cf9a.csv",
-      "sha256": "23c6a262732ae4d1c80c1fce51e10561227a092ffe0999bb91a8ec74feac12b6",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/e21f28d2-3394-4848-b5a6-d5a4a1314040.csv",
-      "sha256": "fcca0a81dd4a5a3201ffd81435357f52c5d13dc791a79aa2d69347a313ae1f77",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/e391a17a-a456-42d2-85aa-e85ecdc566df.csv",
-      "sha256": "1a0b662c51f5b127e4723ff3deff512848c88143d38c34ada188d3c85146809c",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/e3d178fa-0c4c-4d09-8b4e-5d3830b204c8.csv",
-      "sha256": "346a997da2c3668060059c00d75cca00aaf2f4d953c65e5245c2a22ad0dd3951",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/e40cee4b-9859-4be8-8fd4-6b887877db68.csv",
-      "sha256": "c4e5f8195167c2b72812716dffa6f711bad06ef14794ebdaf67bee0bac2396f3",
-      "rows": 101
-    },
-    {
-      "path": "sensor-data/training/283196339/e6c0023a-2ab9-4e4e-b8b1-10249b4ec560.csv",
-      "sha256": "3e71c7946c4728a217dafc72298d1f5ac89e360ed15b89c3ea2682c55840f70a",
-      "rows": 104
-    },
-    {
-      "path": "sensor-data/training/283196339/e8a62069-fe9a-4d2b-a2d4-e197b3c96031.csv",
-      "sha256": "8c3263fca0f9b22031b7751f306efd287a84daeca3cdc550c161119446541e5e",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/e8ac0a32-9e00-47b9-8970-9cd2473a69d3.csv",
-      "sha256": "c99c476e486ac1c1163a552cf5d91af727a6b203a495411e3b654537ce1d3ffd",
-      "rows": 103
-    },
-    {
-      "path": "sensor-data/training/283196339/ed14e7df-48f0-4f4b-8def-e5b59e9ce437.csv",
-      "sha256": "ed6a8813cb06d1186edf28e626b29b8c93fd05f005e10019d464c79c175f72ea",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/f440b8f3-6d10-4a6f-afbb-b091e02bf8db.csv",
-      "sha256": "4acf42e870e4e34123b53031fdb974b84151eb5b6918ae0ff8e7ea720d9eddae",
-      "rows": 100
-    },
-    {
-      "path": "sensor-data/training/283196339/f983dc88-cd00-47ab-b91d-2d886926d0be.csv",
-      "sha256": "8dbea8bf62f97e3c3a7e687839b801d4d2b4c5719ebed5db59750328324071a7",
-      "rows": 102
-    },
-    {
-      "path": "sensor-data/training/283196339/fc069933-99c7-4522-9130-9496884f3c93.csv",
-      "sha256": "5307c79afcad9b442cb89899a0370acebbcf7c3486b596d1fa6f8aaafee561a8",
-      "rows": 102
+  "files": [],
+  "history": [
+    {
+      "action": "excluded",
+      "date": "2026-11-03",
+      "reason": "User requested exclusion of today app measurements from training",
+      "files": [
+        {
+          "path": "sensor-data/training/283196339/004de278-54f6-4682-85b4-14244e8cc687.csv",
+          "sha256": "3bd5ef6196c28c136a1ee969a6bd6b572ec98e1b1fafb8e411caf2f5d1178ba3",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/01d35890-5968-4f5f-b1f5-79745713236c.csv",
+          "sha256": "7b55b463e30ff598db15375c03a7ce2c51f6a56332787874b32290d9455fe46e",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/0318f6c0-994e-4ee0-9375-70f2910bd3b4.csv",
+          "sha256": "919047629d6d7c33437a6e27d1d30790d78c1dc5134dec74c4e39adb4f7d8930",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/06abca6c-1fe5-4309-9fd6-378fa57e13f3.csv",
+          "sha256": "e8537024338e1db008e83eccf946fe517194f607887ea90593932089ecb51b21",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/06ba86b2-91f5-496c-a80f-109791f93e0c.csv",
+          "sha256": "8e755dea64a573e7fd2e59952cbe7ae16f4cee1d99f8dfe7c9e066ff59ea9d47",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/09adff7c-f932-407f-ab17-6eb7d1cb3a56.csv",
+          "sha256": "d3a6dee01012b9234bf6e389459a8b08a6f384142826a11c1871cef9491a6424",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/0ee96d00-5808-43c7-af6d-57bf3c2c9246.csv",
+          "sha256": "77e638bf228d38e8ce3f5960882f779594b9c830f897b6a3a9b0adcde57fa7f6",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/1116c3f5-eb7b-4a61-aed1-7c95f511560d.csv",
+          "sha256": "dde868d1a0cc354ca4d135d701f041a181fab182dbe140000477953e978a7bc2",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/11c46b3e-098c-4333-b38b-e4a4a7f96898.csv",
+          "sha256": "0c73de50e51f446cef642a6c091c7e0a43a5cb6ea84880df22e5699d551692e8",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/15d48727-818c-45f7-93b1-2c11b29a86c9.csv",
+          "sha256": "fdb63355105854fef9c67bd2fa7eb022e288d6baf4a4497875b307d94a41618c",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/163751f0-22b4-466c-b569-7c5d7a246f41.csv",
+          "sha256": "45f10aaa10d8e85bea60e9ecaa095d15cfe28f78ab6fe59a3759e17c50a902e5",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/19c8ac16-cacd-482b-9347-0b715dbe8bdd.csv",
+          "sha256": "5a02f8ca9df1b9dfda4eb3a38f4b5f830495e8dd0b1a909b51bfb2e8053ae194",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/1a95e853-9d78-48f3-8321-60bf3fc3c85a.csv",
+          "sha256": "9be70cbfe77d6c65516889a22ec81cc842a75b374bed48fade00b085bd448110",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/1aef7cd0-260a-4c0b-b806-93e0491d35a8.csv",
+          "sha256": "6f076eab66420f164805ceb18bc41e36942d94ca30f327593c33cdb4e8a4fc2d",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/1c538740-b936-4d2e-bc85-1eea8d7c41fe.csv",
+          "sha256": "d0d115132979a34a49196c55ebdba48253c571e54ce103f1d0ae78f16ec36a0b",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/1cbd0d96-ed3e-4662-b879-2902ce98af03.csv",
+          "sha256": "9ee6b0daf56efbe2c14c3eaed24f235667f788271b676022091026575b9c56f8",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/1cd60a4a-a2f3-4841-844e-8958e34e7841.csv",
+          "sha256": "eaabeba8cee5d495216345e5a7b99ef20a27511321f518e7b4743958768716cd",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/1f7fd814-b33b-43fb-9438-8cf0b01bc722.csv",
+          "sha256": "96890ba7245c77c0e5cd87f34179d832a143587c57aecfb2c71bd36822dd5913",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/205e7264-7f97-43ce-8987-c69bcb0d66c9.csv",
+          "sha256": "02a3fb8b05e98d36b1596c08e8f70876f6c3d381b4dac4207e5612dade0f8fef",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/2280c59a-e484-4867-86f2-657b719f49fd.csv",
+          "sha256": "3f6f4936bb3b3f19e6af40d4b02881aee6c4b632a3d3d127f0e4c5041a573afc",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/25797c25-6be5-42cd-ae0f-5264662d08de.csv",
+          "sha256": "7d18d1d9d76bd58397c92cce51474e139d5fa6ba83d739da4df8aff0e549bed6",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/257e2cc5-fd48-465b-b54f-5687d7544d46.csv",
+          "sha256": "927cfd483a40f01fa37b470a59f72bfec2775cff8ffb5d6d0920ec413f5cab4b",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/264e6d18-9cf0-4965-82ac-ac3830b9455b.csv",
+          "sha256": "43b3908548e67dcbcee2e7efb64c000c39aa016c0169109da18c075f3602dbb4",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/2a78c43b-89de-40b4-92e8-40334244ed5f.csv",
+          "sha256": "ed8b13144243d182d27cfac6111592f5c1e374390ec1a4e8e74b27a0b2356fee",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/2b8cc0e9-54eb-4dba-aa79-2de18939569e.csv",
+          "sha256": "10b375e92095c30dc75ba1325107d4f3b253bf301a008bedb8b3e0e76f6f584b",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/2cf3a137-9dc4-4783-accd-99bec0502a33.csv",
+          "sha256": "f2fc8eba84c1b806f90ec1d130e3fd996bcd3ed34d657895b9f507af208eeb84",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/2d89b0c2-5c03-4a23-9f0d-683f8e3eee13.csv",
+          "sha256": "ea9fc87739f68bb6e0f3290688a2317f16b20d19cceecd7cf89677369961187c",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/2f2133b6-f59b-461a-acc8-f553da7b5913.csv",
+          "sha256": "2557ad66c3efa1a084294f33d12f7e3de237b39332162ceb25dd440f1df20553",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/2fad27c5-7fa4-478a-ada1-d431912ebe60.csv",
+          "sha256": "ef229c0069da309f3ca7a5d29a6203753b54cbad1e61839907a775cd0185b73c",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/30c73cbf-e314-4f16-80f2-131db6583383.csv",
+          "sha256": "d2465ed0a761f28510535834682315ff6d23012bde2d9c75d9dbc8f6d2bfb79c",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/30c8eecd-e271-49c3-b6ef-fbaf0ccab2e8.csv",
+          "sha256": "d27d53f2bd90a6b12933f77fe892308c732a0551ec60d31994cc1fee07c9d2c5",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/32745fb7-2bed-430b-8cde-7b191fa9519e.csv",
+          "sha256": "41100ee1a6c08fc94c647d4bdbb0ab27658adda76d0f4a093891f1a84b099192",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/35de2546-6a4d-4371-8700-83ece3dfeec1.csv",
+          "sha256": "e25573a4d043397f073055c979cdf845eafd0309f12d0f5b58afd35c70554fd2",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/3727dde6-825d-4e4d-926d-b582685a188b.csv",
+          "sha256": "2346372e7b8a227fb78b8777f864c38cb2f67a38ab641875746be8ba5fa31b3f",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/3889ea6a-7eab-42dd-a33d-5c13b8f2ee3d.csv",
+          "sha256": "a6e05a3f5d425f20c4dd03b9dbc3d65f6014fb6960772eb0ff50d1a53cf2c242",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/413135ee-d959-484a-a0f7-58477d7aa1bf.csv",
+          "sha256": "0d9e233b9dbda8d5c3561965739e884688c6b7bcc8267139f03c70a1f0417378",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/4520dab1-c8c7-4906-9f3f-2ac71e4cfacc.csv",
+          "sha256": "fc23da7f246a6a93d42aa17248503925285b71f058a9ff0dbdde15dd7a817cf5",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/47ccddac-d913-45d1-9e66-06b8f0548054.csv",
+          "sha256": "aa26f784a384ecde5413de6d4b4f06f6fc487c7ab041391ef9acfc20f3095b28",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/47e050e4-04df-4bb8-b0bf-3d3383f9839b.csv",
+          "sha256": "b8079e0e25806a2f8ef8692fd8b78b25c07792ac548895ed107bbe247fca421b",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/4c655d4c-d3c9-43b2-9f94-8513678f81fb.csv",
+          "sha256": "8348d38969cde944f46b535001f71da66a965dbf70c9861e67a15075e6b606c6",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/4c9c3987-9253-412d-8441-8f181266d444.csv",
+          "sha256": "f5f73c3afead6fde078925f12104f54baa966de39a45b2ea86a76bb0024db2a4",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/4cf30673-8cb3-40d1-9878-68bf4109d9ff.csv",
+          "sha256": "4c85b4669c9c40bd2b4cef576485cf9cf29eb643f7e21481f04ed172d015bb45",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/4e91011b-1fb5-4093-b016-5afd181bd594.csv",
+          "sha256": "62eb152578a6c078ede8229f2f35827c0b7e0fd414a360367323b97bd0da47cc",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/4f8dd501-e74c-4645-93f3-d7330ffffb35.csv",
+          "sha256": "b02d8d398bb01300185645871a30290d0b8e736a7b62f1f6f1d6dcf0da07b102",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/4ff187d6-c50f-4adc-82d7-1f3903f2d194.csv",
+          "sha256": "b34275b4a4d87bff47e5f657e3b0daab9555b3474cfcf3f250dfb50744b7b6b0",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/5158973b-4962-477e-a0f2-82baca3462d2.csv",
+          "sha256": "18811fb5b738e1e2c3d1441695bd6b2672a25c2973c780ce86d279ccd2c93908",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/526d013d-0e44-4f45-a428-b712b01cc07d.csv",
+          "sha256": "a3502402631f5535f7c93ce5ef7556f212ea9d40d2e00552cfadf7fd169c7f46",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/552043ca-53fe-4b81-968e-bec091909395.csv",
+          "sha256": "049924af4ff429782ca0ec33d58782dca6a7cd2c05821793eee7b3685ebe91b4",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/56efd87e-887f-4024-a746-c26571fc0878.csv",
+          "sha256": "37393740482e21f7f0f0f5181180778e8ec98fe9c4b588c1da06222d2bdde781",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/5eff3eb0-c198-4798-b8ea-0de88ea4acb7.csv",
+          "sha256": "51de4a7cad903c2cc2541af83f59261bd4039b99e93e8121fa459165c0e8a099",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/5fe25396-561c-444b-bf84-c4f86203fd67.csv",
+          "sha256": "0b39e62fd1761493323863bc2876652ec396d8cd886ac29d90662b63c7b6d10b",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/64d84e20-24b1-45ee-95ad-f57effd7b20b.csv",
+          "sha256": "7f2a7a6573ccfabfaea3d5b34ac17987a0d15b270d0db9908893f95b35cab7c5",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/6849f818-d842-4869-b83c-6b66df57c375.csv",
+          "sha256": "0b938eda685f260c5d7a3dec62a99b2f5b973467003b736d09a9373327f3c895",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/694e3cd7-91c0-4134-8e52-0598d2e0ac1e.csv",
+          "sha256": "28a6b0efba52e219a2d882329a0928195407d87495d060cf4ae19261b7dbb160",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/6aa9c86b-e72c-4f77-9c7d-8bc33cb39639.csv",
+          "sha256": "be10150b233fb4c16cf7a53c7a9d75ac90cb84329d136f28d8ad7a3002afe8ac",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/6ae07635-a75d-4576-b56d-d8a69efd14c1.csv",
+          "sha256": "bcb9acf1e439d30796f1a79251ff9d4473bb21b6cfc9b21d72f5760c44370c67",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/6db64664-8c4d-4ef6-b749-82afecaa4db7.csv",
+          "sha256": "d88eed6193585479bce3d32ae8ac6ff2cd2cd4068591f03386882b2efb091055",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/6dc17424-301d-42aa-bb14-d4509d008887.csv",
+          "sha256": "564e2d2028f62cbed82be99f3995bd377b5a11643b14dc476275188a9ca4502c",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/6ff54bba-9048-4434-9d0e-41cceff68f63.csv",
+          "sha256": "887d1f1f19327253b545555d691def143c7fa298e1ecca32b318f03390e08bbd",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/7079c091-e30d-40cc-a53c-6b153b53df7a.csv",
+          "sha256": "d8b20bfa43dab5a4ad0d34bf54f300a4d9c64dfc92d42f532cc745e50ebe67de",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/72426ee6-614a-48f4-8213-86d22f73a531.csv",
+          "sha256": "f1067b4c0a1fbfd0a843d3ca53ebea0540c2809552858ab69a7da0d27dac86fc",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/781ed83e-0a64-4846-a899-c575746ec3d8.csv",
+          "sha256": "bbb0e88625fab3b62af60d9efc4c9c782cf6ac05357ccbf02a13b7477ce44d82",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/79e67711-5675-4c28-86e1-523f763002fc.csv",
+          "sha256": "6a2e9800016644cb9c79ca167a532c3b818f54a84ca90aa15182becfbc62bdc9",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/7c3ed22f-d351-4300-8d89-14a84c7a189b.csv",
+          "sha256": "ff6aecc84da3e8d999818005bfe1c2f66e44ab13c16440ccd95e64889bbc9d8b",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/7cfca120-3bee-4919-9d46-1eae38de279c.csv",
+          "sha256": "ed15140ce85087cd4defb826f451e6fd6e0bab0624754c3547609bdb9bf103f7",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/85d1ccd8-5aad-4258-bbd7-0b2c80740e7e.csv",
+          "sha256": "4a02afb7ae051776d13a619bb68532afa556ee8e60c1536ed2750f755f09fa45",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/85d88f62-fe52-4179-8f40-eef8afc6fefe.csv",
+          "sha256": "8077bab90984f11d399ce19eaa66cc92352b4513a0266afefa4f697470da44f0",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/85fdb5cc-3839-45bc-a112-cafc031f80c3.csv",
+          "sha256": "ee5738f8788f934f16906babb968bd591c284e4db6c067bdc8761c07f3cdd70a",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/860b4286-b810-4bfc-a095-024aa3fc0795.csv",
+          "sha256": "14f27fa48a3c7e74063b5c9c8ba977c140b886501b9bf23565963eb3eda6de87",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/86b6b2eb-6baf-4abc-a6ad-428bcec1a17c.csv",
+          "sha256": "a8a653f6034390c991c0c77e937673b581d455ab1add801872e1185e60d913d1",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/8a2f7485-96f2-4e20-846e-92022dc00e12.csv",
+          "sha256": "8726db4ba4009e7130e085259d73605489c0926d5ba1de3dd9074712eca21cce",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/8b507822-5043-4d27-86d4-29bf50955a19.csv",
+          "sha256": "066467da7f2fdf1555b8fbd9747b19cb83fe0ccb9945ad91438adfbaaf11da7e",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/8ba3dccd-bf67-4c24-bf03-65fc6b291f29.csv",
+          "sha256": "6546f2bc29a850a0e45af9e8993cb687b695f46a73fdc78d1188b7e4237d2e04",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/8c49647f-f795-45c9-bf92-29281c254997.csv",
+          "sha256": "f3a83b56a16a96be82ec2360b14eaaa05cb9f76cbde46a0a74b1e0e4de083e62",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/8c736d06-ffca-4856-972a-50d5e0d5fcac.csv",
+          "sha256": "88e7c743409c4a091c18ce362de56015d079c765ccb808c499f13f28d1e1b832",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/8d46a10d-5971-4387-a476-b4670316b06b.csv",
+          "sha256": "dfe4833cae0cab30a896195f90d5a9b355d46bb9cc92e0273513c43b876100ca",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/8d52317e-d894-40a8-b9dc-474260ff2a85.csv",
+          "sha256": "f213234d875a7ae3445e727739ceed850fd6d9a68b467a96806f986d1ae636a9",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/8fef4f4d-5bf2-4753-80be-672cd133da50.csv",
+          "sha256": "f2ce80877b2afecd33cf74fe04644895760e2039bc7085c6f99df2a20e9dd6a9",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/95359c9a-9b32-42cb-b169-114df2f61f5f.csv",
+          "sha256": "95b4cc6e1ead03ae3cee124d2766653431e7ed42f9dbc2cb5e638edfe5aeb1bb",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/9837f0eb-f821-4bb5-8be5-9b24edbdd441.csv",
+          "sha256": "ca51e108b6aab6ee7ed76bd41a5ca89252baf44698c2a29d3fc521a095231d02",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/9a7fdf4d-f6ba-4617-ab97-6ab412e05e53.csv",
+          "sha256": "04ed8729a08b3cefb05acfa6596ee2c3e0ba8e522343b460fc2dcbc53437aef0",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/9bc9b59f-36f6-4b84-817f-7f2d93ff8d60.csv",
+          "sha256": "955391221c3c930c4865868fd2de2d51458be41a1da23dba3493505498af3975",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/9c6242b7-088c-4ca9-bf7a-ac760f737ab8.csv",
+          "sha256": "e863fe620a84c77a9c8da89de86a344231f4aee12dfd6bcccbb3f346762077eb",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/a05d7c5b-79d5-4e29-a6c7-aaf8b1e613ee.csv",
+          "sha256": "6cbd1d2da2ec8789b5cffd9d14459f2c13fa1160f6c443a4e3284ffa31959884",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/a35f2adf-2e3c-4a33-9e38-b6c3cc92b45f.csv",
+          "sha256": "717573c29b294fc23ca3161bb445d1a4b7976a45808745414d8ecab8c227b170",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/a3c0baa6-43ca-4b1a-abbc-42ed592a90ef.csv",
+          "sha256": "8016003666d2e3413f17b9c90f8ded222d00d15aaeacf67e5b47a08d1b72d725",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/a5fd0815-a227-4418-b7d5-9ccee594ae71.csv",
+          "sha256": "f33ea7cc9c1448e083c6794ba270a485323da36986a29c4aa7bc41bf9947c5e2",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/a67f932c-e3e0-42a3-a3a9-46b133eb11fd.csv",
+          "sha256": "1ee9078212e83ffa1b8ad2e267682195ae962ec473d383aaf9ae48980aadead1",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/aa2b27ab-6c49-4a02-9c1b-5e567397cbae.csv",
+          "sha256": "1d939cc4732b3c1f76b51ef80e348de9349f64f5a9681ba12d7eac861613609d",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/ae176bdf-cb28-4596-81d4-d168002e85ee.csv",
+          "sha256": "c39346f29eaa41e04bdcaa976c6913a2fb4a9f1099582329bba24735a0fb43cf",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/b0677772-48af-4ffe-b607-dd5c492d5342.csv",
+          "sha256": "9fe1801467f7af2fef75ff98c1dd9221a29251305504175e68c4072270d87669",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/b0ea0c3b-aac4-456b-8c81-c808743886a0.csv",
+          "sha256": "891f5609e8a0eef47ffebc9d08d617e335f9b898a8b403145619d47762da27c4",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/b1c461fe-a75a-4dda-93c3-efbe03bc21d6.csv",
+          "sha256": "3d4ebca39192ac6810fb230826252ce647820c3289ef7b124706736cb6f8d493",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/b1ee30dd-28c8-4430-9a6b-573028065f7b.csv",
+          "sha256": "a1b5d58271e8fca3f7fed1b95660d7d2ad78c4d5371b402fe4b36578a09aa0ab",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/c2dddcbe-7219-4445-873b-8dceedc6d1d4.csv",
+          "sha256": "abf9b816557f621e4ba8279c0818665125af152386da8496761b6ec0164aa528",
+          "rows": 98
+        },
+        {
+          "path": "sensor-data/training/283196339/c5b6b76c-858f-4049-9045-7fff4e1a7364.csv",
+          "sha256": "252887838f3a2c3f74af7781f6ae1eabcae3b385d676f9afe86d135f7a1b9dd4",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/c8a15605-4190-4a0f-bbd4-f6c4e8375462.csv",
+          "sha256": "3bfb2bcaf4a731250fc1cecc952a09b0b929ccfc43e894128aa235403e58ed2c",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/c8b7d59c-6699-4c5c-9242-3b7bb2f8f970.csv",
+          "sha256": "bd24faab231f22b766fe6806962d03e9d6e0aeaeee8be87173c8948debc6e0e7",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/caa1cfce-f5d4-4421-95e3-db24eef77b23.csv",
+          "sha256": "dcdcc7f2439991c052f7df15c423eca8907cb2e150aad2b58dda09f53f613999",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/cb7581f8-a4cd-412f-b078-394bc3a215fd.csv",
+          "sha256": "d74dba8ee84c4da868aa2a1253e9e6ee9f04366eae2a476d7c0c089d227fc4fb",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/ce33a9c1-8def-4e30-9bc6-395774dedffa.csv",
+          "sha256": "9e13391c5b25df0abda06d41b40346deb27bdab95c1de078b220cae0c97e015b",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/d550c121-c28f-448a-9c13-f17798214526.csv",
+          "sha256": "724f6359d4b1a529b0eace2a3a5673e712f4cbe6e6e1b41abe5feb9be69accfe",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/d6c29d7b-7da1-434b-86cf-ba3f7e8fff33.csv",
+          "sha256": "df055413b54141815325afc9d91d246e5728b53ff237738018d265aa6d406c58",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/d88be7dc-f626-4f9c-91cf-dbb0585aecf3.csv",
+          "sha256": "9b2a5dbffd552b3fbfc017ba4de30c2b76b5336e33a097bea9b25f12658e443e",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/db5b4362-6829-4002-948a-7500ba2598fc.csv",
+          "sha256": "d4e6679a45219539b374e9ac865cb6ac7a28ed9912af78b9eab19fa6e55af106",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/dc4e159e-9877-450a-91b9-2c4abf09a0c0.csv",
+          "sha256": "eea6fd2b555b1fc077876cf479a72256271c7a3579a5c016aa69ab56854fe1c0",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/dd9a7614-98c6-4018-80ba-561663231e20.csv",
+          "sha256": "6ae1c803a2148fc73eabe71aed14d0fd9f6b95bfb50697c425c77d3bd34f6daf",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/dde6ed73-11f5-4ebe-bb05-764837ed6a2b.csv",
+          "sha256": "1c447ea0000452f57447817aa56b779b4bd904a1540faa71caec4532ce4b1e73",
+          "rows": 99
+        },
+        {
+          "path": "sensor-data/training/283196339/e04736bb-a04e-4560-8ed8-06c94e34cf9a.csv",
+          "sha256": "23c6a262732ae4d1c80c1fce51e10561227a092ffe0999bb91a8ec74feac12b6",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/e21f28d2-3394-4848-b5a6-d5a4a1314040.csv",
+          "sha256": "fcca0a81dd4a5a3201ffd81435357f52c5d13dc791a79aa2d69347a313ae1f77",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/e391a17a-a456-42d2-85aa-e85ecdc566df.csv",
+          "sha256": "1a0b662c51f5b127e4723ff3deff512848c88143d38c34ada188d3c85146809c",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/e3d178fa-0c4c-4d09-8b4e-5d3830b204c8.csv",
+          "sha256": "346a997da2c3668060059c00d75cca00aaf2f4d953c65e5245c2a22ad0dd3951",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/e40cee4b-9859-4be8-8fd4-6b887877db68.csv",
+          "sha256": "c4e5f8195167c2b72812716dffa6f711bad06ef14794ebdaf67bee0bac2396f3",
+          "rows": 101
+        },
+        {
+          "path": "sensor-data/training/283196339/e6c0023a-2ab9-4e4e-b8b1-10249b4ec560.csv",
+          "sha256": "3e71c7946c4728a217dafc72298d1f5ac89e360ed15b89c3ea2682c55840f70a",
+          "rows": 104
+        },
+        {
+          "path": "sensor-data/training/283196339/e8a62069-fe9a-4d2b-a2d4-e197b3c96031.csv",
+          "sha256": "8c3263fca0f9b22031b7751f306efd287a84daeca3cdc550c161119446541e5e",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/e8ac0a32-9e00-47b9-8970-9cd2473a69d3.csv",
+          "sha256": "c99c476e486ac1c1163a552cf5d91af727a6b203a495411e3b654537ce1d3ffd",
+          "rows": 103
+        },
+        {
+          "path": "sensor-data/training/283196339/ed14e7df-48f0-4f4b-8def-e5b59e9ce437.csv",
+          "sha256": "ed6a8813cb06d1186edf28e626b29b8c93fd05f005e10019d464c79c175f72ea",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/f440b8f3-6d10-4a6f-afbb-b091e02bf8db.csv",
+          "sha256": "4acf42e870e4e34123b53031fdb974b84151eb5b6918ae0ff8e7ea720d9eddae",
+          "rows": 100
+        },
+        {
+          "path": "sensor-data/training/283196339/f983dc88-cd00-47ab-b91d-2d886926d0be.csv",
+          "sha256": "8dbea8bf62f97e3c3a7e687839b801d4d2b4c5719ebed5db59750328324071a7",
+          "rows": 102
+        },
+        {
+          "path": "sensor-data/training/283196339/fc069933-99c7-4522-9130-9496884f3c93.csv",
+          "sha256": "5307c79afcad9b442cb89899a0370acebbcf7c3486b596d1fa6f8aaafee561a8",
+          "rows": 102
+        }
+      ]
+    },
+    {
+      "action": "reinstated",
+      "date": "2026-11-03",
+      "reason": "Explicit user request: reinstate app subject-1 and subject-2 for training; evaluate newly arrived person first",
+      "file_count": 120
     }
-  ]
+  ],
+  "status": "reinstated_by_user"
 }

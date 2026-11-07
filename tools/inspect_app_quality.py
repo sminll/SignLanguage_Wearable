@@ -6,6 +6,7 @@ import io
 import json
 from pathlib import Path
 import subprocess
+import tarfile
 
 import numpy as np
 import pandas as pd
@@ -24,10 +25,11 @@ def main():
     sha=git('rev-parse',args.ref).decode().strip()
     paths=git('ls-tree','-r','--name-only',sha,'sensor-data/training').decode().splitlines()
     paths=[x for x in paths if x.endswith('.csv')]
+    archive=tarfile.open(fileobj=io.BytesIO(git('archive',sha,'sensor-data/training')))
     sensors=[f'fsr{i}' for i in range(1,7)]+['ax','ay','az','gx','gy','gz']
     trials=[]; channels=[]; manifests=[]; allrows=[]
     for path in paths:
-        blob=git('show',f'{sha}:{path}')
+        blob=archive.extractfile(path).read()
         d=pd.read_csv(io.BytesIO(blob))
         required=['subject_id','session_id','trial_id','label','hand','time','time_ms','sample_seq',*sensors]
         missing=sorted(set(required)-set(d))
@@ -81,6 +83,7 @@ def main():
         item.update(status='exclude' if hard else 'review',basic_capture_pass=not bool(hard),
                     reason=';'.join(hard),review_flags=';'.join(sorted(set(flags))))
         trials.append(item)
+    archive.close()
     combined=pd.concat(allrows,ignore_index=True)
     key=['subject_id','session_id','hand','sample_seq']
     duplicate_count=int(combined.duplicated(key,keep=False).sum())
