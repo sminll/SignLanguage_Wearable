@@ -114,13 +114,40 @@ class InspectionTests(unittest.TestCase):
     def test_push_range_includes_deletion_and_ignores_model_outputs(self):
         event = self.root / 'event.json'
         event.write_text(json.dumps({'before': 'a' * 40, 'after': 'b' * 40}), encoding='utf-8')
-        diff = 'M\0data/sensor_dataset_v2.csv\0D\0datasets/old.zip\0M\0data/knn_results/a.csv\0'
+        diff = ('M\0data/sensor_dataset_v2.csv\0D\0datasets/old.zip\0'
+                'M\0data/knn_results/a.csv\0A\0sensor-data/training/user/upload.csv\0')
         with patch.dict(os.environ, GITHUB_EVENT_NAME='push', GITHUB_EVENT_PATH=str(event)):
             with patch.object(notifier, 'git', return_value=diff) as command:
                 files = notifier.changed_files()
                 self.assertIn(('datasets/old.zip', 'D'), files)
-                self.assertEqual(len(files), 2)
+                self.assertIn(('sensor-data/training/user/upload.csv', 'A'), files)
+                self.assertEqual(len(files), 3)
                 self.assertEqual(command.call_args.args[-2:], ('a' * 40, 'b' * 40))
+
+    def test_app_csv_supports_uuid_trials_and_extra_metadata(self):
+        row = sample(subject_id='subject-3', trial_id='FF2D3F4C-53AB-4FC5-AA5F-89E55168DC41',
+                     imu_ok='1', board_type='XIAO', calibration_version='UNREGISTERED',
+                     record_kind='training', calibration_verified='false')
+        result = self.inspect([row], notifier.FIELDS + ['imu_ok', 'board_type',
+                              'calibration_version', 'record_kind', 'calibration_verified'])
+        self.assertEqual(result['valid_rows'], 1)
+        self.assertEqual(result['errors_count'], 0)
+
+    def test_manual_dispatch_checks_only_requested_file(self):
+        (self.root / 'one.csv').write_text(csv_text([sample()]), encoding='utf-8')
+        directory = self.root / 'sensor-data/training/user'
+        directory.mkdir(parents=True)
+        (directory / 'one.csv').write_text(csv_text([sample()]), encoding='utf-8')
+        report = self.root / 'report.json'
+        with patch.dict(os.environ, GITHUB_EVENT_NAME='workflow_dispatch',
+                        DATASET_PATH='sensor-data/training/user/one.csv'):
+            with patch.object(notifier, 'changed_files') as scan:
+                with patch('sys.argv', ['data_upload_report.py', '--report', str(report)]):
+                    self.assertEqual(notifier.main(), 0)
+                scan.assert_not_called()
+        self.assertEqual(len(json.loads(report.read_text(encoding='utf-8'))['files']), 1)
+        self.assertFalse(notifier.is_dataset('sensor-data/training/../../secret.csv'))
+        self.assertFalse(notifier.is_dataset('/sensor-data/training/one.csv'))
 
 
 class DiscordTests(unittest.TestCase):

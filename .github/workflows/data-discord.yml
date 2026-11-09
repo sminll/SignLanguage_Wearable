@@ -3,10 +3,16 @@ name: Data upload check
 on:
   push:
     paths:
+      - 'sensor-data/training/**/*.csv'
       - 'data/sensor_dataset_v*.csv'
       - 'datasets/**/*.csv'
       - 'datasets/**/*.zip'
   workflow_dispatch:
+    inputs:
+      dataset_path:
+        description: '검사할 데이터 파일 경로 (비우면 선택 브랜치 전체 검사)'
+        required: false
+        type: string
 
 permissions:
   contents: read
@@ -24,6 +30,8 @@ jobs:
         with:
           python-version: '3.12'
       - name: Check uploaded datasets
+        env:
+          DATASET_PATH: ${{ inputs.dataset_path }}
         run: python tools/data_upload_report.py --report "$RUNNER_TEMP/data-report.json"
       - name: Keep inspection report
         if: always()

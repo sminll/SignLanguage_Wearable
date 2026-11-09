@@ -2,6 +2,8 @@
 
 GitHub에 공유 데이터를 push하면 **Data upload check**가 기본 검사를 실행하고 디스코드 채널에 결과를 보냅니다. 별도 봇이나 상시 실행 서버는 필요 없습니다.
 
+앱에서 업로드한 CSV는 **`training-data` 브랜치의 `sensor-data/training/`**에 저장됩니다. 이 경로도 자동 검사·알림 대상입니다. 앱에서 GitHub로 직접 업로드하는 경우 PC의 `receive_sensor.py` 실행 여부와 관계없습니다. 해당 브랜치에도 workflow와 검사 스크립트를 설치해야 하며, 현재 `main`과 `training-data`에 반영합니다.
+
 ## 처음 한 번 설정하기
 
 1. 팀 디스코드 서버에 `데이터-알림` 텍스트 채널을 만듭니다.
@@ -11,16 +13,19 @@ GitHub에 공유 데이터를 push하면 **Data upload check**가 기본 검사�
 5. 이 문서와 함께 추가된 `.github/workflows/data-discord.yml`, `tools/data_upload_report.py`를 GitHub에 올립니다. 테스트 파일도 함께 올려두면 이후 수정 시 확인할 수 있습니다.
 6. 기본 브랜치에 workflow를 반영한 뒤 [Actions](https://github.com/sminll/SignLanguage_Wearable/actions) → **Data upload check → Run workflow**로 첫 알림을 확인합니다. 수동 실행은 현재 브랜치의 Git 추적 데이터 전체를 검사합니다.
 
+수동 실행 시 브랜치를 `training-data`로 선택하고 `dataset_path`에 `sensor-data/training/사용자/파일.csv`를 입력하면 그 파일만 다시 검사·알림합니다. 경로를 비우면 선택한 브랜치 전체를 검사합니다. 수동 재검사도 새 알림을 보내므로 과거 업로드가 새로 발생했다는 의미는 아닙니다.
+
 연결 전에는 로컬 검사만 완료된 상태입니다. Secret이 없으면 검사와 보고서 저장은 실행되지만 디스코드 전송은 생략되며 Actions 로그에 안내가 남습니다.
 
 ## 알림 대상
 
+- 앱 업로드: `training-data` 브랜치의 `sensor-data/training/` 아래 CSV
 - `datasets/` 아래 새로 추가되거나 수정·삭제된 ZIP 및 센서 CSV
 - `data/sensor_dataset_v숫자.csv` (v2, v3 등) 중 **이미 Git에 올려진 파일**의 변경
 - `session_devices.csv`는 센서 CSV 검사가 아니므로 직접 알림 대상에서 제외합니다.
 - push에 여러 커밋이 포함되면 마지막 커밋 하나가 아닌 push 전체의 변경을 감지합니다. 삭제도 알리고, 이름 변경은 기존 파일 삭제와 새 파일 추가로 표시합니다.
 
-이 저장소는 실시간 `data/*.csv`와 생성 모델을 대부분 `.gitignore`로 제외합니다. **PC에서 수신 서버에 데이터가 들어오기만 한 경우에는 알림이 없습니다.** 새 측정은 기존 방침대로 `datasets/`에 공유용 스냅샷을 만들어 GitHub에 올리세요. 알림을 위해 원본 측정 파일을 강제 추가할 필요는 없습니다.
+이 저장소는 PC에서 수집하는 실시간 `data/*.csv`와 생성 모델을 대부분 `.gitignore`로 제외합니다. **PC에서 수신 서버에 데이터가 들어오기만 한 경우에는 알림이 없습니다.** 이 방식의 새 측정은 기존 방침대로 `datasets/`에 공유용 스냅샷을 만들어 GitHub에 올리세요. 앱에서 `sensor-data/training/`으로 직접 업로드하는 방식은 그 업로드 자체로 알림이 실행됩니다. 알림을 위해 로컬 원본 측정 파일을 강제 추가할 필요는 없습니다.
 
 ## 검사 내용과 의미
 

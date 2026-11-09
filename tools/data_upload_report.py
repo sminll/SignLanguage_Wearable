@@ -34,7 +34,12 @@ def git(*args):
 
 def is_dataset(name):
     path = PurePosixPath(name)
+    if path.is_absolute() or '..' in path.parts or '\\' in name:
+        return False
     return (
+        path.parts[:2] == ('sensor-data', 'training')
+        and path.suffix.lower() == '.csv'
+    ) or (
         path.parent == PurePosixPath('data')
         and re.fullmatch(r'sensor_dataset_v\d+\.csv', path.name) is not None
     ) or (
@@ -314,7 +319,13 @@ def main():
     if args.notify:
         send_discord(json.loads(args.notify.read_text(encoding='utf-8')))
         return 0
-    files = [(name, 'current') for name in args.paths] if args.paths else changed_files()
+    selected = args.paths
+    if not selected and os.environ.get('GITHUB_EVENT_NAME') == 'workflow_dispatch':
+        if requested := os.environ.get('DATASET_PATH', '').strip():
+            if not is_dataset(requested):
+                parser.error('수동 검사 경로는 저장소 내부의 알림 대상 CSV/ZIP이어야 합니다.')
+            selected = [requested]
+    files = [(name, 'current') for name in selected] if selected else changed_files()
     server = os.environ.get('GITHUB_SERVER_URL', 'https://github.com')
     repo, run = os.environ.get('GITHUB_REPOSITORY', ''), os.environ.get('GITHUB_RUN_ID', '')
     report = dict(actor=os.environ.get('GITHUB_ACTOR', 'local'),
