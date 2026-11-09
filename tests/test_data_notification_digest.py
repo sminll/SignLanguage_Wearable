@@ -225,6 +225,22 @@ class DeliveryTests(unittest.TestCase):
             self.assertEqual(discord.deliver.call_count, 2)
             self.assertEqual(len(state['messages']), 2)
 
+    def test_local_preview_shows_history_without_network_or_delivery(self):
+        name, file = uploaded('머리', 'one')
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config = root / 'settings.json'
+            config.write_text(json.dumps(CONFIG), encoding='utf-8')
+            with patch.object(digest, 'CONFIG', config), patch.object(digest, 'GitHubStore') as store, \
+                 patch.object(digest, 'git', return_value=b'head'), \
+                 patch.object(digest, 'inventory', return_value=({name: file}, {name})), \
+                 patch.dict(os.environ, DATASET_PATH='', BOOTSTRAP='false'), \
+                 patch('sys.argv', ['digest.py', '--preview', '--report', str(root/'report.json')]):
+                self.assertEqual(digest.main(), 0)
+                store.assert_not_called()
+            report = json.loads((root/'report.json').read_text(encoding='utf-8'))
+            self.assertEqual(len(report['cards']), 1)
+
     def test_large_state_uses_blob_api_when_contents_api_omits_content(self):
         import base64
         store = GitHubStore('owner/repo', 'training-data', 'fake-token')

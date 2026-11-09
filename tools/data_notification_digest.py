@@ -304,6 +304,8 @@ def main():
         if not checks.is_dataset(requested) or requested not in files:
             raise ValueError('수동 검사 파일이 해당 브랜치에 없습니다.')
         keys |= affected_keys({requested}, before, files)
+    elif args.preview:
+        keys = set(cards)
     if not state['head'] and not requested:
         bootstrap = True  # First deployment never announces all historical uploads.
     keys |= set(state.get('pending_keys', []))
