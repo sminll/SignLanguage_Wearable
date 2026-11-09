@@ -1,6 +1,7 @@
 import copy
 import io
 import json
+import os
 from pathlib import Path
 import tempfile
 import tarfile
@@ -197,6 +198,32 @@ class DeliveryTests(unittest.TestCase):
         self.assertIn('이전 내부 교차검증', text)
         self.assertIn('미평가', text)
         self.assertNotIn('73.88%', digest.model_reference(config, ['머리']))
+
+    def test_manual_check_does_not_swallow_another_persons_new_upload(self):
+        first_name, first = uploaded('머리', 'one')
+        second_name, second = uploaded('삼키다', 'two')
+        second['records'][0]['subject'] = 'subject2'
+        before = {first_name: first}
+        after = before | {second_name: second}
+        state = {'version': 2, 'head': 'old', 'files': before, 'messages': {}}
+        store = Mock()
+        store.load.return_value = state
+        store.latest.return_value = 'new'
+        discord = Mock()
+        discord.deliver.return_value = 'message-id'
+        with tempfile.TemporaryDirectory() as directory:
+            root = Path(directory)
+            config = root / 'settings.json'
+            config.write_text(json.dumps(CONFIG), encoding='utf-8')
+            with patch.object(digest, 'CONFIG', config), patch.object(digest, 'GitHubStore', return_value=store), \
+                 patch.object(digest, 'Discord', return_value=discord), patch.object(digest, 'git', return_value=b'new'), \
+                 patch.object(digest, 'inventory', return_value=(after, {second_name})), \
+                 patch.dict(os.environ, GITHUB_EVENT_NAME='workflow_dispatch', DATASET_PATH=first_name,
+                            GITHUB_TOKEN='fake', DISCORD_WEBHOOK_URL='fake', BOOTSTRAP='false'), \
+                 patch('sys.argv', ['digest.py', '--report', str(root/'report.json')]):
+                self.assertEqual(digest.main(), 0)
+            self.assertEqual(discord.deliver.call_count, 2)
+            self.assertEqual(len(state['messages']), 2)
 
     def test_large_state_uses_blob_api_when_contents_api_omits_content(self):
         import base64

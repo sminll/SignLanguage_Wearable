@@ -298,12 +298,12 @@ def main():
     cards = group_cards(files, config)
     requested = os.environ.get('DATASET_PATH', '').strip()
     bootstrap = args.bootstrap or os.environ.get('BOOTSTRAP') == 'true'
+    # A manual check must not consume other people's newly arrived files without notifying them.
+    keys = affected_keys(changed, before, files) if state['head'] else set()
     if requested:
         if not checks.is_dataset(requested) or requested not in files:
             raise ValueError('수동 검사 파일이 해당 브랜치에 없습니다.')
-        keys = affected_keys({requested}, before, files)
-    else:
-        keys = affected_keys(changed, before, files)
+        keys |= affected_keys({requested}, before, files)
     if not state['head'] and not requested:
         bootstrap = True  # First deployment never announces all historical uploads.
     keys |= set(state.get('pending_keys', []))
