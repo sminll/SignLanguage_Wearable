@@ -1,0 +1,40 @@
+name: Data upload check
+
+on:
+  push:
+    paths:
+      - 'data/sensor_dataset_v*.csv'
+      - 'datasets/**/*.csv'
+      - 'datasets/**/*.zip'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check-and-notify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Check uploaded datasets
+        run: python tools/data_upload_report.py --report "$RUNNER_TEMP/data-report.json"
+      - name: Keep inspection report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: data-inspection
+          path: ${{ runner.temp }}/data-report.json
+          if-no-files-found: warn
+          retention-days: 14
+      - name: Notify Discord
+        if: always()
+        env:
+          DISCORD_WEBHOOK_URL: ${{ secrets.DISCORD_WEBHOOK_URL }}
+        run: python tools/data_upload_report.py --notify "$RUNNER_TEMP/data-report.json"
