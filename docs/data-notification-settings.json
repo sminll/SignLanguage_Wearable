@@ -1,0 +1,23 @@
+{
+  "quiet_seconds": 60,
+  "default_target": 20,
+  "targets": {},
+  "test_label_contains": ["테스트", "디스코드"],
+  "model_reference": {
+    "evaluated_on": "2026-11-08",
+    "method": "LOSO internal cross-validation after configuration selection",
+    "correct": 413,
+    "trials": 559,
+    "labels": ["교통사고", "삼키다", "상처"],
+    "per_label": {
+      "교통사고": {"correct": 108, "trials": 200},
+      "삼키다": {"correct": 167, "trials": 180},
+      "상처": {"correct": 138, "trials": 179}
+    },
+    "source_commit": "8b21c3a145f08969dc17f739c0a96f3fcedf5f21",
+    "candidate_model_sha256": "750c43c3ac53111f033320a2c7e5789b7e10df54fb40d5ba281213d8eb411d8a",
+    "candidate_deployed": false,
+    "independent_accuracy": null,
+    "source_url": "https://github.com/sminll/SignLanguage_Wearable/blob/main/실험기록/2026-11-07/2026-11-07_559회차_고정설정_LOSO.md"
+  }
+}
