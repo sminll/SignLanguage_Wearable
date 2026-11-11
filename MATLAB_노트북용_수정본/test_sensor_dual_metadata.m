@@ -50,7 +50,38 @@ start(driver);
 xiao_ble_dual_monitor('LEFT','RIGHT');
 if ~isempty(failure), clear cleanup; rethrow(failure); end
 verifyTrue(testCase,done);
+% The optional observer must receive the decoded frames while preventing a
+% second simultaneous capture through the normal UI.
+stop(driver); driver.TimerFcn=@driveObserver;
+done=false; observed=zeros(1,2); start(driver);
+xiao_ble_dual_monitor('LEFT','RIGHT',@observeFrame);
+if ~isempty(failure), clear cleanup; rethrow(failure); end
+verifyTrue(testCase,done);
+verifyEqual(testCase,observed,[1 1]);
 clear cleanup;
+
+    function observeFrame(side,frame)
+        verifyEqual(testCase,numel(frame.fsr),6);
+        observed(side)=observed(side)+1;
+    end
+
+    function driveObserver(~,~)
+        f=findall(groot,'Tag','XIAODualBLE');
+        if isempty(f),return;end
+        if toc(started)>120
+            failure=MException('test:Timeout','Mock observer timeout');delete(f);return;
+        end
+        if isempty(XIAO_DUAL_MOCK{1}.DataAvailableFcn)||isempty(XIAO_DUAL_MOCK{2}.DataAvailableFcn),return;end
+        try
+            button=findall(f,'String','양손 20회 수집 시작');
+            verifyEqual(testCase,get(button,'Enable'),'off');
+            callback=get(button,'Callback');callback([],[]);
+            for side=1:2,XIAO_DUAL_MOCK{side}.emit(100,5000);end
+            done=true;delete(f);
+        catch err
+            failure=err;delete(f);
+        end
+    end
 
     function drive(~,~)
         f=findall(groot,'Tag','XIAODualBLE');

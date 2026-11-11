@@ -1,0 +1,6 @@
+# Use the same scikit-learn environment that created the trusted model artifact.
+numpy
+pandas
+scikit-learn
+joblib
+matplotlib

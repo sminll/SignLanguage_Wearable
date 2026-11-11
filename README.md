@@ -8,6 +8,8 @@
 
 **XIAO 2개 수어 유형 선택·양손 KNN 비교: [새 수집 및 학습 안내](docs/dual-hand-knn.md)**
 
+**머리 → 아프다 고정 구간 조합 실험: [수집·평가 실행 안내](docs/sign-sequence-evaluation.md)**
+
 기존 코드와 CSV는 보존했으며 새 데이터 저장은 `data/sensor_dataset_v2.csv`를 사용합니다.
 
 ## 폴더 안내

@@ -1,4 +1,4 @@
-function xiao_ble_dual_monitor(leftAddress, rightAddress)
+function xiao_ble_dual_monitor(leftAddress, rightAddress, frameObserver)
 % XIAO_BLE_DUAL_MONITOR - two XIAO nRF52840 Sense BLE devices, one session.
 %
 %   blelist
@@ -10,9 +10,17 @@ function xiao_ble_dual_monitor(leftAddress, rightAddress)
 % CSV files are separate by hand and share subject_id / session_id.
 % Requires: MATLAB BLE functions + existing make_sensor_payload.m,
 %           write_sensor_csv.m, post_sensor_batch.m, sensor_collection_phase.m
+% Optional frameObserver(side,frame) forwards decoded frames to an external
+% collector. BLE connection/decoding stays identical; normal capture is disabled
+% in this mode to prevent accidental concurrent experiments.
 % NOTE: hardware and parallel connection have NOT yet been validated.
 
-if nargin ~= 2 || strlength(string(leftAddress)) == 0 || ...
+if nargin < 3, frameObserver = []; end
+if ~isempty(frameObserver) && ~isa(frameObserver,'function_handle')
+    error('XIAO:Observer','frameObserver must be a function handle.');
+end
+
+if nargin < 2 || nargin > 3 || strlength(string(leftAddress)) == 0 || ...
         strlength(string(rightAddress)) == 0
     error('XIAO:Addresses', ['먼저 MATLAB에서 blelist를 실행해 두 장치 주소를 확인하세요. ' ...
         '그 후 xiao_ble_dual_monitor("왼쪽주소","오른쪽주소")를 입력하세요.']);
@@ -207,6 +215,8 @@ clear cleaner;
             end
             previousFrameSeq(side) = frame.sequence;
 
+            if ~isempty(frameObserver), frameObserver(side,frame); end
+
             if ~isnan(lastDeviceMs(side)) && frame.time_ms < lastDeviceMs(side)
                 % A reboot invalidates a continuous acquisition session.
                 if running
@@ -253,6 +263,7 @@ clear cleaner;
     end
 
     function startCapture(~,~)
+        if ~isempty(frameObserver), return; end
         if running || sending || submitted || completed, return; end
         for side = 1:2
             if isempty(lastSeen{side}) || toc(lastSeen{side}) > 3
@@ -529,7 +540,7 @@ clear cleaner;
             stage,connectionState{1},received(1),connectionState{2},received(2), ...
             numel(pending),sent);
         editable = ~running && ~sending && ~submitted;
-        enable(startButton, editable && ~completed);
+        enable(startButton, editable && ~completed && isempty(frameObserver));
         enable(stopButton,running);
         enable(sendButton,~running && ~sending && ~submitted && ~isempty(pending));
         enable(deleteButton,editable && hasRun && any(trialCounts(:)>0));
