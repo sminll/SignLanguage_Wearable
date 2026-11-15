@@ -1,0 +1,20 @@
+{
+  "passed_tests": 74,
+  "new_candidate_tests": 6,
+  "synthetic_data_in_experimental_results": false,
+  "checked_outer_folds": 10,
+  "settings_per_inner_search": 36,
+  "all_test_trials_once": 539,
+  "partial_people_retained": true,
+  "partial_people_not_scored_in_inner_selection": true,
+  "independent_selection_metadata_verified": true,
+  "source_and_old_six_model_unchanged": true,
+  "primary_correct": 487,
+  "primary_trials": 539,
+  "new_external_measurement": false,
+  "limitations": [
+    "Post-selection exploratory reanalysis",
+    "Different dates confounded with labels",
+    "Two people have partial class coverage"
+  ]
+}

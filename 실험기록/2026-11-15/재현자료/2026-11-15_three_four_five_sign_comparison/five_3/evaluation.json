@@ -1,0 +1,930 @@
+{
+  "imu_only": {
+    "trials": 914,
+    "correct": 573,
+    "accuracy": 0.6269146608315098,
+    "participant_mean_accuracy": 0.5854476634476635,
+    "macro_f1": 0.629410464299436,
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "마시다"
+    ],
+    "confusion_matrix": [
+      [
+        88,
+        49,
+        21,
+        42,
+        0
+      ],
+      [
+        3,
+        127,
+        1,
+        20,
+        29
+      ],
+      [
+        11,
+        1,
+        125,
+        42,
+        0
+      ],
+      [
+        43,
+        0,
+        22,
+        97,
+        18
+      ],
+      [
+        0,
+        20,
+        0,
+        19,
+        136
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 99,
+        "correct": 61,
+        "accuracy": 0.6161616161616161
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 52,
+        "accuracy": 0.52
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 76,
+        "accuracy": 0.76
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 91,
+        "correct": 81,
+        "accuracy": 0.8901098901098901
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "교통사고",
+          "아니다",
+          "마시다"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 3,
+        "accuracy": 0.05
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 70,
+        "accuracy": 0.7
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 7,
+        "accuracy": 0.11666666666666667
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 104,
+        "correct": 74,
+        "accuracy": 0.7115384615384616
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 87,
+        "accuracy": 0.87
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 62,
+        "accuracy": 0.62
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 794,
+      "correct": 563,
+      "accuracy": 0.7090680100755667
+    },
+    "per_sign": [
+      {
+        "label": "교통사고",
+        "trials": 200,
+        "correct": 88,
+        "recall": 0.44,
+        "precision": 0.6068965517241379
+      },
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 127,
+        "recall": 0.7055555555555556,
+        "precision": 0.6446700507614214
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 125,
+        "recall": 0.6983240223463687,
+        "precision": 0.7396449704142012
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 97,
+        "recall": 0.5388888888888889,
+        "precision": 0.4409090909090909
+      },
+      {
+        "label": "마시다",
+        "trials": 175,
+        "correct": 136,
+        "recall": 0.7771428571428571,
+        "precision": 0.7431693989071039
+      }
+    ]
+  },
+  "fsr_only": {
+    "trials": 914,
+    "correct": 425,
+    "accuracy": 0.4649890590809628,
+    "participant_mean_accuracy": 0.4712504717504718,
+    "macro_f1": 0.46438311454737846,
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "마시다"
+    ],
+    "confusion_matrix": [
+      [
+        89,
+        31,
+        32,
+        1,
+        47
+      ],
+      [
+        57,
+        65,
+        11,
+        6,
+        41
+      ],
+      [
+        71,
+        37,
+        49,
+        0,
+        22
+      ],
+      [
+        4,
+        9,
+        1,
+        160,
+        6
+      ],
+      [
+        30,
+        23,
+        49,
+        11,
+        62
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 99,
+        "correct": 50,
+        "accuracy": 0.5050505050505051
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 52,
+        "accuracy": 0.52
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 52,
+        "accuracy": 0.52
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 91,
+        "correct": 59,
+        "accuracy": 0.6483516483516484
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "교통사고",
+          "아니다",
+          "마시다"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 20,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 38,
+        "accuracy": 0.38
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 42,
+        "accuracy": 0.7
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 104,
+        "correct": 37,
+        "accuracy": 0.3557692307692308
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 26,
+        "accuracy": 0.26
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 49,
+        "accuracy": 0.49
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 794,
+      "correct": 363,
+      "accuracy": 0.45717884130982367
+    },
+    "per_sign": [
+      {
+        "label": "교통사고",
+        "trials": 200,
+        "correct": 89,
+        "recall": 0.445,
+        "precision": 0.3545816733067729
+      },
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 65,
+        "recall": 0.3611111111111111,
+        "precision": 0.3939393939393939
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 49,
+        "recall": 0.2737430167597765,
+        "precision": 0.34507042253521125
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 160,
+        "recall": 0.8888888888888888,
+        "precision": 0.898876404494382
+      },
+      {
+        "label": "마시다",
+        "trials": 175,
+        "correct": 62,
+        "recall": 0.35428571428571426,
+        "precision": 0.34831460674157305
+      }
+    ]
+  },
+  "all_sensors": {
+    "trials": 914,
+    "correct": 589,
+    "accuracy": 0.6444201312910285,
+    "participant_mean_accuracy": 0.6246892551892553,
+    "macro_f1": 0.650994096146494,
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "마시다"
+    ],
+    "confusion_matrix": [
+      [
+        105,
+        25,
+        48,
+        3,
+        19
+      ],
+      [
+        5,
+        104,
+        0,
+        6,
+        65
+      ],
+      [
+        44,
+        1,
+        122,
+        0,
+        12
+      ],
+      [
+        18,
+        0,
+        2,
+        140,
+        20
+      ],
+      [
+        6,
+        51,
+        0,
+        0,
+        118
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 99,
+        "correct": 55,
+        "accuracy": 0.5555555555555556
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 77,
+        "accuracy": 0.77
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 41,
+        "accuracy": 0.41
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 91,
+        "correct": 72,
+        "accuracy": 0.7912087912087912
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "교통사고",
+          "아니다",
+          "마시다"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 20,
+        "accuracy": 0.3333333333333333
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 73,
+        "accuracy": 0.73
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 26,
+        "accuracy": 0.43333333333333335
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 104,
+        "correct": 69,
+        "accuracy": 0.6634615384615384
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 74,
+        "accuracy": 0.74
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 82,
+        "accuracy": 0.82
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 794,
+      "correct": 543,
+      "accuracy": 0.6838790931989924
+    },
+    "per_sign": [
+      {
+        "label": "교통사고",
+        "trials": 200,
+        "correct": 105,
+        "recall": 0.525,
+        "precision": 0.5898876404494382
+      },
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 104,
+        "recall": 0.5777777777777777,
+        "precision": 0.574585635359116
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 122,
+        "recall": 0.6815642458100558,
+        "precision": 0.7093023255813954
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 140,
+        "recall": 0.7777777777777778,
+        "precision": 0.9395973154362416
+      },
+      {
+        "label": "마시다",
+        "trials": 175,
+        "correct": 118,
+        "recall": 0.6742857142857143,
+        "precision": 0.5042735042735043
+      }
+    ]
+  },
+  "nested_selection": {
+    "trials": 914,
+    "correct": 573,
+    "accuracy": 0.6269146608315098,
+    "participant_mean_accuracy": 0.5854476634476635,
+    "macro_f1": 0.629410464299436,
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "마시다"
+    ],
+    "confusion_matrix": [
+      [
+        88,
+        49,
+        21,
+        42,
+        0
+      ],
+      [
+        3,
+        127,
+        1,
+        20,
+        29
+      ],
+      [
+        11,
+        1,
+        125,
+        42,
+        0
+      ],
+      [
+        43,
+        0,
+        22,
+        97,
+        18
+      ],
+      [
+        0,
+        20,
+        0,
+        19,
+        136
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 99,
+        "correct": 61,
+        "accuracy": 0.6161616161616161
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 52,
+        "accuracy": 0.52
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 76,
+        "accuracy": 0.76
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 91,
+        "correct": 81,
+        "accuracy": 0.8901098901098901
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "교통사고",
+          "아니다",
+          "마시다"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 3,
+        "accuracy": 0.05
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 70,
+        "accuracy": 0.7
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 60,
+        "correct": 7,
+        "accuracy": 0.11666666666666667
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 104,
+        "correct": 74,
+        "accuracy": 0.7115384615384616
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 87,
+        "accuracy": 0.87
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "교통사고",
+          "삼키다",
+          "상처",
+          "아니다",
+          "마시다"
+        ],
+        "complete": true,
+        "trials": 100,
+        "correct": 62,
+        "accuracy": 0.62
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 794,
+      "correct": 563,
+      "accuracy": 0.7090680100755667
+    },
+    "per_sign": [
+      {
+        "label": "교통사고",
+        "trials": 200,
+        "correct": 88,
+        "recall": 0.44,
+        "precision": 0.6068965517241379
+      },
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 127,
+        "recall": 0.7055555555555556,
+        "precision": 0.6446700507614214
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 125,
+        "recall": 0.6983240223463687,
+        "precision": 0.7396449704142012
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 97,
+        "recall": 0.5388888888888889,
+        "precision": 0.4409090909090909
+      },
+      {
+        "label": "마시다",
+        "trials": 175,
+        "correct": 136,
+        "recall": 0.7771428571428571,
+        "precision": 0.7431693989071039
+      }
+    ]
+  }
+}

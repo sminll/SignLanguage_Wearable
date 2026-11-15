@@ -1,0 +1,22 @@
+{
+  "pinned_commit": "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+  "raw_hashes_reverified": 1060,
+  "feature_matrix_reproduced": true,
+  "outer_folds": 9,
+  "inner_candidates_per_fold": 36,
+  "methods": [
+    "imu_only",
+    "fsr_only",
+    "all_sensors",
+    "nested_selection"
+  ],
+  "predictions": 4176,
+  "unique_trials": 1044,
+  "primary_correct": 332,
+  "outer_and_inner_participant_isolation": true,
+  "config_selection_reverified": true,
+  "automated_tests_passed": 61,
+  "new_synthetic_mechanics_tests": 10,
+  "synthetic_data_in_experimental_results": false,
+  "plots_visually_inspected": true
+}

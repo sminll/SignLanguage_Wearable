@@ -1,0 +1,10 @@
+{
+  "raw_captures_verified": 1603,
+  "person_sign_templates": 82,
+  "hand_sensor_channels": 24,
+  "person_pair_sensor_comparisons": 666,
+  "synthetic_mechanics_tests_passed": 4,
+  "source_inputs_unchanged": true,
+  "classification_accuracy_computed": false,
+  "plots_visually_inspected": true
+}

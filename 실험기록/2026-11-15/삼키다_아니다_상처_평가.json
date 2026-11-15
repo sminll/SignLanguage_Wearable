@@ -1,0 +1,710 @@
+{
+  "imu_only": {
+    "trials": 539,
+    "correct": 438,
+    "accuracy": 0.8126159554730983,
+    "participant_mean_accuracy": 0.7511581920903955,
+    "macro_f1": 0.8107338902005526,
+    "labels": [
+      "삼키다",
+      "아니다",
+      "상처"
+    ],
+    "confusion_matrix": [
+      [
+        179,
+        0,
+        1
+      ],
+      [
+        4,
+        134,
+        42
+      ],
+      [
+        4,
+        50,
+        125
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 59,
+        "correct": 41,
+        "accuracy": 0.6949152542372882
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 57,
+        "accuracy": 0.95
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "아니다"
+        ],
+        "complete": false,
+        "trials": 20,
+        "correct": 1,
+        "accuracy": 0.05
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 45,
+        "accuracy": 0.75
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 40,
+        "correct": 20,
+        "accuracy": 0.5
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 48,
+        "accuracy": 0.8
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 58,
+        "accuracy": 0.9666666666666667
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 49,
+        "accuracy": 0.8166666666666667
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 479,
+      "correct": 417,
+      "accuracy": 0.8705636743215032
+    },
+    "per_sign": [
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 179,
+        "recall": 0.9944444444444445,
+        "precision": 0.9572192513368984
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 134,
+        "recall": 0.7444444444444445,
+        "precision": 0.7282608695652174
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 125,
+        "recall": 0.6983240223463687,
+        "precision": 0.7440476190476191
+      }
+    ]
+  },
+  "fsr_only": {
+    "trials": 539,
+    "correct": 408,
+    "accuracy": 0.7569573283858998,
+    "participant_mean_accuracy": 0.7812994350282485,
+    "macro_f1": 0.7563886078948614,
+    "labels": [
+      "삼키다",
+      "아니다",
+      "상처"
+    ],
+    "confusion_matrix": [
+      [
+        122,
+        6,
+        52
+      ],
+      [
+        4,
+        175,
+        1
+      ],
+      [
+        68,
+        0,
+        111
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 59,
+        "correct": 46,
+        "accuracy": 0.7796610169491526
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 55,
+        "accuracy": 0.9166666666666666
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 57,
+        "accuracy": 0.95
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 42,
+        "accuracy": 0.7
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "아니다"
+        ],
+        "complete": false,
+        "trials": 20,
+        "correct": 20,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 40,
+        "accuracy": 0.6666666666666666
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 40,
+        "correct": 40,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 28,
+        "accuracy": 0.4666666666666667
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 49,
+        "accuracy": 0.8166666666666667
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 31,
+        "accuracy": 0.5166666666666667
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 479,
+      "correct": 348,
+      "accuracy": 0.7265135699373695
+    },
+    "per_sign": [
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 122,
+        "recall": 0.6777777777777778,
+        "precision": 0.6288659793814433
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 175,
+        "recall": 0.9722222222222222,
+        "precision": 0.9668508287292817
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 111,
+        "recall": 0.6201117318435754,
+        "precision": 0.676829268292683
+      }
+    ]
+  },
+  "all_sensors": {
+    "trials": 539,
+    "correct": 487,
+    "accuracy": 0.9035250463821892,
+    "participant_mean_accuracy": 0.8462429378531073,
+    "macro_f1": 0.9002354700173822,
+    "labels": [
+      "삼키다",
+      "아니다",
+      "상처"
+    ],
+    "confusion_matrix": [
+      [
+        179,
+        0,
+        1
+      ],
+      [
+        12,
+        131,
+        37
+      ],
+      [
+        2,
+        0,
+        177
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 59,
+        "correct": 44,
+        "accuracy": 0.7457627118644068
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "아니다"
+        ],
+        "complete": false,
+        "trials": 20,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 40,
+        "correct": 40,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 45,
+        "accuracy": 0.75
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 479,
+      "correct": 447,
+      "accuracy": 0.9331941544885177
+    },
+    "per_sign": [
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 179,
+        "recall": 0.9944444444444445,
+        "precision": 0.927461139896373
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 131,
+        "recall": 0.7277777777777777,
+        "precision": 1.0
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 177,
+        "recall": 0.9888268156424581,
+        "precision": 0.8232558139534883
+      }
+    ]
+  },
+  "nested_selection": {
+    "trials": 539,
+    "correct": 487,
+    "accuracy": 0.9035250463821892,
+    "participant_mean_accuracy": 0.8462429378531073,
+    "macro_f1": 0.9002354700173822,
+    "labels": [
+      "삼키다",
+      "아니다",
+      "상처"
+    ],
+    "confusion_matrix": [
+      [
+        179,
+        0,
+        1
+      ],
+      [
+        12,
+        131,
+        37
+      ],
+      [
+        2,
+        0,
+        177
+      ]
+    ],
+    "people": [
+      {
+        "person": "subject1",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 59,
+        "correct": 44,
+        "accuracy": 0.7457627118644068
+      },
+      {
+        "person": "subject2",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject3",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject4",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      {
+        "person": "subject5",
+        "labels": [
+          "아니다"
+        ],
+        "complete": false,
+        "trials": 20,
+        "correct": 0,
+        "accuracy": 0.0
+      },
+      {
+        "person": "subject6",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject7",
+        "labels": [
+          "삼키다",
+          "상처"
+        ],
+        "complete": false,
+        "trials": 40,
+        "correct": 40,
+        "accuracy": 1.0
+      },
+      {
+        "person": "subject8",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 59,
+        "accuracy": 0.9833333333333333
+      },
+      {
+        "person": "subject9",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 45,
+        "accuracy": 0.75
+      },
+      {
+        "person": "subject10",
+        "labels": [
+          "삼키다",
+          "아니다",
+          "상처"
+        ],
+        "complete": true,
+        "trials": 60,
+        "correct": 60,
+        "accuracy": 1.0
+      }
+    ],
+    "complete_people_subset": {
+      "people": 8,
+      "trials": 479,
+      "correct": 447,
+      "accuracy": 0.9331941544885177
+    },
+    "per_sign": [
+      {
+        "label": "삼키다",
+        "trials": 180,
+        "correct": 179,
+        "recall": 0.9944444444444445,
+        "precision": 0.927461139896373
+      },
+      {
+        "label": "아니다",
+        "trials": 180,
+        "correct": 131,
+        "recall": 0.7277777777777777,
+        "precision": 1.0
+      },
+      {
+        "label": "상처",
+        "trials": 179,
+        "correct": 177,
+        "recall": 0.9888268156424581,
+        "precision": 0.8232558139534883
+      }
+    ]
+  }
+}

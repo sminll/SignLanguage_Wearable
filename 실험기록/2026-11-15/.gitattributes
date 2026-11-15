@@ -1,0 +1,5 @@
+# Keep published evidence byte-identical to its recorded SHA256 on every OS.
+* -text
+# Matplotlib SVG paths contain harmless trailing spaces; Markdown uses hard breaks.
+*.svg whitespace=-blank-at-eol
+*.md whitespace=-blank-at-eol

@@ -1,0 +1,5 @@
+﻿method,corrected,newly_wrong,both_correct,both_wrong
+imu_only,82,132,219,611
+fsr_only,107,211,65,661
+all_sensors,110,91,171,672
+nested_selection,49,152,180,663

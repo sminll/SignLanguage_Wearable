@@ -1,0 +1,37 @@
+{
+  "vocabulary": {
+    "name": "five_5",
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "싫다"
+    ],
+    "extra": "싫다"
+  },
+  "config": {
+    "config_id": 24,
+    "sensors": "all_sensors",
+    "k": 3,
+    "p": 1,
+    "weights": "uniform"
+  },
+  "people": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject5",
+    "subject6",
+    "subject7",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "trials": 911,
+  "exploratory": true,
+  "external_accuracy": null,
+  "deployed": false,
+  "date_label_confounding_unresolved": true
+}

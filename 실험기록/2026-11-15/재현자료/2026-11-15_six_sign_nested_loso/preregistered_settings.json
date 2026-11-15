@@ -1,0 +1,272 @@
+{
+  "source_commit": "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+  "primary_method": "nested_selection",
+  "candidate_configs": [
+    {
+      "config_id": 0,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 1,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 2,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 3,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 4,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 5,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 6,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 7,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 8,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 9,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 10,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 11,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 12,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 13,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 14,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 15,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 16,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 17,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 18,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 19,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 20,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 21,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 22,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 23,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 24,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 25,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 26,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 27,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 28,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 29,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 30,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 31,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 32,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 33,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 34,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 35,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    }
+  ],
+  "selection_criterion": "Equal-person mean balanced accuracy; exact ties use config_id ascending",
+  "feature_statistics": [
+    "mean",
+    "std",
+    "min",
+    "max"
+  ],
+  "std_ddof": 0,
+  "shared_clock_alignment": false,
+  "outer": "Leave one person out; every date for that person is held out",
+  "inner": "Leave one training person out; no outer-person data permitted",
+  "raw_trials": 1060,
+  "paired_trials": 1044,
+  "excluded": 16
+}

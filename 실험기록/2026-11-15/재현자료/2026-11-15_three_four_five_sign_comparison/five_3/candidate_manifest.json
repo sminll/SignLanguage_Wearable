@@ -1,0 +1,37 @@
+{
+  "vocabulary": {
+    "name": "five_3",
+    "labels": [
+      "교통사고",
+      "삼키다",
+      "상처",
+      "아니다",
+      "마시다"
+    ],
+    "extra": "마시다"
+  },
+  "config": {
+    "config_id": 1,
+    "sensors": "imu_only",
+    "k": 3,
+    "p": 1,
+    "weights": "distance"
+  },
+  "people": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject5",
+    "subject6",
+    "subject7",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "trials": 914,
+  "exploratory": true,
+  "external_accuracy": null,
+  "deployed": false,
+  "date_label_confounding_unresolved": true
+}

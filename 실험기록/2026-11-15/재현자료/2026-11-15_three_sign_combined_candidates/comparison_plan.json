@@ -1,0 +1,303 @@
+{
+  "labels": [
+    "삼키다",
+    "아니다",
+    "상처"
+  ],
+  "raw_trial_unit": "One original ~5-second paired-hand capture",
+  "trials": 539,
+  "participants": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject5",
+    "subject6",
+    "subject7",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "complete_people": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject6",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "partial_people": [
+    "subject5",
+    "subject7"
+  ],
+  "primary": "nested_selection pooled over ALL 539 available trials / ten held-out people",
+  "inner": "Equal-person macro recall, scored on complete-class training people only; partial people remain in fit",
+  "outer": "All dates/labels of one person held out; partial-person available trials retained",
+  "configs": [
+    {
+      "config_id": 0,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 1,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 2,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 3,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 4,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 5,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 6,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 7,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 8,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 9,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 10,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 11,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 12,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 13,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 14,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 15,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 16,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 17,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 18,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 19,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 20,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 21,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 22,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 23,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 24,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 25,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 26,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 27,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 28,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 29,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 30,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 31,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 32,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 33,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 34,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 35,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    }
+  ],
+  "tie_break": "selection_score descending, config_id ascending",
+  "exploratory": true,
+  "labels_selected_after_prior_results": true,
+  "warning": "Labels were captured on different dates; date/session/label confounding remains.",
+  "individual_prior_accuracies_not_combined": true,
+  "input_sha256": {
+    "data\\knn_results\\2026-11-08_knn_development_holdout\\manifest.json": "56b26f8b06df975cd48be7d593fefe8ed7c14486a9c84bec477528efbdd71cbe",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\inventory_summary.json": "53c0a1c67f3795fbf944202390c9c6b697ee7b654e1057932501d794da8cbc7e",
+    "data\\knn_results\\2026-11-08_knn_development_holdout\\trial_features.csv": "bc5a70289d1ad71bec1b2e8b42b9da5b597c42b77753506b94abb041815a58bd",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\trial_features.csv": "6b8ce8acda4e0aa214f1fa60965d44627aa58f5817943acc32aa55d74e3eed34"
+  }
+}

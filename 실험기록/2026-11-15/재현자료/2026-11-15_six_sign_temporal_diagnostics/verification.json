@@ -1,0 +1,13 @@
+{
+  "raw_hashes_verified": 1060,
+  "identical_paired_trials": 1044,
+  "predictions": 20880,
+  "same_person_folds": 45,
+  "outer_nested_folds": 9,
+  "previous_inputs_sha256_unchanged": true,
+  "missing_hand_trials_preserved": 16,
+  "no_automatic_model_replacement": true,
+  "no_new_final_candidate": true,
+  "experimental_data_kind": "REAL",
+  "exploratory_not_external_validation": true
+}

@@ -1,0 +1,12 @@
+{
+  "tests_passed": 82,
+  "new_vocabulary_tests": 4,
+  "vocabularies_verified": 7,
+  "outer_folds_verified": 70,
+  "settings_per_inner_search": 36,
+  "old_three_candidate_defaults_identical": true,
+  "previous_sources_and_three_candidate_model_unchanged": true,
+  "synthetic_data_excluded": true,
+  "final_vocabulary_selected_using_internal_results": true,
+  "fresh_external_measurement": false
+}

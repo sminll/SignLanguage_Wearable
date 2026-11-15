@@ -1,0 +1,12 @@
+{
+  "tests_passed": 68,
+  "new_diagnostic_tests": 7,
+  "synthetic_test_data_excluded": true,
+  "same_person_splits_verified": 45,
+  "whole_trials_tested_once": 1044,
+  "nested_outer_folds_verified": 9,
+  "inner_configs_per_fold": 36,
+  "previous_inputs_and_candidate_unchanged": true,
+  "new_features_designed_after_previous_results": true,
+  "new_external_test_performed": false
+}

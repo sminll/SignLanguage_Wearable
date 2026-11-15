@@ -1,0 +1,10 @@
+{
+  "vocabularies": 7,
+  "all_available_measurements_kept": true,
+  "source_inputs_unchanged": true,
+  "base_four_same_test_trials": 739,
+  "models_deployed": false,
+  "old_models_written": false,
+  "chosen_five": "five_4",
+  "choice_is_exploratory": true
+}

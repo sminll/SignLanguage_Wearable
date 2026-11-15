@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="utf-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN"
+  "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg xmlns:xlink="http://www.w3.org/1999/xlink" width="750.96pt" height="286.56pt" viewBox="0 0 750.96 286.56" xmlns="http://www.w3.org/2000/svg" version="1.1">
+ <metadata>
+  <rdf:RDF xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:cc="http://creativecommons.org/ns#" xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#">
+   <cc:Work>
+    <dc:type rdf:resource="http://purl.org/dc/dcmitype/StillImage"/>
+    <dc:date>2026-11-15T20:18:38.530396</dc:date>
+    <dc:format>image/svg+xml</dc:format>
+    <dc:creator>
+     <cc:Agent>
+      <dc:title>Matplotlib v3.11.2, https://matplotlib.org/</dc:title>
+     </cc:Agent>
+    </dc:creator>
+   </cc:Work>
+  </rdf:RDF>
+ </metadata>
+ <defs>
+  <style type="text/css">*{stroke-linejoin: round; stroke-linecap: butt}</style>
+ </defs>
+ <g id="figure_1">
+  <g id="patch_1">
+   <path d="M 0 286.56 
+L 750.96 286.56 
+L 750.96 0 
+L 0 0 
+z
+" style="fill: #ffffff"/>
+  </g>
+  <g id="axes_1">
+   <g id="table_1">
+    <g id="patch_2">
+     <path d="M 7.2 122.325195 
+L 154.512 122.325195 
+L 154.512 103.53039 
+L 7.2 103.53039 
+z
+" style="fill: #123b60; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_1">
+     <text style="font-weight: 700; font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #ffffff" x="80.856" y="117.177929" transform="rotate(-0 80.856 117.177929)">실제 수어</text>
+    </g>
+    <g id="patch_3">
+     <path d="M 154.512 122.325195 
+L 301.824 122.325195 
+L 301.824 103.53039 
+L 154.512 103.53039 
+z
+" style="fill: #123b60; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_2">
+     <text style="font-weight: 700; font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #ffffff" x="228.168" y="117.221601" transform="rotate(-0 228.168 117.221601)">평가 회차</text>
+    </g>
+    <g id="patch_4">
+     <path d="M 301.824 122.325195 
+L 449.136 122.325195 
+L 449.136 103.53039 
+L 301.824 103.53039 
+z
+" style="fill: #123b60; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_3">
+     <text style="font-weight: 700; font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #ffffff" x="375.48" y="117.177929" transform="rotate(-0 375.48 117.177929)">정답</text>
+    </g>
+    <g id="patch_5">
+     <path d="M 449.136 122.325195 
+L 596.448 122.325195 
+L 596.448 103.53039 
+L 449.136 103.53039 
+z
+" style="fill: #123b60; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_4">
+     <text style="font-weight: 700; font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #ffffff" x="522.792" y="117.177929" transform="rotate(-0 522.792 117.177929)">오답</text>
+    </g>
+    <g id="patch_6">
+     <path d="M 596.448 122.325195 
+L 743.76 122.325195 
+L 743.76 103.53039 
+L 596.448 103.53039 
+z
+" style="fill: #123b60; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_5">
+     <text style="font-weight: 700; font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle; fill: #ffffff" x="670.104" y="117.177929" transform="rotate(-0 670.104 117.177929)">정답률</text>
+    </g>
+    <g id="patch_7">
+     <path d="M 7.2 141.12 
+L 154.512 141.12 
+L 154.512 122.325195 
+L 7.2 122.325195 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_6">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="80.856" y="135.972734" transform="rotate(-0 80.856 135.972734)">삼키다</text>
+    </g>
+    <g id="patch_8">
+     <path d="M 154.512 141.12 
+L 301.824 141.12 
+L 301.824 122.325195 
+L 154.512 122.325195 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_7">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="228.168" y="135.620058" transform="rotate(-0 228.168 135.620058)">180</text>
+    </g>
+    <g id="patch_9">
+     <path d="M 301.824 141.12 
+L 449.136 141.12 
+L 449.136 122.325195 
+L 301.824 122.325195 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_8">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="375.48" y="135.620058" transform="rotate(-0 375.48 135.620058)">179</text>
+    </g>
+    <g id="patch_10">
+     <path d="M 449.136 141.12 
+L 596.448 141.12 
+L 596.448 122.325195 
+L 449.136 122.325195 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_9">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="522.792" y="135.620058" transform="rotate(-0 522.792 135.620058)">1</text>
+    </g>
+    <g id="patch_11">
+     <path d="M 596.448 141.12 
+L 743.76 141.12 
+L 743.76 122.325195 
+L 596.448 122.325195 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_10">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="670.104" y="135.620058" transform="rotate(-0 670.104 135.620058)">99.44%</text>
+    </g>
+    <g id="patch_12">
+     <path d="M 7.2 159.914805 
+L 154.512 159.914805 
+L 154.512 141.12 
+L 7.2 141.12 
+z
+" style="fill: #ffffff; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_11">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="80.856" y="154.767539" transform="rotate(-0 80.856 154.767539)">아니다</text>
+    </g>
+    <g id="patch_13">
+     <path d="M 154.512 159.914805 
+L 301.824 159.914805 
+L 301.824 141.12 
+L 154.512 141.12 
+z
+" style="fill: #ffffff; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_12">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="228.168" y="154.414864" transform="rotate(-0 228.168 154.414864)">180</text>
+    </g>
+    <g id="patch_14">
+     <path d="M 301.824 159.914805 
+L 449.136 159.914805 
+L 449.136 141.12 
+L 301.824 141.12 
+z
+" style="fill: #ffffff; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_13">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="375.48" y="154.414864" transform="rotate(-0 375.48 154.414864)">131</text>
+    </g>
+    <g id="patch_15">
+     <path d="M 449.136 159.914805 
+L 596.448 159.914805 
+L 596.448 141.12 
+L 449.136 141.12 
+z
+" style="fill: #ffffff; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_14">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="522.792" y="154.414864" transform="rotate(-0 522.792 154.414864)">49</text>
+    </g>
+    <g id="patch_16">
+     <path d="M 596.448 159.914805 
+L 743.76 159.914805 
+L 743.76 141.12 
+L 596.448 141.12 
+z
+" style="fill: #ffffff; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_15">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="670.104" y="154.414864" transform="rotate(-0 670.104 154.414864)">72.78%</text>
+    </g>
+    <g id="patch_17">
+     <path d="M 7.2 178.70961 
+L 154.512 178.70961 
+L 154.512 159.914805 
+L 7.2 159.914805 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_16">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="80.856" y="173.562345" transform="rotate(-0 80.856 173.562345)">상처</text>
+    </g>
+    <g id="patch_18">
+     <path d="M 154.512 178.70961 
+L 301.824 178.70961 
+L 301.824 159.914805 
+L 154.512 159.914805 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_17">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="228.168" y="173.209669" transform="rotate(-0 228.168 173.209669)">179</text>
+    </g>
+    <g id="patch_19">
+     <path d="M 301.824 178.70961 
+L 449.136 178.70961 
+L 449.136 159.914805 
+L 301.824 159.914805 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_18">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="375.48" y="173.209669" transform="rotate(-0 375.48 173.209669)">177</text>
+    </g>
+    <g id="patch_20">
+     <path d="M 449.136 178.70961 
+L 596.448 178.70961 
+L 596.448 159.914805 
+L 449.136 159.914805 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_19">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="522.792" y="173.209669" transform="rotate(-0 522.792 173.209669)">2</text>
+    </g>
+    <g id="patch_21">
+     <path d="M 596.448 178.70961 
+L 743.76 178.70961 
+L 743.76 159.914805 
+L 596.448 159.914805 
+z
+" style="fill: #edf4fa; stroke: #d4dde8; stroke-linejoin: miter"/>
+    </g>
+    <g id="text_20">
+     <text style="font-size: 13px; font-family: 'Malgun Gothic'; text-anchor: middle" x="670.104" y="173.209669" transform="rotate(-0 670.104 173.209669)">98.88%</text>
+    </g>
+   </g>
+  </g>
+  <g id="text_21">
+   <text style="font-weight: 700; font-size: 20px; font-family: 'Malgun Gothic'; text-anchor: middle" x="363.6" y="24.28125" transform="rotate(-0 363.6 24.28125)">3종 수어별 정답률 — 487/539 (90.35%)</text>
+  </g>
+  <g id="text_22">
+   <text style="font-size: 10px; font-family: 'Malgun Gothic'; fill: #384b5a" transform="translate(237.840625 266.737344)">각 바깥 평가의 학습 참가자 안에서 센서·KNN 설정 선택</text>
+   <text style="font-size: 10px; font-family: 'Malgun Gothic'; fill: #384b5a" transform="translate(165.533594 277.358047)">결과를 보고 고른 3종의 탐색적 내부 평가 · 수어별 측정 날짜가 다름 · 새 외부 검증 아님</text>
+  </g>
+ </g>
+</svg>

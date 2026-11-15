@@ -1,0 +1,35 @@
+{
+  "source_commit": "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+  "config": {
+    "config_id": 4,
+    "sensors": "imu_only",
+    "k": 5,
+    "p": 1,
+    "weights": "uniform"
+  },
+  "trials": 1044,
+  "people": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject5",
+    "subject6",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "classes": [
+    "괜찮다",
+    "아니다",
+    "무엇",
+    "마시다",
+    "화장실",
+    "싫다"
+  ],
+  "independent_accuracy": null,
+  "independent_accuracy_display": "미측정",
+  "deployed": false,
+  "fitting": "Entire paired cohort after nested evaluation",
+  "warning": "Outer accuracy evaluates training/selection procedure, not this full-data artifact."
+}

@@ -1,0 +1,12 @@
+{
+  "points": 50,
+  "phase_alignment": "Independent relative progress per hand; no DTW or clock synchronization",
+  "average": "Mean repeated trials per person/sign; each person one template",
+  "absolute_metric": "Median pairwise RMS waveform distance after common per-channel scaling",
+  "comparison": "Ratio of same-sign between-person distance to nearest other-sign grand-template gap",
+  "descriptive_not_accuracy": true,
+  "shape_min_rms": 0.05,
+  "candidate_rule": "FSR and IMU ratios both below 1, no capture with both hands entirely zero FSR",
+  "rule_is_exploratory_not_validated": true,
+  "zero_hand_alone_is_not_exclusion": true
+}

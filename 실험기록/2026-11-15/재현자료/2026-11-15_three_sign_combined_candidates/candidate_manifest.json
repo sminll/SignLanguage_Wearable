@@ -1,0 +1,37 @@
+{
+  "labels": [
+    "삼키다",
+    "아니다",
+    "상처"
+  ],
+  "trials": 539,
+  "people": [
+    "subject1",
+    "subject2",
+    "subject3",
+    "subject4",
+    "subject5",
+    "subject6",
+    "subject7",
+    "subject8",
+    "subject9",
+    "subject10"
+  ],
+  "config": {
+    "config_id": 24,
+    "sensors": "all_sensors",
+    "k": 3,
+    "p": 1,
+    "weights": "uniform"
+  },
+  "external_accuracy": null,
+  "external_accuracy_display": "미측정",
+  "deployed": false,
+  "exploratory": true,
+  "date_label_confounding_unresolved": true,
+  "source_commits": [
+    "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+    "8b21c3a145f08969dc17f739c0a96f3fcedf5f21"
+  ],
+  "warning": "CV evaluates the selection/training procedure, not this full-data artifact externally."
+}

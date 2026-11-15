@@ -1,0 +1,10 @@
+﻿cohort,label,trials,correct,recall,predicted_trials,precision,people,people_recall_at_least_80,people_at_least_80_fraction,equal_person_mean_recall,minimum_person_recall,maximum_person_recall,low_people,status,left_FSR_all_zero_trials,right_FSR_all_zero_trials,both_hands_FSR_all_zero_trials,left_FSR_all_constant_trials,right_FSR_all_constant_trials
+기존3종,교통사고,200,108,0.54,155,0.6967741935483871,10,5,0.5,0.5399999999999999,0.0,1.0,subject10|subject3|subject5|subject6|subject8,현재 보류,4,0,0,4,0
+기존3종,삼키다,180,167,0.9277777777777778,230,0.7260869565217392,9,8,0.8888888888888888,0.9277777777777777,0.4,1.0,subject7,조건부 후보,5,5,0,5,5
+기존3종,상처,179,138,0.770949720670391,174,0.7931034482758621,9,6,0.6666666666666666,0.7672514619883041,0.10526315789473684,1.0,subject1|subject7,조건부 후보,1,1,0,1,1
+새6종,괜찮다,174,20,0.11494252873563218,117,0.17094017094017094,9,1,0.1111111111111111,0.11349206349206348,0.0,0.9,subject1|subject10|subject2|subject3|subject4|subject5|subject6|subject8,현재 보류,16,0,0,16,0
+새6종,마시다,175,79,0.4514285714285714,392,0.20153061224489796,9,3,0.3333333333333333,0.4434343434343434,0.0,1.0,subject10|subject2|subject4|subject5|subject8,현재 보류,23,0,0,23,0
+새6종,무엇,171,24,0.14035087719298245,79,0.3037974683544304,9,1,0.1111111111111111,0.13627450980392158,0.0,0.85,subject1|subject10|subject2|subject4|subject5|subject6|subject8|subject9,현재 보류,2,0,0,2,0
+새6종,싫다,172,45,0.2616279069767442,195,0.23076923076923078,9,2,0.2222222222222222,0.25,0.0,1.0,subject1|subject10|subject2|subject3|subject5|subject6|subject9,현재 보류,12,0,0,12,0
+새6종,아니다,180,162,0.9,162,1.0,9,8,0.8888888888888888,0.8999999999999999,0.1,1.0,subject1,조건부 후보,0,0,0,0,0
+새6종,화장실,172,21,0.12209302325581395,99,0.21212121212121213,9,1,0.1111111111111111,0.11666666666666667,0.0,1.0,subject1|subject10|subject3|subject4|subject5|subject6|subject8|subject9,현재 보류,17,0,0,17,0

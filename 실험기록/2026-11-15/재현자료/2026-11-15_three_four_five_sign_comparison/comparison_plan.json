@@ -1,0 +1,344 @@
+{
+  "vocabularies": [
+    {
+      "name": "original3",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처"
+      ]
+    },
+    {
+      "name": "plus_denial4",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다"
+      ]
+    },
+    {
+      "name": "five_1",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다",
+        "괜찮다"
+      ],
+      "extra": "괜찮다"
+    },
+    {
+      "name": "five_2",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다",
+        "무엇"
+      ],
+      "extra": "무엇"
+    },
+    {
+      "name": "five_3",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다",
+        "마시다"
+      ],
+      "extra": "마시다"
+    },
+    {
+      "name": "five_4",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다",
+        "화장실"
+      ],
+      "extra": "화장실"
+    },
+    {
+      "name": "five_5",
+      "labels": [
+        "교통사고",
+        "삼키다",
+        "상처",
+        "아니다",
+        "싫다"
+      ],
+      "extra": "싫다"
+    }
+  ],
+  "settings": [
+    {
+      "config_id": 0,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 1,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 2,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 3,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 4,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 5,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 6,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 7,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 8,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 9,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 10,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 11,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 12,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 13,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 14,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 15,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 16,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 17,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 18,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 19,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 20,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 21,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 22,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 23,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 24,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 25,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 26,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 27,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 28,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 29,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 30,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 31,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 32,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 33,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 34,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 35,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    }
+  ],
+  "primary_method": "nested_selection",
+  "outer": "Every date/trial of one person excluded; all partial-person available trials retained",
+  "inner": "Equal-person macro recall on training people with all current labels; partial people still fit",
+  "five_selection": "Highest worst-class recall, then macro recall, pooled accuracy, stable name order",
+  "label_selection_uses_outer_results": true,
+  "exploratory_not_external": true,
+  "source_raw_files_previously_verified": 1603,
+  "input_sha256": {
+    "data\\knn_results\\2026-11-08_knn_development_holdout\\trial_features.csv": "bc5a70289d1ad71bec1b2e8b42b9da5b597c42b77753506b94abb041815a58bd",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\trial_features.csv": "6b8ce8acda4e0aa214f1fa60965d44627aa58f5817943acc32aa55d74e3eed34",
+    "data\\knn_results\\2026-11-15_direct_sensor_consistency\\summary.json": "aedac74c6a3befd59eb49f529441a16327f81ca6718e0620ada8b08db9423b1a",
+    "data\\knn_results\\2026-11-15_direct_sensor_consistency\\회차별_FSR상태.csv": "d0919fc2906ff1284926cb04c0878c650867141c709c8ac96259c2d1808c0cb5"
+  },
+  "warning": "Repeated exploration of same people and date/label confounding remain; no confirmatory claim."
+}

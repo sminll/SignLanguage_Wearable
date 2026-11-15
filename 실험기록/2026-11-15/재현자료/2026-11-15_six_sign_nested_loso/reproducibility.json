@@ -1,0 +1,32 @@
+{
+  "source_commit": "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+  "python": "3.15.2",
+  "sklearn": "1.9.1",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "files": [
+    {
+      "name": "evaluate_six_sign_knn.py",
+      "sha256": "1722abf54197b6c5eb93759ee07291e6751675ca70427c20a294cd1ee8aba0e1"
+    },
+    {
+      "name": "summary.json",
+      "sha256": "53c0a1c67f3795fbf944202390c9c6b697ee7b654e1057932501d794da8cbc7e"
+    },
+    {
+      "name": "trial_inventory.csv",
+      "sha256": "b99d77df82681d7162a6cc1220b4189b4e69d85917787f6a34f1d30796f2a7a5"
+    }
+  ],
+  "candidate_sha256": "8bcd6db6e0e79468f996dcd7bfceed932d18e796d1a55da40dc7eae497028ab5",
+  "existing_sources_written": false,
+  "existing_models_written": false,
+  "raw_files_verified": 1060,
+  "limitations": [
+    "Internal nested participant CV on nine recorded Subject IDs, not prospective external testing.",
+    "Wearing position, sign correctness, calibration and shared capture clock are unverified.",
+    "Participants share app sessions/devices; participant IDs must reflect actual people.",
+    "No per-frame hand synchronization, temporal segmentation or sentence/sequence evaluation.",
+    "Repeated trials are correlated; no trial-independent confidence interval is claimed."
+  ]
+}

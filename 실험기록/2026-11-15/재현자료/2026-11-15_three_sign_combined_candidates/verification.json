@@ -1,0 +1,17 @@
+{
+  "raw_files_sha256_verified": 539,
+  "source_statistics_recomputed_and_matched": true,
+  "all_available_trials_retained": true,
+  "unique_trial_uuid": true,
+  "heldout_people": 10,
+  "methods": 4,
+  "predictions": 2156,
+  "prior_input_files_unchanged": true,
+  "previous_models_written": false,
+  "deployed": false,
+  "python": "3.15.2",
+  "numpy": "2.5.4",
+  "pandas": "3.1.0",
+  "sklearn": "1.9.1",
+  "candidate_sha256": "00999de3d1ef4eff700bca02e1da60c11d9e64f6d50fb4c98bd176766b6add0b"
+}

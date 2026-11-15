@@ -1,0 +1,292 @@
+{
+  "exploratory_after_previous_results": true,
+  "warning": "Post-result feature redesign on reused participants; not fresh external validation.",
+  "fixed_comparison": {
+    "config_id": 4,
+    "sensors": "imu_only",
+    "k": 5,
+    "p": 1,
+    "weights": "uniform"
+  },
+  "temporal_bins": 5,
+  "temporal_bin_min_samples": 3,
+  "temporal_features": {
+    "imu_only": 240,
+    "fsr_only": 240,
+    "all_sensors": 480
+  },
+  "global_features": {
+    "imu_only": 48,
+    "fsr_only": 48,
+    "all_sensors": 96
+  },
+  "within_person": "5 chronological blocks per person and class; no trial split across fit/test",
+  "between_person": "All dates for one person held out; remaining eight train",
+  "nested_temporal_configs": [
+    {
+      "config_id": 0,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 1,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 2,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 3,
+      "sensors": "imu_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 4,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 5,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 6,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 7,
+      "sensors": "imu_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 8,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 9,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 10,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 11,
+      "sensors": "imu_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 12,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 13,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 14,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 15,
+      "sensors": "fsr_only",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 16,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 17,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 18,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 19,
+      "sensors": "fsr_only",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 20,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 21,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 22,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 23,
+      "sensors": "fsr_only",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 24,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 25,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 26,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 27,
+      "sensors": "all_sensors",
+      "k": 3,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 28,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 29,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 30,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 31,
+      "sensors": "all_sensors",
+      "k": 5,
+      "p": 2,
+      "weights": "distance"
+    },
+    {
+      "config_id": 32,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 33,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 1,
+      "weights": "distance"
+    },
+    {
+      "config_id": 34,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "uniform"
+    },
+    {
+      "config_id": 35,
+      "sensors": "all_sensors",
+      "k": 7,
+      "p": 2,
+      "weights": "distance"
+    }
+  ],
+  "changed_conditions": [
+    "five relative-time bins instead of whole-trial statistics"
+  ],
+  "excluded_for_low_accuracy": false,
+  "raw_or_old_models_written": false,
+  "final_candidate_fitted": false,
+  "input_sha256": {
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\inventory_summary.json": "53c0a1c67f3795fbf944202390c9c6b697ee7b654e1057932501d794da8cbc7e",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\inventory_trial_inventory.csv": "b99d77df82681d7162a6cc1220b4189b4e69d85917787f6a34f1d30796f2a7a5",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\cohort_manifest.csv": "3de0b8b2ec356ea3112e806df6f0a2d398bc1888ab12bf14cf8e745fdc49a9fb",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\trial_features.csv": "6b8ce8acda4e0aa214f1fa60965d44627aa58f5817943acc32aa55d74e3eed34",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\outer_predictions.csv": "7ecb5ac7866d8bd0e3e34decc5610c01fcbe1e7d048079d2c0d3c4e513988381"
+  }
+}
