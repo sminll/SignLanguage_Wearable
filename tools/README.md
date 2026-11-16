@@ -4,6 +4,7 @@
 
 | 도구 | 용도 | 주의 |
 | --- | --- | --- |
+| `evaluate_app_kfold.py` | Git 원시 FSR 시행의 표준화·반복 K-fold·분리 시험 재현 | 사람/세션 공유 탐색 평가, Fold 수와 KNN 이웃 수 구분. [실행·해석](../docs/kfold-validation.md) |
 | `evaluate_combined_candidate.py` | 559회 통합 후보의 설정 고정 LOSO·훈련 재예측 분리 | 모델 원본 불변, 사후 내부 검증 |
 | `tune_knn_with_new_people_holdout.py` | 기존 319회만 설정 선택 → 11/7 신규 4명 평가 → 559회 후보 학습 | 새 평가자료로 튜닝하지 않음, 후보 독립 성능 미정 |
 | `compare_loso_sensor_inputs.py` | 동일 초기 제외 LOSO로 전체·왼손 FSR 제외·IMU 전용 비교 | 사후 진단, 행 삭제·모델 교체 없음 |
