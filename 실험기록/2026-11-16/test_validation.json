@@ -1,0 +1,12 @@
+{
+  "full_suite_tests": 92,
+  "passed": true,
+  "synthetic_tests_not_experimental_accuracy": true,
+  "real_predictions": 11081,
+  "unchanged_input_hashes_checked": 12,
+  "strict_both_hand_rest_candidate_trials": 150,
+  "three_sign_rest_candidate_trials": 60,
+  "six_sign_rest_candidate_trials": 110,
+  "matched_rest_candidates_unverified": true,
+  "production_model_replaced": false
+}

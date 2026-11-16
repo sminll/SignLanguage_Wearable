@@ -1,0 +1,16 @@
+{
+  "calibration_files": 56,
+  "calibration_hand_records": 56,
+  "calibration_date_range": [
+    "2026-11-02T11:13:29.667000+00:00",
+    "2026-11-15T02:36:10.556000+00:00"
+  ],
+  "explicit_rest_files": 22,
+  "unique_training_trials": 1403,
+  "training_hand_records": 2806,
+  "link_status": {
+    "no_matching_previous_rest": 2506,
+    "metadata_match_but_unverified": 300
+  },
+  "calibration_applied": false
+}

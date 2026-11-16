@@ -1,0 +1,58 @@
+{
+  "exploratory": true,
+  "prospective_external_validation": false,
+  "cohorts": {
+    "three_sign": {
+      "trials": 539,
+      "people": 10
+    },
+    "six_sign": {
+      "trials": 1044,
+      "people": 9
+    }
+  },
+  "calibration_commit": "88fed688ddc5cf3842ed2cfe8e257f0773be66e6",
+  "representations": {
+    "baseline_all": {},
+    "fsr_scale": {
+      "scale_fsr": true
+    },
+    "imu_magnitude_all": {
+      "magnitude_imu": true
+    },
+    "fsr_scale_imu_magnitude": {
+      "scale_fsr": true,
+      "magnitude_imu": true
+    },
+    "robust_all": {
+      "robust": true
+    },
+    "baseline_imu": {
+      "imu_only": true
+    },
+    "imu_magnitude_only": {
+      "imu_only": true,
+      "magnitude_imu": true
+    }
+  },
+  "fsr_scale_floor_adc": 50.0,
+  "setting_policy": "Reuse previous inner-training-only selections by outer person; never tune new representations here",
+  "normalization_scope": "Each completed whole trial and hand only; no other trial, label or test population statistics",
+  "baseline_policy": "Verify original all-sensor AND IMU-only predictions exactly",
+  "rest_policy": "Strict same-person/session/account/hand/version previous rest match; do not apply unverified records",
+  "no_missing_or_low_accuracy_exclusions": true,
+  "input_sha256": {
+    "data\\knn_results\\2026-11-15_three_sign_combined_candidates\\trial_features.csv": "64fdbb2de8d098a4e64304d85ae36aa6fdbc040065f477070c8fd4776d63861a",
+    "data\\knn_results\\2026-11-15_three_sign_combined_candidates\\outer_predictions.csv": "fe2916acb0c2ddc897831e70b63ae3de0b86071c033887aa07e76f4ee85c5f2b",
+    "data\\knn_results\\2026-11-15_three_sign_combined_candidates\\outer_folds.csv": "ea163877f28bfc6782ceb7e44483a1a70e8de29517566ee326320f70464fcdd6",
+    "data\\knn_results\\2026-11-15_three_sign_combined_candidates\\evaluation.json": "4e17003446703947fa42c7a977e7c90ed39b017c9601eea08cf97d3c71da8f1e",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\trial_features.csv": "6b8ce8acda4e0aa214f1fa60965d44627aa58f5817943acc32aa55d74e3eed34",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\outer_predictions.csv": "7ecb5ac7866d8bd0e3e34decc5610c01fcbe1e7d048079d2c0d3c4e513988381",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\outer_folds.csv": "33fedbeaa5d1a2f5ef01b18f1d1cb7c275e1920f9c26aa6c5a9db63178012bae",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\evaluation.json": "3e448842532244d824140dc34fac05e010af6d2e4dc4fad51685bd834bc347a5",
+    "data\\knn_results\\2026-11-15_six_sign_nested_loso\\inventory_summary.json": "53c0a1c67f3795fbf944202390c9c6b697ee7b654e1057932501d794da8cbc7e",
+    "C:\\Users\\sminl\\OneDrive\\바탕 화면\\SignLanguage_Wearable_MERGED\\data\\backups\\calibration-feature\\tools\\study_sensor_compensation.py": "054ea363822a6547376ce358aff40e6e0f03280f8971de50ca05e5442317259e",
+    "C:\\Users\\sminl\\OneDrive\\바탕 화면\\SignLanguage_Wearable_MERGED\\data\\backups\\calibration-feature\\tools\\sensor_compensation.py": "3ccbeda26b021a9f9cb0b0201bc59f3c516f1fd8f7ec072bde6486cf2e346885",
+    "C:\\Users\\sminl\\OneDrive\\바탕 화면\\SignLanguage_Wearable_MERGED\\data\\backups\\calibration-feature\\tools\\evaluate_six_sign_knn.py": "57fad44caa8f730c9aac17b6a04619c18fdd3b42309cc53edd3eb58a61ccd92a"
+  }
+}

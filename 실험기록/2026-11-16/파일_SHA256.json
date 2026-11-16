@@ -1,0 +1,14 @@
+{
+  "calibration_audit.json": "f615a11c40a241a126811a4ef61b3d7e5c9a11500be9d11c0ac793f18dee7638",
+  "calibration_inventory.csv": "2435768450a1dbc7b62a9f24a3ddf8179340322b87ca2ce427dd07ae7316a0cc",
+  "calibration_links.csv": "02ee629919beb0a1372fcf5c0735d8dfd757ecd662f19954ffaa1c547ba615cd",
+  "comparison.csv": "c3e37b246e326d6d88bd29348703adf8a30cd37dbc94b103ff4e2df57f769eae",
+  "comparison_plan.json": "7f62d86d4e9ef8eb7bc5770311cb0078b70dd141ecf0e3198a397642db14b563",
+  "evaluation.json": "0290d5fd61e79f38e4a246b618d3607f655ae3ceb9f6710d6f085e9747e44af7",
+  "per_person.csv": "2912c1dca7d7327a5121c7cd25243adac3357858fbe19d3eb75153274a103749",
+  "per_sign.csv": "45fe28ad00e9c7f04bbda411018797c92c1d4a7584c1d9bfd408d335c52de1d5",
+  "predictions.csv": "b5f020aa89cd28bd0217fdbc7f0503224973e7c725c03f500310ed908b122617",
+  "test_validation.json": "409687ff2d9067541dc2612ae7c25465020939ac75d1ce8eb75067aaaf0da647",
+  "verification.json": "28f0018abe27088cde9c9a05b4f3d40f39d7b2613ad2bbac1aeb5cbbcb0c45b9",
+  "재현입력/three_sign_trial_features.csv": "64fdbb2de8d098a4e64304d85ae36aa6fdbc040065f477070c8fd4776d63861a"
+}

@@ -1,0 +1,10 @@
+{
+  "raw_files_sha256_verified": 1403,
+  "all_baseline_features_and_predictions_reproduced": true,
+  "heldout_person_not_in_training": true,
+  "same_trials_every_representation": true,
+  "existing_inputs_unchanged": true,
+  "raw_or_model_files_written": false,
+  "new_features_calibrated_to_physical_force": false,
+  "deployed": false
+}

@@ -1,0 +1,2 @@
+# Preserve recorded SHA256 values when checking out evidence on different OSes.
+* -text whitespace=cr-at-eol
