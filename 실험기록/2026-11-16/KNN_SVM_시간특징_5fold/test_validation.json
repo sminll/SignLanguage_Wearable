@@ -1,0 +1,23 @@
+{
+  "automated_tests_passed": 70,
+  "new_tests_passed": 7,
+  "syntax_files": 5,
+  "outer_groups": 5,
+  "inner_groups_per_outer": 3,
+  "each_outer_test_group_people": 2,
+  "loso_used": false,
+  "independent_split_audit_passed": true,
+  "all_prediction_counts_recounted": true,
+  "input_code_hashes_still_match": true,
+  "source_commit": "4d4d24a4d672c78d934bf120a59a193c2340637e",
+  "no_existing_models_replaced": true,
+  "branch": "feature/group-knn-svm-temporal",
+  "code_hashes": {
+    "group_model_study.py": "7a818120b0ea2e3f2c5237fa3439def6eb67c4ce0bd1e18cffa0c32991914c3f",
+    "sensor_preprocessing.py": "9bbd62eacf79164f18dfca997b66ea6f97c4e3b469474146d20432824babcd26",
+    "tests\\test_group_model_study.py": "5d6c8c83fc45cb720037854ad9e1176990d6f8d420bf1f04e71f5469520a17fb",
+    "tools\\run_group_model_study.py": "7194f25ecb2f066ee07ed6e379ceed5603195cc57278aab5619a800330bdddc4",
+    "tools\\report_group_model_study.py": "1f8aec7bddf088722a4d1254a6f0b33a081f063697575b59a18964021bb8365a"
+  },
+  "test_log_sha256": "a81caa9d5e0845d7718e8fbaae13139f80b5265c8d9466cd693dd8ca46c9d1f0"
+}

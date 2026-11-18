@@ -8,6 +8,8 @@
 
 **XIAO 2개 수어 유형 선택·양손 KNN 비교: [새 수집 및 학습 안내](docs/dual-hand-knn.md)**
 
+**6종 수어 KNN·SVM 및 IMU 특징 비교: [실행 안내](docs/group-model-study.md) · [11/16 결과](실험기록/2026-11-16/KNN_SVM_시간특징_5fold/README.md) · [11/18 결과](실험기록/2026-11-18/IMU크기_동작구간_비교/README.md)**
+
 기존 코드와 CSV는 보존했으며 새 데이터 저장은 `data/sensor_dataset_v2.csv`를 사용합니다.
 
 ## 폴더 안내

@@ -1,0 +1,57 @@
+{
+  "svm_original": {
+    "id": 149,
+    "representation": "denoise__original__all",
+    "layout": "original",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.4039930555555555,
+    "correct": 394,
+    "trials": 954
+  },
+  "svm_magnitude": {
+    "id": 169,
+    "representation": "denoise__magnitude__imu",
+    "layout": "magnitude",
+    "algorithm": "svm",
+    "C": 10.0,
+    "gamma": 0.001,
+    "selection_score": 0.45160486443381176,
+    "correct": 434,
+    "trials": 954
+  },
+  "svm_aligned": {
+    "id": 213,
+    "representation": "denoise__aligned__all",
+    "layout": "aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.4447916666666666,
+    "correct": 433,
+    "trials": 954
+  },
+  "svm_magnitude_aligned": {
+    "id": 229,
+    "representation": "denoise__magnitude_aligned__imu",
+    "layout": "magnitude_aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.468560606060606,
+    "correct": 454,
+    "trials": 954
+  },
+  "train_selected_features": {
+    "id": 229,
+    "representation": "denoise__magnitude_aligned__imu",
+    "layout": "magnitude_aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.468560606060606,
+    "correct": 454,
+    "trials": 954
+  }
+}

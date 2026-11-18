@@ -1,0 +1,19 @@
+{
+  "accuracy_comparison.pdf": "14d8dbdd3a8a8f3bfaed46873a2977a292b3c514dc33479a1f06be77cbd558bb",
+  "accuracy_comparison.png": "37033614b752f09c73bb2d9877b4ed6c713c834e0389e4bdf18d390ac4324f98",
+  "cohort_manifest.csv": "a56eeeb6a1ad3674426ae35b6292d61bd9272139f6b1e5d919e83ae61ef754aa",
+  "evaluation_plan.json": "06dab88ed90379646442bafad30fda8f050d4212caa8b040a7ea3ada532e6a65",
+  "metrics.json": "19a1353f005f300604acff6a5666900f8bf8453dbbe486fbfb6aec2b624a5ed9",
+  "per_fold.csv": "439012e9a6a81e468df436039fe26bb82e43d676aac268b4cd733301fe0903c4",
+  "per_person.csv": "61344ea4f257b25ffe1ee7865d0348665d90109b4e85fc13f9ecde9cf1577fbe",
+  "per_sign.csv": "a98115062fbcbc875ad247a36492bed24320d31c04e1fa3590c657ba417011aa",
+  "predictions.csv": "75ba72a032be58af61cede7eaf12235c3291260bf2a887d0603a0c3bac193f1d",
+  "README.md": "c96171c2ece6e10e7416daa0885736e5c89efb701efac347c4642125671955f8",
+  "selected_configs.csv": "5258388637c7b1e6e26e7e91017fb3de671e58e14b2530ecda9be554b4f96a35",
+  "selected_procedure_confusion.png": "bd10645b3ac74fbd116e110989844cb79855bffb29299071f64ad0800dd54bae",
+  "source_manifest.json": "261cdadd34d358f6340a5efd22d041e2a454d37e4264a7530dbf6530fb9552de",
+  "split_manifest.json": "8fa217df93f8968874fca594bd271916349a863192437582139671b4ad349742",
+  "summary.csv": "5745044cd5084e2bcd0830f7e20b419b6cbf2be0b7f6b7bd5775a4df7b37cd7c",
+  "test_validation.json": "7b910fbc6b8ed62b1208cbf5fe08bf6bc0d7f380c99a3b05fdba087944591b2c",
+  "verification.json": "68939093f6e2c58ea0a6b2dec157caedb759cfb3a9db594e57602e7e3af86ff1"
+}

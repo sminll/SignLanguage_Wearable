@@ -1,0 +1,13 @@
+{
+  "cohort_unchanged": true,
+  "baseline_features_match": true,
+  "previous_svm_predictions_match": true,
+  "previous_knn_predictions_match": true,
+  "exact_previous_splits": true,
+  "people_disjoint": true,
+  "scaler_training_only": true,
+  "selection_saved_before_test": true,
+  "each_trial_once_per_method": true,
+  "training_future_accuracy": null,
+  "models_saved": false
+}

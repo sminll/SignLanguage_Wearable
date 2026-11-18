@@ -1,0 +1,17 @@
+{
+  "automated_tests_passed": 81,
+  "outer_folds": 5,
+  "inner_fold_count_per_outer": 3,
+  "each_test_people": 2,
+  "total_prediction_rows": 11700,
+  "methods": 10,
+  "exact_previous_cohort_and_splits": true,
+  "baseline_predictions_identical": true,
+  "choice_uses_inner_score": true,
+  "all_counts_recounted": true,
+  "all_confusions_recounted": true,
+  "input_and_experiment_code_hashes_match": true,
+  "existing_models_replaced": false,
+  "unseen_future_accuracy": null,
+  "known_historical_data": true
+}

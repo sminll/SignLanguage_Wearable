@@ -21,3 +21,16 @@
 | `package_dataset.py` | 기존 날짜의 공유용 고정 ZIP 생성 | 실시간 전체 데이터 패키저가 아님 |
 
 결과는 `data/knn_results/`에 생성되며 Git에 자동 업로드하지 않는다. 학습 실행 전 [모델 현황](../실험기록/모델_현황.md)과 [데이터 선별 기준](../실험기록/데이터_선별_기준.md)을 확인한다.
+
+## 6종 수어 사람별 5-fold 비교
+
+| 도구 | 용도 |
+|---|---|
+| `rebuild_group_study_inputs.py` | 게시된 회차 명단과 고정 Git 원본에서 중간 특징표 재생성; 학습·정확도 계산 없음 |
+| `run_group_model_study.py` | 같은 바깥 5-fold·내부 3-fold에서 KNN/SVM·시간 특징 비교 |
+| `report_group_model_study.py` | 실제 예측의 결과 기록·비교 그래프 생성 |
+| `run_imu_motion_study.py` | 같은 분할에서 IMU 크기·동작 구간 정렬의 통제 및 재선택 비교 |
+| `report_imu_motion_study.py` | 실제 예측과 구간 처리 내역으로 보고서 생성 |
+| `verify_imu_motion_study.py` | 분할·기준 예측·선택·정답 수·혼동행렬·입력 해시 독립 검증 |
+
+실행 순서는 [KNN·SVM 재현](../docs/group-model-study.md), [IMU 크기·정렬 재현](../docs/imu-motion-study.md)을 따른다. 기존 운영 모델을 교체하지 않으며 새 사람/재착용 세션 성능은 별도 검증이 필요하다.

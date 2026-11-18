@@ -1,0 +1,57 @@
+{
+  "svm_original": {
+    "id": 5,
+    "representation": "raw__original__imu",
+    "layout": "original",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.38161764705882345,
+    "correct": 372,
+    "trials": 946
+  },
+  "svm_magnitude": {
+    "id": 37,
+    "representation": "raw__magnitude__imu",
+    "layout": "magnitude",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.3778186274509804,
+    "correct": 368,
+    "trials": 946
+  },
+  "svm_aligned": {
+    "id": 69,
+    "representation": "raw__aligned__imu",
+    "layout": "aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.39448529411764705,
+    "correct": 384,
+    "trials": 946
+  },
+  "svm_magnitude_aligned": {
+    "id": 101,
+    "representation": "raw__magnitude_aligned__imu",
+    "layout": "magnitude_aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.3761123680241327,
+    "correct": 366,
+    "trials": 946
+  },
+  "train_selected_features": {
+    "id": 69,
+    "representation": "raw__aligned__imu",
+    "layout": "aligned",
+    "algorithm": "svm",
+    "C": 1.0,
+    "gamma": 0.001,
+    "selection_score": 0.39448529411764705,
+    "correct": 384,
+    "trials": 946
+  }
+}

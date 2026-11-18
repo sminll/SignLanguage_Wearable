@@ -1,0 +1,12 @@
+# Preserve published experiment artifacts exactly: their SHA-256 hashes are evidence.
+/실험기록/2026-11-16/KNN_SVM_시간특징_5fold/** -text whitespace=cr-at-eol
+/실험기록/2026-11-18/IMU크기_동작구간_비교/** -text whitespace=cr-at-eol
+
+# Keep the new analysis sources identical on Windows, macOS and Linux.
+/group_model_study.py text eol=lf
+/imu_motion_features.py text eol=lf
+/sensor_preprocessing.py text eol=lf
+/tools/*group*study*.py text eol=lf
+/tools/*imu_motion_study.py text eol=lf
+/tests/test_group_model_study.py text eol=lf
+/tests/test_imu_motion_features.py text eol=lf

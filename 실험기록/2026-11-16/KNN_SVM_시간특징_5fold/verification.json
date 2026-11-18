@@ -1,0 +1,13 @@
+{
+  "outer_folds": 5,
+  "inner_folds": 3,
+  "outer_predictions_per_method": 1170,
+  "each_trial_predicted_once": true,
+  "people_disjoint": true,
+  "scaler_training_only": true,
+  "selection_saved_before_test": true,
+  "missing_hands_zero_filled": false,
+  "models_saved": false,
+  "external_accuracy": null,
+  "known_historical_data": true
+}

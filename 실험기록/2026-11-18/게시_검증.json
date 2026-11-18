@@ -1,0 +1,29 @@
+{
+  "published_date_kst": "2026-11-18",
+  "tests_passed": 81,
+  "syntax_files": 11,
+  "baseline_rebuild_from_git_passed": true,
+  "maximum_feature_error": {
+    "raw": 0.0,
+    "denoise": 0.0
+  },
+  "raw_commit": "4d4d24a4d672c78d934bf120a59a193c2340637e",
+  "records_recounted": true,
+  "relative_reproduction_links_verified": true,
+  "raw_sensor_csvs_included": false,
+  "model_binaries_included": false,
+  "temporary_logs_included": false,
+  "source_hashes": {
+    "group_model_study.py": "7a818120b0ea2e3f2c5237fa3439def6eb67c4ce0bd1e18cffa0c32991914c3f",
+    "sensor_preprocessing.py": "9bbd62eacf79164f18dfca997b66ea6f97c4e3b469474146d20432824babcd26",
+    "imu_motion_features.py": "a9eae923a2afd6e274167b064b62f391b4aaf803407cb34d0a72b0f4dff66157",
+    "tools\\rebuild_group_study_inputs.py": "57dc803d02f95e16b9f73b011bc788d41713c95ef700a069e579f55825368c6c",
+    "tools\\run_group_model_study.py": "7194f25ecb2f066ee07ed6e379ceed5603195cc57278aab5619a800330bdddc4",
+    "tools\\report_group_model_study.py": "1f8aec7bddf088722a4d1254a6f0b33a081f063697575b59a18964021bb8365a",
+    "tools\\run_imu_motion_study.py": "84e4866879c290fc43920667f03bb608df03e16043ec806986a4c7608af6a947",
+    "tools\\report_imu_motion_study.py": "5170d8388f22c5f88785da076fb80a825fafe96376136da3532bf0b6478bb846",
+    "tools\\verify_imu_motion_study.py": "daffb12ecaa73e628e4909a2d854b7479675d6bdd4a28ba4c7df1671c7bee7b0",
+    "tests\\test_group_model_study.py": "5d6c8c83fc45cb720037854ad9e1176990d6f8d420bf1f04e71f5469520a17fb",
+    "tests\\test_imu_motion_features.py": "b7a407b74338463a3a8084d831ee9ecc19d92751be86bc1ca6c08109a68b7a28"
+  }
+}

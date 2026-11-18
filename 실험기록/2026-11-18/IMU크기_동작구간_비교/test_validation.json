@@ -1,0 +1,30 @@
+{
+  "automated_tests_passed": 81,
+  "outer_folds": 5,
+  "inner_fold_count_per_outer": 3,
+  "each_test_people": 2,
+  "total_prediction_rows": 11700,
+  "methods": 10,
+  "exact_previous_cohort_and_splits": true,
+  "baseline_predictions_identical": true,
+  "choice_uses_inner_score": true,
+  "all_counts_recounted": true,
+  "all_confusions_recounted": true,
+  "input_and_experiment_code_hashes_match": true,
+  "existing_models_replaced": false,
+  "unseen_future_accuracy": null,
+  "known_historical_data": true,
+  "new_feature_tests_passed": 11,
+  "syntax_files": 8,
+  "source_hashes": {
+    "group_model_study.py": "7a818120b0ea2e3f2c5237fa3439def6eb67c4ce0bd1e18cffa0c32991914c3f",
+    "sensor_preprocessing.py": "9bbd62eacf79164f18dfca997b66ea6f97c4e3b469474146d20432824babcd26",
+    "imu_motion_features.py": "a9eae923a2afd6e274167b064b62f391b4aaf803407cb34d0a72b0f4dff66157",
+    "tools\\report_imu_motion_study.py": "5170d8388f22c5f88785da076fb80a825fafe96376136da3532bf0b6478bb846",
+    "tools\\run_imu_motion_study.py": "84e4866879c290fc43920667f03bb608df03e16043ec806986a4c7608af6a947",
+    "tools\\verify_imu_motion_study.py": "daffb12ecaa73e628e4909a2d854b7479675d6bdd4a28ba4c7df1671c7bee7b0",
+    "tests\\test_imu_motion_features.py": "b7a407b74338463a3a8084d831ee9ecc19d92751be86bc1ca6c08109a68b7a28",
+    "tests\\test_group_model_study.py": "5d6c8c83fc45cb720037854ad9e1176990d6f8d420bf1f04e71f5469520a17fb"
+  },
+  "test_log_sha256": "e79e40cb299e3cf6d2fe9ebb60a592dd1a013703cf3a93f4c0a7bef04d60cb8d"
+}
