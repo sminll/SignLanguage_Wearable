@@ -1,0 +1,54 @@
+﻿{
+  "commit": "0f4b1eef59723ea42ebebe320ed6094db289bb4d",
+  "ref": "0f4b1ee",
+  "data_dir": null,
+  "local_files_not_verified_against_git": false,
+  "skip_reasons": {
+    "outside_requested_signs": 1741,
+    "missing_hand": 718
+  },
+  "source_csv_count": 3238,
+  "excluded_paths": [],
+  "raw_modified": false,
+  "signs": [
+    "교통사고",
+    "삼키다",
+    "상처"
+  ],
+  "trials": 779,
+  "people": 10,
+  "correct": 730,
+  "accuracy": 0.9370988446726572,
+  "balanced_accuracy": 0.9360610449522584,
+  "chance_level": 0.3333333333333333,
+  "majority_class_baseline": 0.3594351732991014,
+  "versions": {
+    "python": "3.15.2",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "sklearn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "feature_version": 1,
+  "feature_mode": "gravity_frame",
+  "feature_count": 532,
+  "random_state": 20261122,
+  "n_jobs": 1,
+  "candidate_order": [
+    "lr_c0.01",
+    "lr_c0.05",
+    "lr_c0.2",
+    "extratrees",
+    "svm_c1",
+    "svm_c10",
+    "lr0.05+extratrees"
+  ],
+  "session_norm": false,
+  "session_norm_uses_entire_test_session": false,
+  "procedure": "Outer GroupKFold(5), default order, groups=normalized wearer. Inner GroupKFold(3) on outer training people only; pooled inner balanced_accuracy selects candidate, first on tie. Scalers fit within each training fold; no outer test trial used for model selection.",
+  "retrospective_repeatedly_analyzed_data": true,
+  "prospective_or_rewear_accuracy": null,
+  "deployed": false,
+  "existing_models_replaced": false,
+  "created_at_utc": "2026-11-22T15:15:49.648471+00:00"
+}

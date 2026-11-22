@@ -1,0 +1,120 @@
+﻿{
+  "comparisons": [
+    {
+      "name": "main",
+      "actual_correct": 1048,
+      "actual_trials": 2009,
+      "accuracy": 0.5216525634644101,
+      "expected_correct": 1049,
+      "expected_trials": 2009,
+      "correct_difference": -1,
+      "trials_difference": 0
+    },
+    {
+      "name": "gravity_3",
+      "actual_correct": 730,
+      "actual_trials": 779,
+      "accuracy": 0.9370988446726572,
+      "expected_correct": 730,
+      "expected_trials": 779,
+      "correct_difference": 0,
+      "trials_difference": 0
+    },
+    {
+      "name": "gravity_4",
+      "actual_correct": 880,
+      "actual_trials": 1005,
+      "accuracy": 0.8756218905472637,
+      "expected_correct": 873,
+      "expected_trials": 985,
+      "correct_difference": 7,
+      "trials_difference": 20
+    },
+    {
+      "name": "gravity_4_literal_labels",
+      "actual_correct": 873,
+      "actual_trials": 985,
+      "accuracy": 0.8862944162436548,
+      "expected_correct": 873,
+      "expected_trials": 985,
+      "correct_difference": 0,
+      "trials_difference": 0
+    },
+    {
+      "name": "gravity_6",
+      "actual_correct": 591,
+      "actual_trials": 1230,
+      "accuracy": 0.48048780487804876,
+      "expected_correct": 591,
+      "expected_trials": 1230,
+      "correct_difference": 0,
+      "trials_difference": 0
+    },
+    {
+      "name": "old_6",
+      "actual_correct": 508,
+      "actual_trials": 1170,
+      "accuracy": 0.4341880341880342,
+      "expected_correct": 508,
+      "expected_trials": 1170,
+      "correct_difference": 0,
+      "trials_difference": 0
+    },
+    {
+      "name": "axis_9",
+      "actual_correct": 826,
+      "actual_trials": 2009,
+      "accuracy": 0.41114982578397213,
+      "expected_correct": 826,
+      "expected_trials": 2009,
+      "correct_difference": 0,
+      "trials_difference": 0
+    },
+    {
+      "name": "axis_3",
+      "actual_correct": 611,
+      "actual_trials": 779,
+      "accuracy": 0.7843388960205392,
+      "expected_correct": 611,
+      "expected_trials": 779,
+      "correct_difference": 0,
+      "trials_difference": 0
+    }
+  ],
+  "all_prediction_metrics_and_confusion_counts_recomputed": true,
+  "outer_people_disjoint": true,
+  "outer_fold_order_reproduced": true,
+  "inner_selection_score_order_checked": true,
+  "all_result_tables_utf8_bom": true,
+  "old1170_file_paths_and_raw_hashes_equal_prior_manifest": true,
+  "extra_four_sign_alias_paths": [
+    "sensor-data/training/348908883/1115f560-704f-4257-a771-c0570b4e4ab5.csv",
+    "sensor-data/training/348908883/13b3759d-8069-4b16-bbe8-e2174cd78bfb.csv",
+    "sensor-data/training/348908883/18c8e57d-6632-48db-af30-2ed9ef766618.csv",
+    "sensor-data/training/348908883/1f4069ee-2de0-418a-adfc-9663cc62f0b3.csv",
+    "sensor-data/training/348908883/2c29af1f-a5db-42a7-8bfa-f1de0dce5ff8.csv",
+    "sensor-data/training/348908883/2c634832-f41e-4529-9e9f-d9cee9ceef8c.csv",
+    "sensor-data/training/348908883/5972b375-8e5d-4c24-9755-3c083bb901b8.csv",
+    "sensor-data/training/348908883/5a35d194-e385-43c3-af7a-af33f8922d0d.csv",
+    "sensor-data/training/348908883/5c78fdcb-76d9-45ce-bde2-f793052d1d7f.csv",
+    "sensor-data/training/348908883/5e4e6745-6ec5-4168-a245-45994b3ab3b2.csv",
+    "sensor-data/training/348908883/6522f08a-d99a-4517-93c9-2a47330e9965.csv",
+    "sensor-data/training/348908883/655015bc-1471-4c15-a8d6-62773e387bdb.csv",
+    "sensor-data/training/348908883/6e9698d5-873b-4285-941e-f011eabc43b2.csv",
+    "sensor-data/training/348908883/72bc4a54-26c3-4865-b1aa-e2103f1bbc78.csv",
+    "sensor-data/training/348908883/8c9c83bd-cce2-4055-979a-55f508fe9b21.csv",
+    "sensor-data/training/348908883/90336dc6-082f-4c86-962f-17a8594e1093.csv",
+    "sensor-data/training/348908883/9ca42b70-1c9c-46bc-9406-08ec1599a01b.csv",
+    "sensor-data/training/348908883/ba009341-efa6-4b7c-adcd-5001312f2eb8.csv",
+    "sensor-data/training/348908883/bb007786-83db-4716-bdbe-5f8555cb9e4e.csv",
+    "sensor-data/training/348908883/fe937eab-10a7-456b-b29a-a0813da6cfda.csv"
+  ],
+  "same_baseline_and_latest_data_commit": true,
+  "source_sha256": "6d58437cdd5d922b6db7c1f0342fb84d330748e512d7fef6b61378ce2952c15b",
+  "protected_refs": {
+    "main": "84d423ac4f47243420b3ed74a2d8b39a22e9eea7",
+    "training-data": "0f4b1eef59723ea42ebebe320ed6094db289bb4d"
+  },
+  "operating_models_replaced": false,
+  "app_update_or_integration_tested": false
+}

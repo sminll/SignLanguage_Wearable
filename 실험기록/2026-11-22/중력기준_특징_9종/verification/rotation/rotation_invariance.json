@@ -1,0 +1,11 @@
+﻿{
+  "real_hand_captures_checked": 4018,
+  "one_random_proper_rotation_per_capture": true,
+  "seed": 20261122,
+  "max_absolute_feature_difference": 3.979039320256561e-13,
+  "rtol": 1e-08,
+  "atol": 1e-08,
+  "rotation_invariance_passed": true,
+  "plus_z_and_minus_z_branches_passed": true,
+  "synthetic_values_used_for_experiment_accuracy": false
+}
