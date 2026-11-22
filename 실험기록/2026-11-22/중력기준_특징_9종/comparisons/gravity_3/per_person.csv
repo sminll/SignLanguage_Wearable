@@ -1,0 +1,11 @@
+﻿person,trials,correct,accuracy
+subject1,119,115,0.9663865546218487
+subject10,60,40,0.6666666666666666
+subject2,120,120,1.0
+subject3,60,59,0.9833333333333333
+subject4,80,75,0.9375
+subject5,40,39,0.975
+subject6,120,114,0.95
+subject7,60,60,1.0
+subject8,60,48,0.8
+subject9,60,60,1.0

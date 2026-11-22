@@ -1,0 +1,61 @@
+﻿{
+  "checks": [
+    "person_alias_numeric_only",
+    "duplicate_hand_sample_seq_removed",
+    "reject_non_real",
+    "reject_wrong_board",
+    "reject_calibration",
+    "reject_missing_hand",
+    "reject_under_30_samples",
+    "reject_empty_numeric_sensor",
+    "reject_nonfinite",
+    "reject_duplicate_device_time",
+    "reject_short_duration",
+    "reject_large_time_gap",
+    "reject_over_5pct_invalid_imu",
+    "allow_at_most_5pct_invalid_imu",
+    "sort_clock_before_features",
+    "current_exclusions_only_history_ignored",
+    "explicit_exclusions_added",
+    "predict_training_csv_and_skip_calibration_csv",
+    "prediction_does_not_use_true_label",
+    "existing_output_refused_without_modifying_it",
+    "local_data_dir_raw_bytes_and_features_match",
+    "session_norm_refuses_different_sign_compositions",
+    "fewer_than_five_people_refused",
+    "separate_training_candidate_schema_and_no_deployment"
+  ],
+  "passed": 24,
+  "versions": {
+    "python": "3.15.2",
+    "numpy": "2.5.4",
+    "pandas": "3.1.0",
+    "sklearn": "1.9.1",
+    "joblib": "1.6.0"
+  },
+  "platform": "Windows-11-10.0.26200-SP0",
+  "scipy": "1.18.1",
+  "input_commit": "0f4b1eef59723ea42ebebe320ed6094db289bb4d",
+  "model_path": "C:\\Users\\sminl\\.codex\\tmp\\sign-demo-20261123\\train_candidate\\model.joblib",
+  "model_sha256": "a1f0c78fda3c0470140572bedc49ce263b266fea865d90744c2320ba87b54a61",
+  "train_trials": 1005,
+  "train_selected": "lr_c0.05",
+  "prediction_smoke_test_only": true,
+  "training_resubstitution_accuracy_not_reported": true,
+  "random_inputs_not_used_for_experiment_accuracy": true,
+  "prediction_results": [
+    {
+      "file": "C:\\Users\\sminl\\AppData\\Local\\Temp\\tmpbojd8axr\\training.csv",
+      "sha256": "3bd5ef6196c28c136a1ee969a6bd6b572ec98e1b1fafb8e411caf2f5d1178ba3",
+      "person": "subject1",
+      "session": "7154984C-3FD4-4C19-A13B-6D60002483ED",
+      "prediction": "삼키다",
+      "status": "predicted"
+    },
+    {
+      "file": "C:\\Users\\sminl\\AppData\\Local\\Temp\\tmpbojd8axr\\calibration.csv",
+      "status": "skipped",
+      "reason": "not_training"
+    }
+  ]
+}

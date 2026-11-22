@@ -1,0 +1,6 @@
+﻿{
+  "returncode": 2,
+  "reason": "ERROR: --session-norm refused: sign composition differs across sessions; subject1/7154984C-3FD4-4C19-A13B-6D60002483ED contains 교통사고,삼키다,상처",
+  "output_not_created": true,
+  "session_norm_metrics_not_fabricated": true
+}
