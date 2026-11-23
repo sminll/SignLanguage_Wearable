@@ -1,0 +1,8 @@
+# Actual captured fixture bytes must retain their recorded SHA256 on every OS.
+*.csv -text
+*.json text eol=lf
+*.kt text eol=lf
+*.kts text eol=lf
+*.md text eol=lf
+gradlew text eol=lf
+*.bat text eol=crlf
