@@ -1,0 +1,135 @@
+{
+  "created_at_utc": "2026-11-23T06:20:23.148446+00:00",
+  "branch": "feature/android-app",
+  "base_main": "e03386b8ad24185c7679ed3d58d06db2caebf4c2",
+  "base_gravity": "c33576af2167841831288164a90835593ba56960",
+  "training_data_commit": "0f4b1eef59723ea42ebebe320ed6094db289bb4d",
+  "stages": {
+    "stage1": "implemented; software checks passed; physical validation pending",
+    "stage2": "not started; disabled placeholders only",
+    "stage3": "not implemented"
+  },
+  "model": {
+    "kind": "StandardScaler + LogisticRegression(C=0.05)",
+    "trained_trials": 725,
+    "feature_count": 532,
+    "signs": [
+      "삼키다",
+      "상처",
+      "아니다"
+    ],
+    "counts": {
+      "삼키다": 260,
+      "아니다": 226,
+      "상처": 239
+    },
+    "same_day_three_sign_validation_needed": true,
+    "live_app_accuracy": null,
+    "scores_are_not_calibrated_correctness_probabilities": true
+  },
+  "python_tests": {
+    "passed": 4,
+    "existing_evaluate_train_predict_executed_on_real_cohort": true,
+    "existing_cli_dispatch_tested": true,
+    "existing_helper_AST_unchanged": true,
+    "existing_nested_evaluate_correct": 683,
+    "existing_nested_evaluate_trials": 725,
+    "existing_nested_evaluate_is_not_app_LR_performance": true
+  },
+  "kotlin_tests": {
+    "suites": [
+      {
+        "name": "kr.ac.signai.offline.ParityTest",
+        "tests": "8",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      },
+      {
+        "name": "kr.ac.signai.offline.ProtocolTest",
+        "tests": "11",
+        "failures": "0",
+        "errors": "0",
+        "skipped": "0"
+      }
+    ],
+    "passed": 19,
+    "five_real_csv_parity": true,
+    "feature_tolerance": 1e-06,
+    "max_feature_absolute_error": 2.4158453015843406e-13,
+    "max_probability_absolute_error": 5.898059818321144e-17,
+    "all_top_classes_match": true,
+    "common_3d_rotation_test_passed": true,
+    "firmware_layout_nan_fragment_loss_reorder_sequence_wrap_tests_passed": true
+  },
+  "build": {
+    "assembleDebug": "passed",
+    "testDebugUnitTest": "passed",
+    "windows_unicode_test_classpath_issue": true,
+    "resolution": "Content-hashed ASCII snapshot via build-windows.ps1; original files preserved",
+    "min_sdk": 26,
+    "target_sdk": 37,
+    "gradle": "9.5.0",
+    "agp": "9.3.1",
+    "kotlin": "2.4.20",
+    "compose_bom": "2026.09.00",
+    "apk": "SIGN_AI_85f8f4037bdd5532.apk",
+    "apk_bytes": 11834733,
+    "apk_sha256": "e2b008716c1f5cd4c51898b2a28b2319549d690393ed4acf7df69834d28ef4f5",
+    "apk_signature_verified_v2": true,
+    "apk_manifest_no_internet_permission": true
+  },
+  "physical_device": {
+    "available": false,
+    "two_bands_simultaneous": "unverified",
+    "ten_second_loss_rate": null,
+    "hand_assignment": "unverified",
+    "live_five_second_prediction": "unverified",
+    "disconnect_reconnect": "unverified",
+    "csv_replay_ui": "unverified",
+    "airplane_mode_with_bluetooth_enabled": "unverified",
+    "offline_korean_tts": "unverified"
+  },
+  "ios_confirmation_pending": [
+    "video sources/usage/mappings and sentence flow",
+    "calibration JSON schema/CSV labels/path",
+    "CSV time semantics",
+    "numeric upload folder and subject roster",
+    "team OAuth Client ID/device-flow enablement"
+  ],
+  "safety": {
+    "original_CSV_or_models_modified": false,
+    "firmware_MATLAB_tools_docs_modified": false,
+    "server_or_internet_required_for_inference": false,
+    "collection_upload_or_auto_update_implemented": false,
+    "inference_samples_saved_or_trained_on": false,
+    "synthetic_test_values_used_for_accuracy": false
+  },
+  "fixture_source_paths_and_sha256": [
+    {
+      "csv": "parity_1.csv",
+      "source_path": "sensor-data/training/283196339/004de278-54f6-4682-85b4-14244e8cc687.csv",
+      "sha256": "3bd5ef6196c28c136a1ee969a6bd6b572ec98e1b1fafb8e411caf2f5d1178ba3"
+    },
+    {
+      "csv": "parity_2.csv",
+      "source_path": "sensor-data/training/283196339/01d35890-5968-4f5f-b1f5-79745713236c.csv",
+      "sha256": "7b55b463e30ff598db15375c03a7ce2c51f6a56332787874b32290d9455fe46e"
+    },
+    {
+      "csv": "parity_3.csv",
+      "source_path": "sensor-data/training/338409656/03c6dbe3-7d44-4cbb-b795-9cc734c54a43.csv",
+      "sha256": "d7983860ed4b780ce7c02808cccb722147c6d3a685c37fec3f9426a5db5da7f3"
+    },
+    {
+      "csv": "parity_4.csv",
+      "source_path": "sensor-data/training/283196339/0318f6c0-994e-4ee0-9375-70f2910bd3b4.csv",
+      "sha256": "919047629d6d7c33437a6e27d1d30790d78c1dc5134dec74c4e39adb4f7d8930"
+    },
+    {
+      "csv": "parity_5.csv",
+      "source_path": "sensor-data/training/283196339/097c248c-6f9f-456f-b986-c4bc5f6ddf06.csv",
+      "sha256": "747885078d2ad07d2084a5e9d7f0b903a5111371f966de183701a24e9c018b52"
+    }
+  ]
+}

@@ -399,6 +399,53 @@ def predict(model_path, paths):
     return results
 
 
+def export_android(cohort, X, info, signs, out, repo='.'):
+    """Export a fixed LR, with numeric parity fixtures; never replace a model."""
+    expected = {'삼키다': 260, '아니다': 226, '상처': 239}
+    if set(signs) == set(expected) and cohort.label.value_counts().to_dict() != expected:
+        raise ValueError('Android demo cohort must be 725 trials: '+str(expected))
+    estimator = make_pipeline(StandardScaler(), LogisticRegression(C=.05, max_iter=5000, random_state=SEED))
+    estimator.fit(X, cohort.label.to_numpy(str))
+    scaler, lr = estimator.steps[0][1], estimator.steps[1][1]
+    model = dict(version=1, signs=lr.classes_.tolist(), feature_count=int(X.shape[1]),
+        mean=scaler.mean_.tolist(), scale=scaler.scale_.tolist(), coef=lr.coef_.tolist(),
+        intercept=lr.intercept_.tolist(), source_repo='sminll/SignLanguage_Wearable',
+        source_ref=str(info['ref']).removeprefix('origin/'), source_commit=info['commit'],
+        trained_trials=len(cohort), created=datetime.now(timezone.utc).isoformat(),
+        feature_version=FEATURE_VERSION, model_type='StandardScaler + LogisticRegression(C=0.05)',
+        note='삼키다·상처는 11/4~7, 아니다는 11/13~15 측정 자료입니다. '+
+             '같은 날 세 동작을 함께 측정한 검증이 필요합니다. '+
+             'iOS 기기 학습 KNN(k=5)과 달리 PC에서 학습한 고정 로지스틱 회귀입니다. '+
+             '앱 실시간·재착용 정확도는 미측정이며 softmax는 보정된 정답 확률이 아닙니다.')
+    # Choose actual examples across classes, then fill to five without duplication.
+    indices = list(dict.fromkeys(int(cohort.index[cohort.label.eq(s)][0]) for s in lr.classes_))
+    indices = (indices + [i for i in range(len(cohort)) if i not in indices])[:5]
+    fixtures = []
+    raw = {}
+    for number, i in enumerate(indices):
+        row = cohort.iloc[i]
+        if info.get('data_dir'):
+            blob = (Path(info['data_dir'])/row.file).read_bytes()
+        else:
+            blob = subprocess.check_output(['git', '-C', str(repo), 'show', info['commit']+':'+row.file])
+        if sha256(blob) != row.sha256:
+            raise ValueError('Parity fixture differs from training source: '+row.file)
+        name = f'parity_{number+1}.csv'
+        raw[name] = blob
+        fixtures.append(dict(csv=name, source_path=row.file, sha256=row.sha256,
+            features=X[i].tolist(), probabilities=estimator.predict_proba(X[i:i+1])[0].tolist(),
+            prediction=str(estimator.predict(X[i:i+1])[0])))
+    # All validation/training is finished before creating a fresh output directory.
+    out = make_output(out)
+    json_write(out/'sign_model.json', model)
+    json_write(out/'parity_vectors.json', dict(feature_count=int(X.shape[1]), signs=model['signs'], vectors=fixtures,
+        test_purpose_only=True, experimental_accuracy_not_measured=True))
+    for name, blob in raw.items():
+        (out/name).write_bytes(blob)
+    print(f'Exported Android numeric model: {len(cohort)} trials; {len(fixtures)} parity captures; {out}', flush=True)
+    return model
+
+
 def selfcheck(cohort, items, out):
     """Real-capture invariance plus synthetic numerical edge checks, no accuracy."""
     if Path(out).exists():
@@ -435,7 +482,7 @@ def selfcheck(cohort, items, out):
 def main(argv=None):
     parser = argparse.ArgumentParser(description=__doc__)
     sub = parser.add_subparsers(dest='command', required=True)
-    for command in ['evaluate', 'train', 'selfcheck']:
+    for command in ['evaluate', 'train', 'selfcheck', 'export-android']:
         p = sub.add_parser(command)
         p.add_argument('--repo', default='.')
         p.add_argument('--ref', default='origin/training-data')
@@ -462,6 +509,8 @@ def main(argv=None):
         return evaluate(cohort, X, info, signs, args.out, args.session_norm, axis)
     if args.command == 'train':
         return train(cohort, X, info, signs, args.out)
+    if args.command == 'export-android':
+        return export_android(cohort, X, info, signs, args.out, args.repo)
     _, items = sources(args.repo, args.ref, args.data_dir)
     return selfcheck(cohort, items, args.out)
 
