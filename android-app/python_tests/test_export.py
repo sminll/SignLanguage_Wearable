@@ -5,6 +5,7 @@ from pathlib import Path
 import sys
 import tempfile
 import unittest
+from unittest.mock import patch
 
 import numpy as np
 import pandas as pd
@@ -14,6 +15,18 @@ import sign_gravity_model as m
 
 
 class ExportTests(unittest.TestCase):
+    def test_existing_cli_subcommands_dispatch_without_export(self):
+        cohort=pd.DataFrame({'person':['subject1'],'label':['a']})
+        with tempfile.TemporaryDirectory() as t:
+            for command in ['evaluate','train']:
+                with patch.object(m,'load_dataset',return_value=(cohort,np.zeros((1,532)),{'commit':'routing-test'})), patch.object(m,command,return_value='ok') as original:
+                    with contextlib.redirect_stdout(io.StringIO()):
+                        self.assertEqual(m.main([command,'--signs','a,b','--out',str(Path(t)/command)]),'ok')
+                    original.assert_called_once()
+            with patch.object(m,'predict',return_value='ok') as original:
+                self.assertEqual(m.main(['predict','--model','existing.joblib','sample.csv']),'ok')
+                original.assert_called_once_with(Path('existing.joblib'),[Path('sample.csv')])
+
     def test_existing_output_is_not_overwritten(self):
         with tempfile.TemporaryDirectory() as t:
             sentinel = Path(t)/'sentinel'; sentinel.write_text('keep')
