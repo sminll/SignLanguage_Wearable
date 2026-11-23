@@ -21,6 +21,25 @@
   },
   "auto_sync": false,
   "accuracy_not_measured": true,
-  "kind": "three_sign_raw_subset",
-  "original_csv_bytes_preserved": true
+  "kind": "three_sign_current_app_preprocessing",
+  "feature_count": 532,
+  "feature_code_commit": "e03386b8ad24185c7679ed3d58d06db2caebf4c2",
+  "feature_code_sha256": "6d58437cdd5d922b6db7c1f0342fb84d330748e512d7fef6b61378ce2952c15b",
+  "source_app_commit": "cebb6461102b75563c4eadb31f960c599c0631a6",
+  "three_sign_raw_branch": "training-data-3signs",
+  "three_sign_raw_commit": "f4e75608c4a4e061db1eb889d97ca758a6c52765",
+  "applied": [
+    "quality validation",
+    "numeric subject and sign aliases in manifests",
+    "gravity-frame IMU rotation",
+    "full/three-phase/active-window statistics and 12-point resampling",
+    "fixed application StandardScaler"
+  ],
+  "not_applied": [
+    "rest baseline subtraction",
+    "weak median filter",
+    "FSR amplitude normalization",
+    "physical force calibration"
+  ],
+  "normalized_features_are_for_app_reproduction_not_independent_evaluation": true
 }

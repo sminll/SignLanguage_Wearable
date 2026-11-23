@@ -1,0 +1,13 @@
+{
+  "source_commit": "0f4b1eef59723ea42ebebe320ed6094db289bb4d",
+  "trials": 725,
+  "hands_checked": 1450,
+  "original_blobs_verified": 725,
+  "raw_files_modified": false,
+  "all_feature_rows_finite": true,
+  "csv_float_roundtrip_passed": true,
+  "rotated_csv_features_equal_original_gravity_features": true,
+  "standardized_features_match_application_parameters": true,
+  "accuracy_measured": false,
+  "deployment_scaler_must_not_be_reused_for_independent_cross_validation": true
+}
