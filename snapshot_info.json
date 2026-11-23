@@ -1,0 +1,26 @@
+{
+  "source_repository": "sminll/SignLanguage_Wearable",
+  "source_branch": "training-data",
+  "source_commit": "0f4b1eef59723ea42ebebe320ed6094db289bb4d",
+  "created_at_utc": "2026-11-23T06:29:51.063888+00:00",
+  "snapshot_date_kst": "2026-11-23",
+  "signs": [
+    "삼키다",
+    "아니다",
+    "상처"
+  ],
+  "trials": 725,
+  "people": 10,
+  "counts": {
+    "삼키다": 260,
+    "아니다": 226,
+    "상처": 239
+  },
+  "aliases": {
+    "아니다 (아니, 부인(하다))": "아니다"
+  },
+  "auto_sync": false,
+  "accuracy_not_measured": true,
+  "kind": "three_sign_raw_subset",
+  "original_csv_bytes_preserved": true
+}

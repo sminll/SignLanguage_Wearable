@@ -1,39 +1,16 @@
-# 수어 웨어러블 통합 프로젝트
+# 삼키다·아니다·상처 전용 원본 데이터
 
-**XIAO 수집: [서버전송 사용법](MATLAB_노트북용_수정본/서버전송_사용법.md)**
+브랜치: `training-data-3signs`. 기준 날짜 2026-11-23, 원본 training-data 커밋 `0f4b1eef59723ea42ebebe320ed6094db289bb4d`의 고정 복사본입니다. 원본 브랜치를 수정하지 않았으며 자동 갱신하지 않습니다.
 
-**원격 수신 서버 실행: [Tailscale 수신 안내](TAILSCALE_수신안내.md)**
+| 구분 | 브랜치 | 내용 |
+|---|---|---|
+| 수집 원본 | training-data | 팀 앱이 계속 올리는 원본 |
+| 원본 전체 복사본 | training-data-raw | 기준 커밋 전체와 동일한 스냅샷 |
+| 3종 원본 | training-data-3signs | 현재 폴더. 3종 725회 원본 CSV |
+| 3종 전처리 결과 | training-data-preprocessed | IMU 방향 보정 CSV·특징·정규화 특징 |
 
-**팀원 데이터 다운로드: [보드·날짜별 측정 데이터와 KNN 결과](datasets/README.md)**
+10명·725회: 삼키다 260, 아니다 226, 상처 239. `sensor-data/training/`에 원래 경로·파일명·전체 바이트 그대로 넣었습니다. 별칭 ‘아니다 (아니, 부인(하다))’는 목록을 집계할 때만 아니다로 통합했고, 원본 CSV의 label이나 센서값은 바꾸지 않았습니다. 세 수어에 해당하는 원본 725개가 모두 양손 품질 검사를 통과했습니다. 수집 전체에는 다른 수어·과거 한 손 기록도 있으며 해당 자료는 원본/전체 복사본에 남아 있습니다.
 
-기존 코드와 CSV는 보존했으며 새 데이터 저장은 `data/sensor_dataset_v2.csv`를 사용합니다.
+`data_manifest.csv`는 참가자·세션·회차·측정일·통합 수어명·원본 경로·SHA256입니다. 회차 하나는 양손 행이 들어 있는 CSV 하나입니다. CSV를 센서 행 단위로 임의 분할하면 같은 회차가 학습과 평가에 섞일 수 있습니다.
 
-## 폴더 안내
-
-- `MATLAB_노트북용_수정본/`: 현재 센서 수집 화면과 테스트
-- `firmware/`: XIAO 펌웨어
-- `data/`: 측정 원본, 장치 기록, 학습 결과 및 백업
-- [실험기록/](실험기록/README.md): 날짜별 분석 결과
-- [legacy/](legacy/README.md): 구버전 Python 코드, 가상 데이터 예제, 과거 안내
-
-현재 Python 실행 파일은 최상위에 유지합니다. 기존 원본 폴더 백업은 `archive_original_folder/`에 그대로 보관합니다.
-
-## 날짜·보드별 KNN 실행
-
-```powershell
-python train_sign_knn.py --date 2026-11-01 --board XIAO
-```
-
-`--date`는 서버 수신 날짜, `--board`는 세션 장치 기록을 기준으로 선택합니다.
-옵션이 없으면 전체 데이터를 사용합니다. 결과는 `data/knn_results/2026-11-01_XIAO/`처럼 분리됩니다.
-다른 조건의 결과를 보존하려면 `--output 결과폴더`를 지정하세요.
-
-보드 선택에는 로컬 `data/session_devices.csv`가 필요합니다. 첫 줄은
-`session_id,board_type`이며, 이후 각 행에 실제 세션 ID와 `XIAO` 또는 `ESP32`를 기록합니다.
-세션 ID는 중복될 수 없습니다. 이 파일과 실측 CSV, 생성 모델, 백업은 GitHub에 올리지 않습니다.
-다른 PC에서는 별도로 전달받은 측정 데이터와 장치 기록을 준비해야 같은 분석을 재현할 수 있습니다.
-
----
-
-# SignLanguage_Wearable
-XIAO nRF52840 Sense 기반 수어 인식 웨어러블 프로젝트
+이 브랜치는 데이터를 나눠 보관하기 위한 것이며 모델이나 새로운 정확도 결과를 포함하지 않습니다. 삼키다·상처와 아니다의 측정 날짜가 달라 같은 날 세 수어를 측정한 후속 검증이 필요합니다. 원본을 보려면 [training-data](https://github.com/sminll/SignLanguage_Wearable/tree/training-data), 고정 원본 전체는 [training-data-raw](https://github.com/sminll/SignLanguage_Wearable/tree/training-data-raw)를 확인하세요.
